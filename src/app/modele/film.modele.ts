@@ -33,6 +33,5 @@ export class Film {
     this.tagline = tagline;
     this.vote_average = vote_average;
     this.vote_count = vote_count;
-
   }
 }
