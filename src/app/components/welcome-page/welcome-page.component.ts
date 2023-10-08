@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../api.service";
+import {Film} from "../../modele/film.modele";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-welcome-page',
@@ -7,13 +9,26 @@ import {ApiService} from "../../api.service";
   styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent implements OnInit{
-  public dataTest: any;
+  filmData : Film | undefined
+  genreNames: string[] = [];
   constructor(private api: ApiService) {
   }
 
   ngOnInit(): void {
-    this.dataTest = this.api.getConfig();
-    console.log('ere',this.dataTest)
+
+
+    this.api.getMovieDetail().subscribe( data => {
+      this.filmData = data
+      console.log(data?.id)
+
+
+
+      this.api.getGenres().subscribe( (response) =>{
+       console.log( this.genreNames = response.genres.map((genre: any) => genre.name));
+      }
+    )
+    });
+
   }
 
 }
