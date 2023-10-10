@@ -16,17 +16,45 @@ export class WelcomePageComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.api.getConfig().subscribe( data => {
+    })
 
     this.api.getMovieDetail().subscribe( data => {
       this.filmData = data
-      console.log(data?.id)
 
 
 
       this.api.getGenres().subscribe( (response) =>{
-       console.log( this.genreNames = response.genres.map((genre: any) => genre.name));
+       console.log( this.genreNames = response.genres.map((genre: any) => genre.id));
       }
     )
+
+      this.api.getRealMovies().subscribe( data => {
+        this.filmData = data
+      })
+
+      this.api.getTrendyReal().subscribe( data => {
+        this.filmData = data
+      })
+
+        this.api.postRateMovie().subscribe(data =>{
+        })
+
+      this.api.getRatedMovies().subscribe(data =>{
+      })
+
+      this.api.getSimilarMovies().subscribe(data =>{
+      })
+
+      this.api.getCertification().subscribe(data =>{
+        console.log(data)
+      })
+
+      this.api.getMoviesGenre().subscribe(data =>{
+        console.log(data)
+      })
+
+
     });
 
   }
