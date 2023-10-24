@@ -21,6 +21,7 @@ let ratedMovies = '/account/11787154/rated/movies'
 let similarMovies ='496243/recommendations'
 let movieCertification = 'certification/movie/list'
 let genreMovies = 'discover/movie?with_genres=28'
+let popularMovies = 'movie/popular?language=en-US&page=1'
 
 const options = {
   headers: {
@@ -50,7 +51,10 @@ export class ApiService {
     console.log('eeeeeeeeeeeeeeee' );
     return  this.http.get<Film>(baseURL+movieDetail,options);
   }
+  public getPopularMovies():Observable<any> {
 
+    return  this.http.get<any>(baseURL+popularMovies,options);
+  }
   public postSession():Observable<any>{
     return this.http.post(baseURL+postToken,"" ,options)
   }
