@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Film} from "./modele/film.modele";
-
 
 let configUrl = 'https://api.themoviedb.org/3/movie/12?language=en-US';
 

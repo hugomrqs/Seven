@@ -1,0 +1,31 @@
+  .sidenav {
+    text-align: center;
+  }
+
+  .custom-title {
+    text-decoration: none; 
+    color:white;
+  }
+
+  .nav-pills a {
+    color: rgb(180, 180, 180);
+    text-decoration: none; /* Pour enlever le soulignement */
+  }
+
+  .nav-pills a:hover {
+    text-decoration: underline; /* Pour enlever le soulignement au survol */
+  }
+  
+  .nav-pills li {
+    margin-bottom: 9vh;
+  }  
+
+  ul {
+    padding-left: 0px;
+    margin-top: 11vh;
+  }
+
+  .active {
+    text-decoration: underline !important;
+  }
+  
