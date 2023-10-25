@@ -1,0 +1,16 @@
+<section class="product">
+  <div class="container-fluid">
+    <div class="slider-wrap">
+      <div class="slider-main"  >
+        <div class="item" *ngFor="let film of films">
+          <p class="text">{{this.film.title}}</p>
+          <img src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
+        </div>
+      </div>
+      <div class="button-area">
+        <button type="button" class="prev" appPrev><i class="bi bi-caret-left"></i></button>
+        <button type="button" class="next" appNext>Next</button>
+      </div>
+    </div>
+  </div>
+</section>
