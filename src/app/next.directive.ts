@@ -14,6 +14,5 @@ export class NextDirective {
       var elm = this.el.nativeElement.parentElement.parentElement.children[0];
       var item = elm.getElementsByClassName("item")
       elm.append(item[0])
-      console.log(elm)
   }
 }

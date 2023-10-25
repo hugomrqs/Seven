@@ -8,6 +8,7 @@ import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 let createSession = 'authentication/guest_session/new'
 let getToken = 'authentication/token/new';
 let postToken = 'authentication/session/new'
+
 //url de base
 let baseURL = 'https://api.themoviedb.org/3/'
 
@@ -52,7 +53,6 @@ export class ApiService {
     return  this.http.get<Film>(baseURL+movieDetail,options);
   }
   public getPopularMovies():Observable<any> {
-
     return  this.http.get<any>(baseURL+popularMovies,options);
   }
   public postSession():Observable<any>{

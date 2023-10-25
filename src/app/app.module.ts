@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ApiService} from "./api.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {CarouselModule} from "ngx-owl-carousel-o";
 import { CarousselComponent } from './components/caroussel/caroussel.component';
 import { NextDirective } from './next.directive';
 import { PrevDirective } from './prev.directive';
@@ -21,6 +20,7 @@ import { PrevDirective } from './prev.directive';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

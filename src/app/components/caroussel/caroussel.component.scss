@@ -5,32 +5,28 @@
 .slider-wrap{
   position: relative;
   overflow: hidden;
-  height: 150px;
 }
 
 .position-main{
   position: absolute;
-  width: 200%;
+  width: 300%;
 }
 
-.item{
+.item {
   display: inline-block;
-  width: 300px;
-  height: 150px;
-  background-color: chocolate;
+  width: 200px;
+  height: 40vh;
   position: relative;
-  margin : 0 12px;
+  margin: 0 12px;
+  transition: transform .5s ease;
 }
 
-.text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: aliceblue;
-  font-size: 24px;
+.item:hover{
+  transform: scale(1.5);
 }
-
+.item img{
+  width : 100%;
+}
 .prev{
   position: absolute;
   left: 50px;
