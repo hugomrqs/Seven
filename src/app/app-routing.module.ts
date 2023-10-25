@@ -7,8 +7,8 @@ const routes: Routes = [
   { path : 'welcome', component : CarousselComponent},
   { path : 'home', component : HomePageComponent},
   { path : '', redirectTo : '/home', pathMatch : 'full'},
-  { path : '**', component : HomePageComponent} 
-
+  { path : '**', component : HomePageComponent}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

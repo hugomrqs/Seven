@@ -18,10 +18,10 @@ import { PrevDirective } from './prev.directive';
     AppComponent,
     HomePageComponent,
     HeaderComponent,
-    MenuComponent
-    CarousselComponent,
+    MenuComponent,
     NextDirective,
     PrevDirective,
+    CarousselComponent
   ],
   imports: [
     BrowserModule,
@@ -29,11 +29,11 @@ import { PrevDirective } from './prev.directive';
     HttpClientModule,
     MatSidenavModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     BrowserAnimationsModule,
   ],
   providers: [ApiService],
-  bootstrap: [AppComponent]    
+  bootstrap: [AppComponent]
 })
 
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Film} from "../../modele/film.modele";
-import {ApiService} from "../../api.service";
+import {ApiService} from "../../service/api.service";
 
 @Component({
   selector: 'app-caroussel',
@@ -20,7 +20,7 @@ export class CarousselComponent implements OnInit {
 
 
   ngOnInit(): void {
-   this.api.getPopularMovies().subscribe( (response) =>{
+   this.api.getPopularMovies().subscribe( response =>{
          this.films = response.results.slice(0,7);
        console.log(this.films)
 

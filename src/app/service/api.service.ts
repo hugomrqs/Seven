@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Film} from "./modele/film.modele";
 import {Observable, Subscription} from "rxjs";
 import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
+import {Film} from "../modele/film.modele";
 
 //session
 let createSession = 'authentication/guest_session/new'
