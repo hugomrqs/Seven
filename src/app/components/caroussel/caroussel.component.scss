@@ -1,39 +1,41 @@
-.product{
+.container-fluid{
   padding : 20px 0;
-}
-
-.slider-wrap{
+  top: 15vh;
   position: relative;
   overflow: hidden;
-}
+  white-space: nowrap;
 
-.position-main{
-  position: absolute;
-  width: 300%;
 }
 
 .item {
   display: inline-block;
-  width: 200px;
-  height: 40vh;
+  width: 20vw;
   position: relative;
   margin: 0 12px;
-  transition: transform .5s ease;
+  transition: transform 1.5s ease;
+  -webkit-filter: blur(2px); -moz-filter: blur(2px);
+  -o-filter: blur(2px); -ms-filter: blur(2px);
+  -webkit-transition: 0.5s -webkit-filter linear;
+  -o-transition: 0.5s -o-filter linear;
 }
 
 .item:hover{
+  z-index: 1;
+  -webkit-filter: blur(0px); -moz-filter: blur(0px); -o-filter: blur(0px); -ms-filter: blur(0px);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0'); filter: blur(0px);
   transform: scale(1.5);
 }
 .item img{
   width : 100%;
 }
 .prev{
+  z-index: 2;
   position: absolute;
-  left: 50px;
   top: 50%;
   transform: translate(-50%,-50%);
 }
 .next{
+  z-index: 2;
   position: absolute;
   right: 50px;
   top: 50%;

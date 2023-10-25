@@ -21,7 +21,8 @@ export class CarousselComponent implements OnInit {
 
   ngOnInit(): void {
    this.api.getPopularMovies().subscribe( response =>{
-         this.films = response.results.slice(0,7);
+         this.films = response.results.slice(2,15);
+         this.films = response.results.slice(2,15);
        console.log(this.films)
 
      }

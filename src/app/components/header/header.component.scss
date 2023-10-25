@@ -1,6 +1,5 @@
   .navbar {
     height: 70px;
-    background-color: black;
     align-items: center;
   }
 
@@ -8,28 +7,28 @@
     padding-top: 2vh;
     display: flex;
   }
-  
+
   .custom-search-form {
     width: fit-content;
     display: flex;
     height: 40px;
     padding-left: 2vw;
   }
-  
+
   .custom-search-input {
     width: 200px;
     border-radius: 7px 0 0 7px;
     background-color: #161616;
-    color: white;
+    color: aliceblue;
     padding-left: 10px;
-    border: solid 1px rgb(55 55 55);  
+    border: solid 1px rgb(55 55 55);
 }
-  
+
   .custom-search-button {
     border-radius: 0 7px 7px 0;
     background-color: #161616;
-    color: white;
-    border: solid 1px rgb(55 55 55);  
+    color: aliceblue;
+    border: solid 1px rgb(55 55 55);
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -45,7 +44,6 @@
 }
 
 .custom-account-button:active  {
-  transform: scale(0.95); 
+  transform: scale(0.95);
 }
-  
-  
+
