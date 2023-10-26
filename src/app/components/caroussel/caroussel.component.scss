@@ -20,12 +20,14 @@
 }
 
 .item:hover{
+  margin: 0 12px;
   z-index: 1;
   -webkit-filter: blur(0px); -moz-filter: blur(0px); -o-filter: blur(0px); -ms-filter: blur(0px);
   filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0'); filter: blur(0px);
   transform: scale(1.5);
 }
 .item img{
+
   width : 100%;
 }
 .prev{

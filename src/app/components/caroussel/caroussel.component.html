@@ -1,15 +1,13 @@
 <section class="product">
   <div class="container-fluid">
-        <div class="item" *ngFor="let film of films">
-          <img src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
+        <div class="item" *ngFor="let film of films" >
+          <img (click)="addEvent(this.film)" [ngClass]="film" src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
         </div>
       </div>
       <div class="button-area">
         <button type="button" class="prev" appPrev>
-          <i class="fa-solid fa-angle-left" style="color: #1e3050;"></i>
-        </button>
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>        </button>
         <button type="button" class="next" appNext>
-          <i class="fa-solid fa-angle-right"></i>
-        </button>
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>        </button>
     </div>
 </section>

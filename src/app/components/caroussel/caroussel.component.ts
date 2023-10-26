@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Film} from "../../modele/film.modele";
 import {ApiService} from "../../service/api.service";
 
@@ -12,22 +12,20 @@ export class CarousselComponent implements OnInit {
   filmData : Film | undefined
   genreNames: string[] = [];
   films : any
+  @Output() event = new EventEmitter;
+  @Input() public color : string[] = [];
 
+  public addEvent(value: string){
+    console.log(value)
+    this.event.emit(value);
+  }
   constructor(private api: ApiService) {
   }
-
-
-
-
   ngOnInit(): void {
    this.api.getPopularMovies().subscribe( response =>{
          this.films = response.results.slice(2,15);
-         this.films = response.results.slice(2,15);
        console.log(this.films)
-
      }
     )
-
   }
-
 }
