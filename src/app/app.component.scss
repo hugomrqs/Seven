@@ -13,10 +13,11 @@
     width: 80%;
 }
 
-app-menu, app-header {
+app-menu {
     flex: 1; /* aligner */
 }
 
 app-header {
-    order: 1; /* Change l'ordre des éléments */
+    height: 10vh;
+    display: block;
 }

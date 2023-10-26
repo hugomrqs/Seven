@@ -4,7 +4,6 @@ import {HomePageComponent} from './components/home-page/home-page.component';
 import {CarousselComponent} from "./components/caroussel/caroussel.component";
 
 const routes: Routes = [
-  { path : 'welcome', component : CarousselComponent},
   { path : 'home', component : HomePageComponent},
   { path : '', redirectTo : '/home', pathMatch : 'full'},
   { path : '**', component : HomePageComponent}
