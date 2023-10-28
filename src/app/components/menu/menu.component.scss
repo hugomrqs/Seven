@@ -1,9 +1,10 @@
   .sidenav {
+    height: 100vh;
     text-align: center;
   }
 
   .custom-title {
-    text-decoration: none; 
+    text-decoration: none;
     color:white;
   }
 
@@ -15,10 +16,10 @@
   .nav-pills a:hover {
     text-decoration: underline; /* Pour enlever le soulignement au survol */
   }
-  
+
   .nav-pills li {
     margin-bottom: 9vh;
-  }  
+  }
 
   ul {
     padding-left: 0px;
@@ -28,4 +29,3 @@
   .active {
     text-decoration: underline !important;
   }
-  

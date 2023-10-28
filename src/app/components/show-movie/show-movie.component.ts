@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Film} from "../../modele/film.modele";
+import {HomePageDataService} from "../../service/home-page-data.service";
 
 @Component({
   selector: 'app-show-movie',
   templateUrl: './show-movie.component.html',
   styleUrls: ['./show-movie.component.scss']
 })
-export class ShowMovieComponent {
-  public newBackgroundColor: any;
-  public color: any;
-  public colors : string[] = ['orange','green', 'blue','yellow'];
+export class ShowMovieComponent  implements OnInit{
+  receivedData: Film | undefined;
+  constructor(private data : HomePageDataService) {}
 
-  public changeBackground(color : any){
-    console.log("bien recu ")
-    this.newBackgroundColor = color;
+  ngOnInit(): void {
+    this.data.selectedData$.subscribe(data => {
+      this.receivedData = data;
+    });
+    }
   }
-}
+
+

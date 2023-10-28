@@ -1,4 +1,10 @@
-<div [ngClass]="newBackgroundColor">
-  <p>show-movie works!</p>
-  <app-caroussel [color]=colors  (event)="changeBackground($event)"> </app-caroussel>
+<div *ngIf= "receivedData !== undefined" class ="container">
+  <img src="https://image.tmdb.org/t/p/original{{this.receivedData?.backdrop_path}}">
+    <div class="title">
+      <h1>{{this.receivedData?.title}}</h1>
+    </div>
+      <div class=" card-overview">
+        <p>{{this.receivedData?.overview}}</p>
+
+      </div>
 </div>

@@ -1,7 +1,7 @@
-<section class="product">
+<div class="product">
   <div class="container-fluid">
         <div class="item" *ngFor="let film of films" >
-          <img (click)="addEvent(this.film)" [ngClass]="film" src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
+          <img (click)="sendData(this.film)" [ngClass]="film" src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
         </div>
       </div>
       <div class="button-area">
@@ -10,4 +10,4 @@
         <button type="button" class="next" appNext>
           <span class="carousel-control-next-icon" aria-hidden="true"></span>        </button>
     </div>
-</section>
+</div>
