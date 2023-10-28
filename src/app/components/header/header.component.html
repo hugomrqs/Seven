@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiar">
   <div class="container-fluid">
-    <form class="d-flex custom-search-form" role="search">
-      <input class="form-control me-2 custom-search-input" type="search" placeholder="Search..." aria-label="Search">
+    <form class="d-flex custom-search-form" role="search" (ngSubmit)="onSearchSubmit()">
+      <input class="form-control me-2 custom-search-input" type="search" placeholder="Search..." aria-label="Search" [(ngModel)]="query" name="searchQuery">
       <button class="btn btn-outline-success custom-search-button" type="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
           <path d="M9.66666 16.25C13.5787 16.25 16.75 13.0787 16.75 9.16665C16.75 5.25463 13.5787 2.08331 9.66666 2.08331C5.75464 2.08331 2.58333 5.25463 2.58333 9.16665C2.58333 13.0787 5.75464 16.25 9.66666 16.25Z" stroke="white" stroke-width="2"/>

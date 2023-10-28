@@ -1,0 +1,8 @@
+<mat-grid-list cols="4">
+    <mat-grid-tile *ngFor="let film of resultFilms">
+      <img src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
+      <mat-grid-tile-footer>
+        <h4>{{film.title}}</h4>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>

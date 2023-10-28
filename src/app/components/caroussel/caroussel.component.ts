@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Film} from "../../modele/film.modele";
-import {ApiService} from "../../service/api.service";
+import {ApiService} from "../../services/api/api.service";
 
 @Component({
   selector: 'app-caroussel',
@@ -13,8 +13,7 @@ export class CarousselComponent implements OnInit {
   genreNames: string[] = [];
   films : any
 
-  constructor(private api: ApiService) {
-  }
+  constructor(private api: ApiService) {}
 
 
 
