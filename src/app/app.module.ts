@@ -12,6 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { CarousselComponent } from './components/caroussel/caroussel.component';
 import { NextDirective } from './next.directive';
 import { PrevDirective } from './prev.directive';
+import { ShowMovieComponent } from './components/show-movie/show-movie.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { PrevDirective } from './prev.directive';
     MenuComponent,
     NextDirective,
     PrevDirective,
-    CarousselComponent
+    CarousselComponent,
+    ShowMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import { PrevDirective } from './prev.directive';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatListModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Film} from "../../modele/film.modele";
 import {ApiService} from "../../service/api.service";
+import {HomePageDataService} from "../../service/home-page-data.service";
 
 @Component({
   selector: 'app-caroussel',
@@ -9,25 +10,22 @@ import {ApiService} from "../../service/api.service";
 
 })
 export class CarousselComponent implements OnInit {
-  filmData : Film | undefined
-  genreNames: string[] = [];
+
   films : any
+  @Output() event = new EventEmitter;
+  @Input() public color : string[] = [];
 
-  constructor(private api: ApiService) {
+  sendData( film :Film) {
+    // Les données que vous souhaitez partager, par exemple, un objet Film
+    this.data.setSelectedData(film);
   }
-
-
-
-
+  constructor(private api: ApiService, private data : HomePageDataService) {
+  }
   ngOnInit(): void {
    this.api.getPopularMovies().subscribe( response =>{
          this.films = response.results.slice(2,15);
-         this.films = response.results.slice(2,15);
        console.log(this.films)
-
      }
     )
-
   }
-
 }
