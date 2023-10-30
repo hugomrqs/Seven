@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subscription} from "rxjs";
 import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
-import {Film} from "../modele/film.modele";
+import {Film} from "../../modele/film.modele";
 
 //session
 let createSession = 'authentication/guest_session/new'
@@ -13,6 +13,7 @@ let postToken = 'authentication/session/new'
 let baseURL = 'https://api.themoviedb.org/3/'
 
 //Infos
+let searchMovie ='search/movie?include_adult=true&language=en-US&page=1';
 let movieDetail = 'movie/12?language=en-US';
 let trendyReal = 'trending/person/day?language=en-US';
 let DiscoverReal  ='discover/movie?with_crew=525';
@@ -34,31 +35,37 @@ const options = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
-
   constructor(private http: HttpClient) {
-
   }
 
   //config
   public getConfig() {
     this.http.get(baseURL+createSession,options);
     return this.http.get(baseURL+getToken,options)
+  }
 
+  
+  //Recherche de film via une query (string)
+  public getSearchMovie(query: string): Observable<{ results: Film[] }> {
+    return this.http.get<{ results: Film[] }>(baseURL + searchMovie + '&query=' + query, options);
   }
 
   //detail d'un film doit prendre en param l'id d'un film
   public getMovieDetail():Observable<Film> {
-    console.log('eeeeeeeeeeeeeeee' );
     return  this.http.get<Film>(baseURL+movieDetail,options);
   }
+
   public getPopularMovies():Observable<any> {
     return  this.http.get<any>(baseURL+popularMovies,options);
   }
+
   public postSession():Observable<any>{
     return this.http.post(baseURL+postToken,"" ,options)
   }
-  //list des genre
+
+  //list des genres
   public getGenres(): Observable<any>{
     return this.http.get(baseURL+genreList,options);
   }
@@ -73,7 +80,7 @@ export class ApiService {
     return this.http.get(baseURL+DiscoverReal,options);
   }
 
-  //listes des gens trnedy
+  //listes des gens trendy
   public getTrendyReal(): Observable<any>{
     return this.http.get(baseURL+trendyReal,options);
   }
@@ -83,7 +90,6 @@ export class ApiService {
     return this.http.get(baseURL+movieCertification,options)
   }
 
-
   //ajouter un rating
   public postRateMovie(): Observable<any>{
     let body = {value : 2}
@@ -91,7 +97,6 @@ export class ApiService {
   }
 
   //consulter rating
-
   public getRatedMovies():Observable<any>{
     return this.http.get(baseURL+ratedMovies,options)
   }

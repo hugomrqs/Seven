@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Film} from "../modele/film.modele";
+import {Film} from "../../modele/film.modele";
 import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
+
 @Injectable()
 export class HomePageDataService {
   private selectedMovies : Film[] =[];

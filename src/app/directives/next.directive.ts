@@ -5,9 +5,7 @@ import {Directive,  ElementRef, HostListener} from '@angular/core';
 })
 export class NextDirective {
 
-  constructor(private el: ElementRef) {
-
-  }
+  constructor(private el: ElementRef) {}
 
   @HostListener('click')
   nextFunc(){

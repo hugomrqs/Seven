@@ -1,12 +1,8 @@
-<div *ngIf= "receivedData !== undefined"   [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData.backdrop_path + ')'"
-     [style.background-size]="'cover'"
-     class ="container">
+<div *ngIf= "receivedData !== undefined"   [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData.backdrop_path + ')'" [style.background-size]="'cover'" class ="container">
     <div class="card">
       <h1 class="">{{this.receivedData.title}}</h1>
-      <p class="">      {{this.receivedData.genres}}</p>
-      <p class="">
-        {{this.receivedData.overview}}
-      </p>
+      <p class="">{{this.receivedData.genres}}</p>
+      <p class="">{{this.receivedData.overview}}</p>
       <button class="">
         <i class="fa-solid fa-plus"></i> Add to watchlist
       </button>
