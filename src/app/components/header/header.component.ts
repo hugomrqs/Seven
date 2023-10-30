@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Film } from 'src/app/modele/film.modele';
 import { ApiService } from 'src/app/services/api/api.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchTitleService } from 'src/app/services/search-title/search-title.service';
@@ -14,7 +13,16 @@ import { SearchTitleService } from 'src/app/services/search-title/search-title.s
 export class HeaderComponent {
   query: string = ''; 
 
-  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {}
+  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (!event.url.includes('/search')) {
+          // Si l'URL ne contient pas '/search', vide la barre de recherche
+          this.query = '';
+        }
+      }
+    });
+  }
 
   //déclanché au moment du submit de la search
   onSearchSubmit(): void {

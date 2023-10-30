@@ -11,11 +11,12 @@ export class SearchTitleService {
   private resultsSubject = new BehaviorSubject<Film[]>([]); 
   //Observable
   results$: Observable<Film[]> = this.resultsSubject.asObservable();
+
   
   setResultFilms(data: Film[]) {
     this.resultsSubject.next(data);
   }
+  //getter pas nécéssaire car les components s'abonne à l'observable pour être notifier et pour récupérer le resultat
 
-  //getter pas nécéssaire car les components s'abonne à l'observable pour être notifier et récupérer le resultat
 }
 

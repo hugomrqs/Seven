@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
 import { Film } from 'src/app/modele/film.modele';
 import { SearchTitleService } from 'src/app/services/search-title/search-title.service';
-import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-search-result-page',
