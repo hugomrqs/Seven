@@ -3,7 +3,7 @@
 }
 .card {
   width: 50vw;
-  background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(55,55,55,0.8));
+  background: linear-gradient(to bottom left, rgba(255,0,0,0), rgba(0, 0, 0, 0.8));
   border-radius: 20px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
@@ -11,13 +11,14 @@
   align-items: center;
   cursor: pointer;
   text-align: center;
-  color: #fff;
-
+  color: #ffffff;
+  position: absolute;
+  top: 180%;
+  left: 30%;
 }
 
-.card-overview{
-  bottom: 15%;
-  left: 10%;
+.card h1{
+font-size: 3rem;
 }
 
 .card p{

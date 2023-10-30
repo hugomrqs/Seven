@@ -18,6 +18,10 @@ import { PrevDirective } from './directives/prev.directive';
 import { FormsModule } from '@angular/forms';
 import { SearchResultPageComponent } from './components/search-result-page/search-result-page.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { RatedMoviesComponent } from './components/rated-movies/rated-movies.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     PrevDirective,
     CarousselComponent,
     ShowMovieComponent,
-    SearchResultPageComponent
+    SearchResultPageComponent,
+    RatedMoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatListModule,
     FormsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDividerModule
+
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
