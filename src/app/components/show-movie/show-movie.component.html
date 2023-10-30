@@ -1,13 +1,13 @@
 <div *ngIf= "receivedData !== undefined"   [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'"
      [style.background-size]="'cover'"
      class ="container">
-    <div class="title">
-<!--      <h1 class="text-lg font-bold text-white">{{this.receivedData?.at(-1).title}}</h1>-->
-<!--      <p class="text-sm text-gray-200">      {{this.receivedData?.at(-1).genres}}</p>-->
-<!--      <p class="text-sm text-white">-->
-<!--        {{this.receivedData?.at(-1).overview}}-->
-<!--      </p>-->
-      <button class="rounded-sm bg-white w-fit py-1 px-2 mt-2 hover:bg-yellow-400">
+    <div class="card">
+      <h1 class="">{{this.receivedData?.title}}</h1>
+      <p class="">      {{this.receivedData?.genres}}</p>
+      <p class="">
+        {{this.receivedData?.overview}}
+      </p>
+      <button class="">
         <i class="fa-solid fa-plus"></i> Add to watchlist
       </button>
       <h1></h1>
