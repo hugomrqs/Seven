@@ -12,8 +12,6 @@ import {HomePageDataService} from "../../services/home-page-data/home-page-data.
 export class CarousselComponent implements OnInit {
 
   films : Film[] = [] ;
-  @Output() event = new EventEmitter;
-  @Input() public color : string[] = [];
 
   constructor(private api: ApiService, private data : HomePageDataService) {}
 
@@ -25,7 +23,7 @@ export class CarousselComponent implements OnInit {
 
   ngOnInit(): void {
    this.api.getPopularMovies().subscribe( response =>{
-         this.films = response.results.slice(2,15);
+         this.films = response.results.slice(0,19);
      }
     )
   }

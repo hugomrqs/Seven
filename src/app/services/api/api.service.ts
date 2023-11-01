@@ -24,6 +24,9 @@ let similarMovies ='496243/recommendations'
 let movieCertification = 'certification/movie/list'
 let genreMovies = 'discover/movie?with_genres=28'
 let popularMovies = 'movie/popular?language=en-US&page=1'
+let credential1 = 'credits?language=en-US';
+
+
 
 const options = {
   headers: {
@@ -32,6 +35,14 @@ const options = {
   }
 };
 
+
+const rateOptions = {
+   headers: {
+      accept: 'application/json',
+      'Content-Type': 'application/json;charset=utf-8',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODVjMTcyMmU4MDNlOGU0ZTE3MGZkYmE1ODY3OWMyOCIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FYfo3ukg4-FcWS9fO1pQbgLKGbc60E_NWD-7JTlBjMI'
+    }
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -46,7 +57,7 @@ export class ApiService {
     return this.http.get(baseURL+getToken,options)
   }
 
-  
+
   //Recherche de film via une query (string)
   public getSearchMovie(query: string): Observable<{ results: Film[] }> {
     return this.http.get<{ results: Film[] }>(baseURL + searchMovie + '&query=' + query, options);
@@ -55,6 +66,10 @@ export class ApiService {
   //detail d'un film doit prendre en param l'id d'un film
   public getMovieDetail():Observable<Film> {
     return  this.http.get<Film>(baseURL+movieDetail,options);
+  }
+
+  public getCredentials(id:number):Observable<any> {
+    return  this.http.get<any>(baseURL+"movie/" +id + credential1 +"/",options);
   }
 
   public getPopularMovies():Observable<any> {
@@ -91,9 +106,9 @@ export class ApiService {
   }
 
   //ajouter un rating
-  public postRateMovie(): Observable<any>{
-    let body = {value : 2}
-    return this.http.post(baseURL+ratingMovie,body,options);
+  public postRateMovie(value :any): Observable<any>{
+    console.log("bien envoyé")
+    return this.http.post(baseURL+ratingMovie,value,rateOptions);
   }
 
   //consulter rating
