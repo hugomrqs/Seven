@@ -22,6 +22,8 @@ import { RatedMoviesComponent } from './components/rated-movies/rated-movies.com
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { RatedComponent } from './components/rated/rated.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {MatButtonModule} from "@angular/material/button";
     CarousselComponent,
     ShowMovieComponent,
     SearchResultPageComponent,
-    RatedMoviesComponent
+    RatedMoviesComponent,
+    LoginPageComponent,
+    RatedComponent
   ],
   imports: [
     BrowserModule,

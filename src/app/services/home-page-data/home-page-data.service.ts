@@ -8,6 +8,7 @@ import {BehaviorSubject} from "rxjs";
 
 @Injectable()
 export class HomePageDataService {
+  public token: string | undefined
   private selectedMovies : Film[] =[];
   private selectedDataSubject  = new BehaviorSubject<Film>({
     adult: false,
@@ -25,13 +26,14 @@ export class HomePageDataService {
     vote_average: 0,
     vote_count: 0
   });
+
   selectedData$ = this.selectedDataSubject.asObservable();
 
   constructor() {}
 
   setSelectedData(data: Film) {
     this.selectedDataSubject.next(data);
-    this.selectedMovies.push(data)
-    console.log(this.selectedMovies)
+
   }
+
 }

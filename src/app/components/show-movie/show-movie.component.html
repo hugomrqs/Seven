@@ -1,11 +1,26 @@
 <div *ngIf= "receivedData !== undefined"   [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData.backdrop_path + ')'" [style.background-size]="'cover'" class ="container">
-    <div class="card">
-      <h1 class="">{{this.receivedData.title}}</h1>
-      <p class="">{{this.receivedData.genres}}</p>
-      <p class="">{{this.receivedData.overview}}</p>
-      <button class="">
-        <i class="fa-solid fa-plus"></i> Add to watchlist
-      </button>
-      <h1></h1>
+    <div class="card rating-card">
+    <div class="rating-card__front">
+      <div class="rating-card__content">
+        <h2>{{this.receivedData?.title}}</h2>
+        <p>{{this.receivedData?.overview}}</p>
+        <p>{{this.receivedData?.popularity}}</p>
+        <p></p>
+
+      </div>
+      <div class="rating-card__ratings">
+        <button class="note" >1</button>
+        <button class="note" >2</button>
+        <button class="note" >3</button>
+        <button class="note" >4</button>
+        <button class="note">5</button>
+      </div>
+      <button class="rating-card__btn" >submit</button>
+      <div class="example-button-container">
+        <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+          <mat-icon>bookmark</mat-icon>
+        </button>
+      </div>
     </div>
+  </div>
 </div>

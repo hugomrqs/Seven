@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subscription} from "rxjs";
-import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 import {Film} from "../../modele/film.modele";
 
 //session
-let createSession = 'authentication/guest_session/new'
+let createSession = 'https://api.themoviedb.org/3/authentication/guest_session/new'
 let getToken = 'authentication/token/new';
 let postToken = 'authentication/session/new'
 
@@ -35,6 +34,13 @@ const options = {
   }
 };
 
+const session = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODVjMTcyMmU4MDNlOGU0ZTE3MGZkYmE1ODY3OWMyOCIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FYfo3ukg4-FcWS9fO1pQbgLKGbc60E_NWD-7JTlBjMI'
+  }
+}
 
 const rateOptions = {
    headers: {
@@ -53,10 +59,9 @@ export class ApiService {
 
   //config
   public getConfig() {
-    this.http.get(baseURL+createSession,options);
+    this.http.get(createSession,session);
     return this.http.get(baseURL+getToken,options)
   }
-
 
   //Recherche de film via une query (string)
   public getSearchMovie(query: string): Observable<{ results: Film[] }> {
@@ -76,8 +81,8 @@ export class ApiService {
     return  this.http.get<any>(baseURL+popularMovies,options);
   }
 
-  public postSession():Observable<any>{
-    return this.http.post(baseURL+postToken,"" ,options)
+  public postSession(body : string):Observable<any>{
+    return this.http.post(baseURL+postToken,body,options)
   }
 
   //list des genres

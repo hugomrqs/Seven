@@ -17,13 +17,11 @@ export class SearchResultPageComponent implements OnInit {
   sendData(film : Film) {
     // Les données que vous souhaitez partager, par exemple, un objet Film
     this.data.setSelectedData(film);
-    console.log(film)
   }
   ngOnInit() {
     //abonnement observable, car OnInit = uniquement initialisation du component. //Onchanges plus propice si on avait eu un @Input() à la place d'un service pour transmettre les données
     this.searchTitleService.results$.subscribe(results => {
       this.resultFilms = results.filter(film => film.poster_path !== null); //certain film n'ont pas d'affiche, on les exclus
-      console.log(this.resultFilms);
     });
   }
 }

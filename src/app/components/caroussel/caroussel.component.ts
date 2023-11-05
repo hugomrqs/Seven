@@ -27,5 +27,4 @@ export class CarousselComponent implements OnInit {
      }
     )
   }
-
 }

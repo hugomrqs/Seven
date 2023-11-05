@@ -3,30 +3,6 @@
   <div class="movie">
     <img class="img-container" src="https://image.tmdb.org/t/p/original{{this.receivedData?.poster_path}}">
   </div>
-  <div class="rating-card">
-    <div class="rating-card__front">
-      <div class="rating-card__content">
-        <h2>{{this.receivedData?.title}}</h2>
-        <p>{{this.receivedData?.overview}}</p>
-        <p>{{this.receivedData?.popularity}}</p>
-        <p></p>
-
-      </div>
-      <div class="rating-card__ratings">
-        <button class="note" (click)="getButtonClass(1)">1</button>
-        <button class="note" (click)="getButtonClass(2)">2</button>
-        <button class="note" (click)="getButtonClass(3)">3</button>
-        <button class="note" (click)="getButtonClass(4)">4</button>
-        <button class="note" (click)="getButtonClass(5)">5</button>
-      </div>
-      <button class="rating-card__btn" (click)="submitVote()">submit</button>
-      <div class="example-button-container">
-        <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>bookmark</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
 </main>
 
 

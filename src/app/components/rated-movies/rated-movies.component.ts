@@ -16,7 +16,7 @@ export class RatedMoviesComponent implements OnInit{
   credits = []
   submitVote(){
     if(this.note){
-      this.api.postRateMovie({value : this.note}).subscribe( response =>{
+      this.api.postRateMovie({value : this.note*2}).subscribe( response =>{
         console.log(response)
       })
     }
