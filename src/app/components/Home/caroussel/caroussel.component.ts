@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Film} from "../../modele/film.modele";
-import {ApiService} from "../../services/api/api.service";
-import {HomePageDataService} from "../../services/home-page-data/home-page-data.service";
+import {Film} from "../../../modele/film.modele";
+import {ApiService} from "../../../services/api/api.service";
+import {HomePageDataService} from "../../../services/home-page-data/home-page-data.service";
+import { SuggestionService } from 'src/app/services/suggestion/suggestion.service';
 
 @Component({
   selector: 'app-caroussel',
@@ -15,12 +16,12 @@ export class CarousselComponent implements OnInit {
   @Output() event = new EventEmitter;
   @Input() public color : string[] = [];
 
-  constructor(private api: ApiService, private data : HomePageDataService) {}
+  constructor(private api: ApiService, private data : HomePageDataService, private suggestionService : SuggestionService) {}
 
 
   sendData(film : Film) {
-    // Les données que vous souhaitez partager, par exemple, un objet Film
     this.data.setSelectedData(film);
+    this.suggestionService.AddFilmClicked(film) ;
   }
 
   ngOnInit(): void {

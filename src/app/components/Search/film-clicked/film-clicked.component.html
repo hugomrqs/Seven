@@ -1,0 +1,17 @@
+<div class="popup-container"
+    [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/' + (film?.backdrop_path ? film?.backdrop_path : film?.poster_path) + ')'}">
+    <button class="close-button" (click)="onClosePopup()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <div class="info">
+      <h2>{{ film?.title }}</h2>
+      <div>{{ film?.release_date?.substring(0, 4) }}</div>
+    </div>
+    <div class="description">{{ film?.overview }}</div>
+    <div class="buttons">
+      <button class="my-list-button">+ MY LIST</button>
+      <div class="rating-buttons">
+        <div class="rating-star" *ngFor="let star of getStars()"></div>
+      </div>
+    </div>
+</div>

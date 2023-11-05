@@ -1,0 +1,22 @@
+<mat-grid-list cols="4">
+  <ng-container *ngIf="resultFilms.length > 0; else noResults">
+    <mat-grid-tile *ngFor="let film of resultFilms" (click)="openFilmDetails(film)">
+      <img src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
+      <mat-grid-tile-footer>
+        <h4>{{film.title}}</h4>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </ng-container>
+  <ng-template #noResults>
+    <div class="no-results">no results for this search, sorry...</div>
+  </ng-template>
+</mat-grid-list>
+
+<app-film-clicked 
+  class="overlay" 
+  *ngIf="selectedFilm && popupIsVisible" 
+  [film]="selectedFilm" 
+  (closeDetails)="closeFilmDetails()" 
+  (click)="onOverlayClick($event)"
+  [ngClass]="overlayAnimation" 
+  ></app-film-clicked>

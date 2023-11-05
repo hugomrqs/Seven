@@ -1,0 +1,16 @@
+<div class="product">
+    <h2>Similar movies of {{ film?.title }}</h2>
+    <div class="container-fluid">
+          <div class="item" *ngFor="let f of similarFilms" >
+            <img [ngClass]="f" src="https://image.tmdb.org/t/p/original{{this.f.poster_path}}">
+          </div>
+        </div>
+        <div class="button-area">
+          <button type="button" class="prev" appPrev>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="next" appNext>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>        
+          </button>
+      </div>
+  </div>
