@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Film} from "../../modele/film.modele";
-import {HomePageDataService} from "../../services/home-page-data/home-page-data.service";
+import {Film} from "../../../modele/film.modele";
+import {HomePageDataService} from "../../../services/home-page-data/home-page-data.service";
 
 @Component({
   selector: 'app-show-movie',

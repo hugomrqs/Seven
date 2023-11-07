@@ -12,14 +12,12 @@ let postToken = 'authentication/session/new'
 let baseURL = 'https://api.themoviedb.org/3/'
 
 //Infos
-let searchMovie ='search/movie?include_adult=true&language=en-US&page=1';
 let movieDetail = 'movie/12?language=en-US';
 let trendyReal = 'trending/person/day?language=en-US';
 let DiscoverReal  ='discover/movie?with_crew=525';
 let genreList=  'genre/movie/list?language=e'
 let ratingMovie = 'movie/496243/rating?'
 let ratedMovies = '/account/11787154/rated/movies'
-let similarMovies ='496243/recommendations'
 let movieCertification = 'certification/movie/list'
 let genreMovies = 'discover/movie?with_genres=28'
 let popularMovies = 'movie/popular?language=en-US&page=1'
@@ -66,7 +64,14 @@ export class ApiService {
 
   //Recherche de film via une query (string)
   public getSearchMovie(query: string): Observable<{ results: Film[] }> {
-    return this.http.get<{ results: Film[] }>(baseURL + searchMovie + '&query=' + query, options);
+    const url = `${baseURL}search/movie?query=${query}&include_adult=true&language=en-US&page=1`;
+    return this.http.get<{ results: Film[] }>(url, options);
+  }
+
+  //similar movies
+  public getSimilarMovies(movie_id : number) : Observable<{ results: Film[] }> {
+    const url = `${baseURL}movie/${movie_id}/similar?language=en-US&page=1`;
+    return this.http.get<{ results: Film[] }>(url, options)
   }
 
   //detail d'un film doit prendre en param l'id d'un film
@@ -125,10 +130,6 @@ export class ApiService {
     return this.http.get(baseURL+ratedMovies,options)
   }
 
-  //similar movies
-  public getSimilarMovies():Observable<any>{
-    return this.http.get(baseURL+similarMovies,options)
-  }
 }
 
 
