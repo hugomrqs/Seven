@@ -19,7 +19,7 @@ export class LoginPageComponent {
         this.isConfigSubscribed = true;
         console.log(data)
         this.token = this.response?.request_token
-        window.location.href = `https://www.themoviedb.org/authenticate/${this.token}?redirect_to=http://localhost:4200/login`
+        window.location.href = `https://www.themoviedb.org/authenticate/${this.token}?redirect_to=http://localhost:4200/home`
       })
     }
   }

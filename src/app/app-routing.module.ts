@@ -5,6 +5,7 @@ import { SearchResultPageComponent } from './components/search-result-page/searc
 import {RatedMoviesComponent} from "./components/rated-movies/rated-movies.component";
 import {LoginPageComponent} from "./components/login-page/login-page.component";
 import {RatedComponent} from "./components/rated/rated.component";
+import {FavoritesComponent} from "./components/favorites/favorites.component";
 
 const routes: Routes = [
   { path : 'login', component : LoginPageComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'search', component : SearchResultPageComponent},
   { path : 'search/:id', component : RatedMoviesComponent},
   { path : 'rating', component : RatedComponent},
+  {path : 'favorites', component : FavoritesComponent}
 
 ]
 

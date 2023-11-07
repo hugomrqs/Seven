@@ -13,11 +13,11 @@ export class Film {
   tagline : string;
   vote_average : number;
   vote_count : number;
-  
-  constructor(title: string, id:number, adult: boolean, backdrop_path: string, popularity: number, 
-    genres: [], imdb_id : string, overview : string, poster_path : string, release_date : string, 
-    runtime : number, tagline : string, vote_average : number, vote_count : number) {
+  rating : number;
 
+  constructor(title: string, id:number, adult: boolean, backdrop_path: string, popularity: number,
+    genres: [], imdb_id : string, overview : string, poster_path : string, release_date : string,
+    runtime : number, tagline : string, vote_average : number, vote_count : number,  rating : number) {
     this.title = title;
     this.adult = adult;
     this.backdrop_path = backdrop_path;
@@ -32,5 +32,6 @@ export class Film {
     this.tagline = tagline;
     this.vote_average = vote_average;
     this.vote_count = vote_count;
+    this.rating = rating;
   }
 }

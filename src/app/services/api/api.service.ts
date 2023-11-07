@@ -24,6 +24,7 @@ let movieCertification = 'certification/movie/list'
 let genreMovies = 'discover/movie?with_genres=28'
 let popularMovies = 'movie/popular?language=en-US&page=1'
 let credential1 = 'credits?language=en-US';
+let postMovieList  = 'list/{list_id}/remove_item'
 
 
 
@@ -83,6 +84,9 @@ export class ApiService {
 
   public postSession(body : string):Observable<any>{
     return this.http.post(baseURL+postToken,body,options)
+  }
+  public postMovieList(body : string):Observable<any>{
+    return this.http.post<any>(baseURL+postMovieList,body,options)
   }
 
   //list des genres

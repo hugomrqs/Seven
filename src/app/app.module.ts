@@ -24,6 +24,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RatedComponent } from './components/rated/rated.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { RatedComponent } from './components/rated/rated.component';
     SearchResultPageComponent,
     RatedMoviesComponent,
     LoginPageComponent,
-    RatedComponent
+    RatedComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

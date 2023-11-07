@@ -24,7 +24,8 @@ export class HomePageDataService {
     tagline: "",
     title: "",
     vote_average: 0,
-    vote_count: 0
+    vote_count: 0,
+    rating :0
   });
 
   selectedData$ = this.selectedDataSubject.asObservable();

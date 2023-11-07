@@ -1,26 +1,23 @@
 .container{
   height: 100vh;
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
 }
+
 .card {
-  width: 50vw;
   border-radius: 20px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   text-align: center;
-  color: #ffffff;
-  position: absolute;
-  left: 30%;
-}
+margin: 10%}
 
 
 .rating-card {
   width: 350px;
   display: flex;
   flex-direction: column;
-  background: var(--dark-blue);
   border-radius: 20px;
   padding: 40px 30px;
 }
@@ -138,9 +135,9 @@ font-size: 3rem;
 
 
 .card:hover {
+  background: grey;
   transform: scale(1.1);
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.5);
-  animation: rotate 2s linear infinite;
 }
 
 
