@@ -1,6 +1,6 @@
 <div class="product">
-  <h2>Similar movies of {{ film?.title }}</h2>
   <div class="container-fluid">
+    <h2>Similar movies of <span class="red-text">{{ film?.title }}</span></h2>
     <div class="item" *ngFor="let f of similarFilms">
       <img (click)="openFilmDetails(f)" [ngClass]="f" src="https://image.tmdb.org/t/p/original{{this.f.poster_path}}">
     </div>

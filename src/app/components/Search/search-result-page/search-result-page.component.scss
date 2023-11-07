@@ -16,10 +16,14 @@
   }
   
   .no-results {
-    color: white;
+    color: rgb(180, 180, 180);
     text-align: center;
     padding-top: 20vh;
     font-size: 1.2em;
+  }
+
+  .red-text {
+    color: rgb(218, 57, 57);
   }
 
   .overlay {

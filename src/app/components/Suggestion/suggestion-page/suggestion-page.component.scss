@@ -2,3 +2,15 @@ app-suggestion-caroussel {
     height: 64vh;
     display: block;
 }
+
+.no-results {
+    color: rgb(180, 180, 180);
+    text-align: center;
+    padding-top: 20vh;
+    font-size: 1.2em;
+    line-height: 2; 
+  }
+
+.red-text {
+    color: rgb(218, 57, 57);
+  }

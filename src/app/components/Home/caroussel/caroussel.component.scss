@@ -1,15 +1,22 @@
 .product{
   height: 100vh;
+}
 
+h2 {
+  color: rgb(180, 180, 180);
+  padding-left: 1vw;
+  padding-bottom: 6vh;
+}
+
+.red-text {
+  color: rgb(218, 57, 57);
 }
 
 .container-fluid{
-  padding : 20px 0;
-  top: 15vh;
+  top: 12vh;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-
 }
 
 .item {
@@ -17,7 +24,7 @@
   width: 20vw;
   position: relative;
   margin: 0 12px;
-  transition: transform 1.5s ease;
+  transition: transform 1s ease;
 }
 
 .item:not(:hover){
@@ -31,15 +38,18 @@
   width : 20.5vw;
   z-index: 1;
 }
+
 .item img{
   width : 100%;
 }
+
 .prev{
   z-index: 2;
   position: absolute;
   top: 50%;
   transform: translate(-50%,-50%);
 }
+
 .next{
   z-index: 2;
   position: absolute;
