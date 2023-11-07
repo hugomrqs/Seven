@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Film } from '../../../modele/film.modele';
+import { Film } from '../../modele/film.modele';
 
 @Component({
   selector: 'app-film-clicked',

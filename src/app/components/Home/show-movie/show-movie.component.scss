@@ -1,8 +1,9 @@
-.container{
+.container {
   height: 100vh;
   display: flex;
   justify-content: left;
   align-items: flex-end;
+  background-size: cover;
 }
 
 .card {
@@ -11,8 +12,8 @@
   transition: all 0.3s ease;
   cursor: pointer;
   text-align: center;
-margin: 10%}
-
+  margin: 10%
+}
 
 .rating-card {
   width: 350px;
@@ -21,11 +22,13 @@ margin: 10%}
   border-radius: 20px;
   padding: 40px 30px;
 }
+
 .rating-card .rating-card__front, .rating-card .rating-card__back {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
+
 .rating-card .rating-card__front .rating-card__img {
   width: 50px;
   height: 50px;
@@ -34,20 +37,24 @@ margin: 10%}
   align-items: center;
   border-radius: 50%;
 }
+
 .rating-card .rating-card__front .rating-card__content h2, .rating-card .rating-card__back .rating-card__content h1 {
   color: white;
   font-size: 26px;
   font-weight: 500;
 }
+
 .rating-card .rating-card__front .rating-card__content p, .rating-card .rating-card__back .rating-card__content p {
   color: honeydew;
   line-height: 20px;
   margin-top: 12px;
 }
+
 .rating-card .rating-card__front .rating-card__ratings {
   display: flex;
   justify-content: space-between;
 }
+
 .rating-card .rating-card__front .rating-card__ratings button {
   background: #3e454dc5;
   border-radius: 50%;
@@ -64,14 +71,17 @@ margin: 10%}
   cursor: pointer;
   transition: all 300ms linear;
 }
+
 .rating-card .rating-card__front .rating-card__ratings button:hover {
   background: grey;
   color: white;
 }
+
 .rating-card .rating-card__front .rating-card__ratings button:active, .rating-card .rating-card__front .rating-card__ratings button.active {
   background: orange;
   color: white;
 }
+
 .rating-card__btn {
   background: orange;
   cursor: pointer;
@@ -86,12 +96,11 @@ margin: 10%}
   border-radius: 25px;
   transition: all 300ms linear;
 }
+
 .rating-card__btn:hover {
   color: orange;
   background: white;
 }
-
-
 
 section {
   display: table;
@@ -103,7 +112,6 @@ section {
   margin-left: 8px;
   min-width: 120px;
 }
-
 
 .example-button-row .mat-mdc-button-base {
   margin: 8px 8px 8px 0;
@@ -121,18 +129,17 @@ section {
   width: 120px;
 }
 
-.card h1{
+.card h1 {
 font-size: 3rem;
 }
 
-.card p{
+.card p {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
 
 .card:hover {
   background: grey;

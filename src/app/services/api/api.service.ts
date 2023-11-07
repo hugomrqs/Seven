@@ -65,7 +65,7 @@ export class ApiService {
   //Recherche de film via une query (string)
   public getSearchMovie(query: string): Observable<{ results: Film[] }> {
     const url = `${baseURL}search/movie?query=${query}&include_adult=true&language=en-US&page=1`;
-    return this.http.get<{ results: Film[] }>(url, options);
+    return this.http.get<{ results: Film[] }>(url,options);
   }
 
   //similar movies
@@ -126,8 +126,8 @@ export class ApiService {
   }
 
   //consulter rating
-  public getRatedMovies():Observable<any>{
-    return this.http.get(baseURL+ratedMovies,options)
+  public getRatedMovies():Observable<{ results: Film[] }>{
+    return this.http.get<{ results: Film[] }>(baseURL+ratedMovies,options)
   }
 
 }

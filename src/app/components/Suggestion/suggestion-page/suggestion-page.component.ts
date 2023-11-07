@@ -11,9 +11,6 @@ import { SuggestionService } from 'src/app/services/suggestion/suggestion.servic
 })
 export class SuggestionPageComponent implements OnInit {
   filmsClicked : Film[] = [];
-  popupIsVisible: boolean = false;
-  overlayAnimation: string = '';
-  filmOpened: Film | undefined ;
 
   constructor(private suggestionService : SuggestionService, private api : ApiService) {}
 

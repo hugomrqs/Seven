@@ -1,7 +1,7 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {HomePageDataService} from "../../services/home-page-data/home-page-data.service";
-import {Film} from "../../modele/film.modele";
-import {ApiService} from "../../services/api/api.service";
+import {HomePageDataService} from "../../../services/home-page-data/home-page-data.service";
+import {Film} from "../../../modele/film.modele";
+import {ApiService} from "../../../services/api/api.service";
 
 
 
@@ -10,10 +10,15 @@ import {ApiService} from "../../services/api/api.service";
   templateUrl: './rated-movies.component.html',
   styleUrls: ['./rated-movies.component.scss']
 })
+
 export class RatedMoviesComponent implements OnInit{
   receivedData: Film | undefined;
   note : number | undefined
   credits = []
+
+  constructor(private api: ApiService,private data : HomePageDataService,) {}
+
+ 
   submitVote(){
     if(this.note){
       this.api.postRateMovie({value : this.note*2}).subscribe( response =>{
@@ -21,7 +26,6 @@ export class RatedMoviesComponent implements OnInit{
       })
     }
   }
-  constructor(private api: ApiService,private data : HomePageDataService,) {}
 
   ngOnInit(): void {
     this.data.selectedData$.subscribe(data => {
@@ -33,11 +37,9 @@ export class RatedMoviesComponent implements OnInit{
 
   }
 
-
   getButtonClass(value : number) {
     this.note = value
     console.log(this.credits)
   }
-
 
 }

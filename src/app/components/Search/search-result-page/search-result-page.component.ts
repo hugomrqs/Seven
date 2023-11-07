@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Film } from 'src/app/modele/film.modele';
 import { SearchTitleService } from 'src/app/services/search-title/search-title.service';
-import { FilmClickedComponent } from 'src/app/components/Search/film-clicked/film-clicked.component';
+import { FilmClickedComponent } from 'src/app/components/film-clicked/film-clicked.component';
 import { SuggestionService } from 'src/app/services/suggestion/suggestion.service';
 
 @Component({
@@ -12,6 +12,8 @@ import { SuggestionService } from 'src/app/services/suggestion/suggestion.servic
 
 export class SearchResultPageComponent implements OnInit {
   resultFilms: Film[] = [] ;
+
+  //pour un film qui à été cliqué --> ouverture de la popup
   selectedFilm: Film | undefined;
   popupIsVisible: boolean = false; 
   overlayAnimation: string = '';

@@ -12,7 +12,7 @@ export class SuggestionCarousselComponent implements OnInit {
   similarFilms : Film[] = [] ;
   @Input() film : Film | undefined ;
 
-  //pour un film cliqué -- ouverture de la popup
+  //pour un film qui à été cliqué --> ouverture de la popup
   selectedFilm: Film | undefined;
   popupIsVisible: boolean = false; 
   overlayAnimation: string = '';
@@ -28,7 +28,7 @@ export class SuggestionCarousselComponent implements OnInit {
     }
   }
 
-  //code ci dessus pour popup de details
+  //code ci dessous pour l'ouverture de la popup de details
   openFilmDetails(film: Film) {
     this.selectedFilm = film;
     this.popupIsVisible = true;
@@ -47,6 +47,7 @@ export class SuggestionCarousselComponent implements OnInit {
     }, 500); // Attendre la fin de l'animation (500ms)
   }
 
+  //disable/enable le scrolling lorsque que la popup de détails est ouverte
   disableScrolling() {
     document.body.style.overflow = 'hidden';
   }

@@ -30,8 +30,6 @@ export class HomePageDataService {
 
   selectedData$ = this.selectedDataSubject.asObservable();
 
-  constructor() {}
-
   setSelectedData(data: Film) {
     this.selectedDataSubject.next(data);
 

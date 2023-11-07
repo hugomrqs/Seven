@@ -10,8 +10,11 @@ import { Router } from '@angular/router';
 
 export class LoginPageComponent {
   private isConfigSubscribed: boolean = false;
-   response : any
-   token: string | undefined
+   
+  //ANYYYYYYY
+   response : any ; 
+   token: string | undefined ;
+
   isAuth(): void {
     if (!this.isConfigSubscribed) {
       this.api.getConfig().subscribe((data) => {
