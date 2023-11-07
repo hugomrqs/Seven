@@ -11,6 +11,9 @@ import { SuggestionService } from 'src/app/services/suggestion/suggestion.servic
 })
 export class SuggestionPageComponent implements OnInit {
   filmsClicked : Film[] = [];
+  popupIsVisible: boolean = false;
+  overlayAnimation: string = '';
+  filmOpened: Film | undefined ;
 
   constructor(private suggestionService : SuggestionService, private api : ApiService) {}
 
@@ -20,5 +23,4 @@ export class SuggestionPageComponent implements OnInit {
       this.filmsClicked = results.slice(-5).reverse(); //les 5 derniers films cliqués, le dernier cliqué sera le premier affiché
     });
   }
-
 }
