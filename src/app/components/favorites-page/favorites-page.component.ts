@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Film} from "../../modele/film.modele";
 import {ApiService} from "../../services/api/api.service";
+import {FavoritesMoviesService} from "../../services/Favorites-movies/favorites-movies.service";
 
 @Component({
   selector: 'app-favorites',
@@ -9,13 +10,12 @@ import {ApiService} from "../../services/api/api.service";
 })
 export class FavoritesPageComponent implements OnInit{
   films : Film[] = []
+  receivedData: Film | undefined;
 
-  constructor(private api: ApiService) {}
+
+  constructor(private api: ApiService, private fav : FavoritesMoviesService) {}
 
   ngOnInit(): void {
-    //A UPDATE
-    this.api.getRatedMovies().subscribe(data => {
-      this.films = data.results
-    })
-  }
+    this.films =this.fav.favoriteList
+    }
 }

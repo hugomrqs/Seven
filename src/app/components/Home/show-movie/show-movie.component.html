@@ -1,10 +1,12 @@
-<div *ngIf= "receivedData !== undefined" [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData.backdrop_path + ')'"  class ="container">
+
+<div *ngIf="this.receivedData?.id !== 0">
+<div  [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'" class ="container">
     <div class="card rating-card">
     <div class="rating-card__front">
       <div class="rating-card__content">
-        <h2>{{this.receivedData.title}}</h2>
-        <p>{{this.receivedData.overview}}</p>
-        <p>{{this.receivedData.vote_average}}</p>
+        <h2>{{this.receivedData?.title}}</h2>
+        <p>{{this.receivedData?.overview}}</p>
+        <p>{{this.receivedData?.vote_average}}</p>
         <p></p>
 
       </div>
@@ -17,10 +19,11 @@
       </div>
       <button class="rating-card__btn" >submit</button>
       <div class="example-button-container">
-        <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>bookmark</mat-icon>
+        <button (click)="addFavorite(this.receivedData)" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+          <mat-icon  >bookmark</mat-icon>
         </button>
       </div>
     </div>
   </div>
+</div>
 </div>
