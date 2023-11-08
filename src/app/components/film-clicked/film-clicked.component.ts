@@ -11,10 +11,15 @@ export class FilmClickedComponent {
   @Input() film: Film | undefined ;
   @Output() closeDetails = new EventEmitter<void>();
 
+  isFilmFav : boolean = false;
 constructor( private fav : FavoritesMoviesService) {}
   getStars(): number[] {
+    if(this.fav.favoriteList.some( film => film.id === this.film?.id )){
+      this.isFilmFav
+    }
     const roundedRating = this.film?.vote_average ? Math.round(this.film.vote_average) : 0;
     return Array.from({ length: roundedRating }, (_, index) => index + 1);
+
   }
 
   onClosePopup() {

@@ -14,9 +14,12 @@
   text-align: center;
   margin: 10%
 }
+.background-red {
+  background-color: red;
+}
 
 .rating-card {
-  width: 350px;
+  width: 15vw;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -142,7 +145,7 @@ font-size: 3rem;
 }
 
 .card:hover {
-  background: grey;
+  background: rgba(0, 0, 0, 0.82);
   transform: scale(1.1);
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.5);
 }

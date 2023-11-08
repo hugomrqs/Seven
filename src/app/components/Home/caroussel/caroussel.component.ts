@@ -20,7 +20,14 @@ export class CarousselComponent implements OnInit {
   sendData(film : Film) {
     this.data.setSelectedData(film);
     this.suggestionService.AddFilmClicked(film) ;
+    this.scrollDown()
   }
+  scrollDown(){
+      setTimeout(() => {
+          window.scroll({
+              top: window.scrollY + 1000, // Scroll down by 100 pixels
+              behavior: 'smooth', // Make it smooth
+          });      }, 0);  }
 
   ngOnInit(): void {
    this.api.getPopularMovies().subscribe( response =>{

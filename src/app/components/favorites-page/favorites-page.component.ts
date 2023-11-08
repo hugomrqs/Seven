@@ -10,12 +10,18 @@ import {FavoritesMoviesService} from "../../services/Favorites-movies/favorites-
 })
 export class FavoritesPageComponent implements OnInit{
   films : Film[] = []
-  receivedData: Film | undefined;
-
 
   constructor(private api: ApiService, private fav : FavoritesMoviesService) {}
 
   ngOnInit(): void {
     this.films =this.fav.favoriteList
     }
+
+  popMovie(film :Film){
+    for(let i =0;i<this.films.length;i++){
+      if(this.films[i].id ===film.id){
+        this.films.splice(i,1)
+      }
+    }
+  }
 }

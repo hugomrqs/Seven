@@ -2,3 +2,7 @@ app-caroussel {
     display: flex;
     height: 90vh;
 }
+.scroll{
+scroll-behavior: smooth;
+    overflow-y: auto;
+}

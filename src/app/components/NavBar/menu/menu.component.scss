@@ -1,21 +1,25 @@
   .sidenav {
     height: 100vh;
     text-align: center;
+    overflow: hidden;
   }
 
 
   .custom-title img{
     padding-top: 3vh;
     width : 5vw;
+    transition: transform 0.9s ease-in-out;
   }
-
+.custom-title img:hover{
+  transform: scale(1.2);
+}
   .nav-pills a {
     color: rgb(180, 180, 180);
     text-decoration: none; /* Pour enlever le soulignement */
   }
 
   .nav-pills a:hover {
-    text-decoration: underline; 
+    text-decoration: underline;
   }
 
   .nav-pills li {

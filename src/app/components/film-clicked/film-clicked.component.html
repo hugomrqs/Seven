@@ -9,7 +9,7 @@
     </div>
     <div class="description">{{ film?.overview }}</div>
     <div class="buttons">
-      <button class="my-list-button" (click)="addFavorite(this.film)">+ MY LIST</button>
+      <button [disabled]="!this.isFilmFav"  class="my-list-button" (click)="addFavorite(this.film)">+ MY LIST</button>
       <div class="rating-buttons">
         <div class="rating-star" *ngFor="let star of getStars()"></div>
       </div>

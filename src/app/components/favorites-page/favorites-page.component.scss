@@ -31,9 +31,8 @@ mat-grid-tile-footer {
   display: none;
   position: absolute;
   left: 50%;
-  background-color: red;
+  color: red;
   border: none;
-  padding: 5px 10px;
   cursor: pointer;
 }
 img:hover + .delete-button {
