@@ -33,6 +33,7 @@ export class FavoritesMoviesService {
 
   setSelectedData(data: any) {
       this.selectedDataSubject.next(data);
+if(!this.favoriteList.find(f => f.id === data.id))
     this.favoriteList.push(data)
   }
   constructor() { }

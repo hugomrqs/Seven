@@ -17,6 +17,7 @@ export class ShowMovieComponent  implements OnInit{
   constructor(private data : HomePageDataService, private fav : FavoritesMoviesService) {}
   addFavorite(film : Film | undefined){
     this.fav.setSelectedData(film)
+    this.isFilmFav = true;
     console.log("jenvoie un truc")
 
 
@@ -27,7 +28,7 @@ export class ShowMovieComponent  implements OnInit{
     this.data.selectedData$.subscribe(data => {
       this.receivedData = data;
       if(this.fav.favoriteList.some( film => film.id === this.receivedData?.id )){
-        this.isFilmFav
+        this.isFilmFav = true
       }
       this.vote = this.receivedData.vote_average/2
     });
