@@ -1,19 +1,10 @@
-<div class="product">
-  <div class="container-fluid">
-    <h2>Similar movies of <span class="red-text">{{ film?.title }}</span></h2>
-    <div class="item" *ngFor="let f of similarFilms">
-      <img (click)="openFilmDetails(f)" [ngClass]="f" src="https://image.tmdb.org/t/p/original{{this.f.poster_path}}">
-    </div>
+<app-caroussel-generalisation [productClass]="'product-suggestion'" [containerClass]="'container-fluid-suggestion'">
+  <h2 class="title">Similar movies of <span class="red-text">{{ film?.title }}</span></h2>
+  <div class="image item" *ngFor="let f of similarFilms">
+    <img  (click)="openFilmDetails(f)" [ngClass]="f"
+    src="https://image.tmdb.org/t/p/original{{ this.f.poster_path }}" />
   </div>
-  <div class="button-area">
-    <button type="button" class="prev" appPrev>
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button type="button" class="next" appNext>
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-  </div>
-</div>
+</app-caroussel-generalisation>
 
 <app-film-clicked 
   class="overlay" 

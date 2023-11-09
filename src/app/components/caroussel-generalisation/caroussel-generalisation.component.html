@@ -1,0 +1,14 @@
+<div [ngClass]="productClass" [ngClass]="containerClass"> <!-- classes dynamique -->
+    <div class="container-fluid">
+        <ng-content select=".title"></ng-content> <!-- Emplacement pour les éléments -->
+        <ng-content select=".image"></ng-content> <!-- Emplacement pour les éléments -->
+    </div>
+    <div class="button-area">
+        <button type="button" class="prev" appPrev>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="next" appNext>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+</div>

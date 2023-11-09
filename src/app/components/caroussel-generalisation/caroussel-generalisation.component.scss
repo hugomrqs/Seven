@@ -1,0 +1,37 @@
+  .product-home {
+    height: 100vh;
+  }
+
+  .product-suggestion {
+    height: 100vh;
+    margin-top: 6vh;
+  }
+  
+  .container-fluid-home {
+    top: 12vh;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .container-fluid-suggestion {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .prev {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  .next {
+    z-index: 2;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  

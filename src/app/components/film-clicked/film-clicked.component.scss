@@ -11,16 +11,26 @@
     flex-direction: column;
     justify-content: flex-end;
     gap: 10px;
-    padding: 20px;
     font-size: 12px;
     color: white;
     height: 50vh;
     width: 60vw;
   }
-  
+
+  .filtre {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1.1)); /* Crée un fondu linéaire vers le bas */
+    padding: 2%;
+  }
+
+  .small-text {
+    font-size: 0.8em; /* Ajustez la taille selon vos préférences */
+    color: rgb(180, 180, 180);
+  }
+
   .info {
     display: flex;
     height: 3vh;
+    padding: 1%;
   }
 
   .info div {
@@ -32,9 +42,14 @@
     padding-left: 2vw;
   }
 
+  .description {
+    padding: 1%;
+  }
+
   .buttons {
     display: flex;
     cursor: pointer;
+    padding: 1%;
   }
   
   .my-list-button {
@@ -71,7 +86,7 @@
     border-radius: 6px;
     justify-content: center;
     position: fixed;
-    top: 1vh;
+    top: 1.5vh;
     right: 1vw;
     cursor: pointer;
   }
