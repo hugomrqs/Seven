@@ -1,7 +1,7 @@
 h2 {
   color: rgb(180, 180, 180);
   padding-left: 1vw;
-  padding-bottom: 6vh;
+  padding-bottom: 7vh;
 }
 
 .red-text {
@@ -13,11 +13,8 @@ h2 {
   width: 20vw;
   position: relative;
   margin: 0 12px;
-  transition: transform 1s ease;
-}
-
-.item:not(:hover){
-  filter: blur(1);
+  transition: transform 0.8s ease;
+  padding-bottom: 7vh;
 }
 
 .item:hover{
@@ -25,8 +22,12 @@ h2 {
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.5);
   animation: rotate 2s linear infinite;
   z-index: 1;
+  cursor: pointer;
 }
 
 .item img{
   width : 100%;
+  border-radius: 6px;
+  border: solid 1px;
+  border-color: rgb(198, 198, 198);
 }

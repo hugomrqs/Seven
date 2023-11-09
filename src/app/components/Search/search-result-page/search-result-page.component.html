@@ -1,16 +1,16 @@
-<mat-grid-list cols="4">
+<div class="image-grid">
   <ng-container *ngIf="resultFilms.length > 0; else noResults">
-    <mat-grid-tile *ngFor="let film of resultFilms" (click)="openFilmDetails(film)">
-      <img src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
-      <mat-grid-tile-footer>
+    <div class="grid-item" *ngFor="let film of resultFilms" (click)="openFilmDetails(film)">
+      <img src="https://image.tmdb.org/t/p/original{{film.poster_path}}">
+      <div class="grid-item-footer">
         <h4>{{film.title}}</h4>
-      </mat-grid-tile-footer>
-    </mat-grid-tile>
+      </div>
+    </div>
   </ng-container>
   <ng-template #noResults>
     <div class="no-results">no results for this search, <span class="red-text">sorry...</span></div>
   </ng-template>
-</mat-grid-list>
+</div>
 
 <app-film-clicked 
   class="overlay" 
