@@ -1,0 +1,7 @@
+<app-caroussel-generalisation>
+  <h2 class="title">Popular films of the <span class="red-text">day</span></h2>
+  <div class="image item" *ngFor="let film of films">
+    <img (click)="sendData(this.film)" href="#showMovieComponent" [ngClass]="film"
+      src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}">
+  </div>
+</app-caroussel-generalisation>

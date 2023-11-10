@@ -1,3 +1,11 @@
-<ng-container *ngFor="let f of filmsClicked">
-    <app-suggestion-caroussel [film]="f"></app-suggestion-caroussel>
+<ng-container *ngIf="filmsClicked.length > 0; else noResults">
+    <ng-container *ngFor="let f of filmsClicked">
+        <app-suggestion-caroussel [film]="f"></app-suggestion-caroussel>
+    </ng-container>
 </ng-container>
+<ng-template #noResults>
+    <div class="no-results">
+        We'll suggest films based on the ones you <span class="red-text">consult</span> <br>
+        Click on a film, and come back here to see the corresponding <span class="red-text">suggestions</span>
+    </div>
+</ng-template>

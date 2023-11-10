@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Film } from 'src/app/modele/film.modele';
 import { ApiService } from 'src/app/services/api/api.service';
 import { SuggestionService } from 'src/app/services/suggestion/suggestion.service';
@@ -15,7 +15,7 @@ export class SuggestionCarousselComponent implements OnInit {
   //pour un film qui à été cliqué --> ouverture de la popup
   selectedFilm: Film | undefined;
   popupIsVisible: boolean = false; 
-  overlayAnimation: string = '';
+  overlayAnimation: string = ''; //pour fade-in/out, voir dans styles.css
 
 
   constructor(private api: ApiService, private suggestionService : SuggestionService) {}
@@ -23,13 +23,13 @@ export class SuggestionCarousselComponent implements OnInit {
   ngOnInit(): void {
     if(this.film?.id){
       this.api.getSimilarMovies(this.film.id).subscribe( response =>{
-        this.similarFilms = response.results.filter(film => film.poster_path !== null).slice(0,15); //sans ceux avec affiche vide
+        this.similarFilms = response.results.filter(film => film.poster_path !== null).slice(0,10); //sans ceux avec affiche vide
       })
     }
   }
 
   //code ci dessous pour l'ouverture de la popup de details
-  openFilmDetails(film: Film) {
+  openFilmDetails(film: Film | undefined) {
     this.selectedFilm = film;
     this.popupIsVisible = true;
     this.disableScrolling();

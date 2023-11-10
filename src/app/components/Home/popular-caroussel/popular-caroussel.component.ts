@@ -5,17 +5,15 @@ import {HomePageDataService} from "../../../services/home-page-data/home-page-da
 import { SuggestionService } from 'src/app/services/suggestion/suggestion.service';
 
 @Component({
-  selector: 'app-caroussel',
-  templateUrl: './caroussel.component.html',
-  styleUrls: ['./caroussel.component.scss'],
+  selector: 'app-popular-caroussel',
+  templateUrl: './popular-caroussel.component.html',
+  styleUrls: ['./popular-caroussel.component.scss'],
 })
 
-export class CarousselComponent implements OnInit {
-
+export class PopularCarousselComponent implements OnInit {
   films : Film[] = [] ;
 
   constructor(private api: ApiService, private data : HomePageDataService, private suggestionService : SuggestionService) {}
-
 
   sendData(film : Film) {
     this.data.setSelectedData(film);
@@ -31,7 +29,7 @@ export class CarousselComponent implements OnInit {
 
   ngOnInit(): void {
    this.api.getPopularMovies().subscribe( response =>{
-         this.films = response.results.slice(0,19);
+         this.films = response.results.slice(0,15);
      }
     )
   }

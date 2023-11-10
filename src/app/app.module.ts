@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/NavBar/header/header.component';
 import { MenuComponent } from './components/NavBar/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { CarousselComponent } from './components/Home/caroussel/caroussel.component';
+import { PopularCarousselComponent } from './components/Home/popular-caroussel/popular-caroussel.component';
 import { ShowMovieComponent } from './components/Home/show-movie/show-movie.component';
 import { MatCardModule } from "@angular/material/card";
 import { MatListModule } from "@angular/material/list";
@@ -23,11 +23,13 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatButtonModule } from "@angular/material/button";
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RatedComponent } from './components/Rating/rated/rated.component';
-import { FavoritesPageComponent } from './components/favorites-page/favorites-page.component';
+import { FavoritesPageComponent } from './components/Favorite/favorites-page/favorites-page.component';
 import { FilmClickedComponent } from './components/film-clicked/film-clicked.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SuggestionPageComponent } from './components/Suggestion/suggestion-page/suggestion-page.component';
 import { SuggestionCarousselComponent } from './components/Suggestion/suggestion-caroussel/suggestion-caroussel.component';
+import { CarousselGeneralisationComponent } from './components/caroussel-generalisation/caroussel-generalisation.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { SuggestionCarousselComponent } from './components/Suggestion/suggestion
     MenuComponent,
     NextDirective,
     PrevDirective,
-    CarousselComponent,
+    PopularCarousselComponent,
     ShowMovieComponent,
     SearchResultPageComponent,
     RatedMoviesComponent,
@@ -46,7 +48,8 @@ import { SuggestionCarousselComponent } from './components/Suggestion/suggestion
     FavoritesPageComponent,
     FilmClickedComponent,
     SuggestionPageComponent,
-    SuggestionCarousselComponent
+    SuggestionCarousselComponent,
+    CarousselGeneralisationComponent
   ],
   imports: [
     BrowserModule,

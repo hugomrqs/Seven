@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Film} from "../../modele/film.modele";
-import {ApiService} from "../../services/api/api.service";
-import {FavoritesMoviesService} from "../../services/Favorites-movies/favorites-movies.service";
+import { Component, OnInit } from '@angular/core';
+import { FavoritesMoviesService } from "../../../services/Favorites-movies/favorites-movies.service";
+import { Film } from "../../../modele/film.modele";
+import { ApiService } from "../../../services/api/api.service";
 
 @Component({
-  selector: 'app-favorites',
+  selector: 'app-favorites-page',
   templateUrl: './favorites-page.component.html',
   styleUrls: ['./favorites-page.component.scss']
 })
