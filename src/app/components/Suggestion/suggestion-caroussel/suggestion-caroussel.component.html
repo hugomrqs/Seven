@@ -1,6 +1,6 @@
 <app-caroussel-generalisation [productClass]="'product-suggestion'" [containerClass]="'container-fluid-suggestion'">
-  <h2 class="title">Similar movies of <span class="red-text">{{ film?.title }}</span></h2>
-  <div class="image item" *ngFor="let f of similarFilms">
+  <h2 class="title">Similar movies of <span class="red-text">{{ film?.title }}</span></h2> <!--class title pour mettre le bon element dans la generalisation caroussel-->
+  <div class="image item" *ngFor="let f of similarFilms"> <!--class image pour mettre le bon element dans la generalisation caroussel-->
     <img  (click)="openFilmDetails(f)" [ngClass]="f"
     src="https://image.tmdb.org/t/p/original{{ this.f.poster_path }}" />
   </div>

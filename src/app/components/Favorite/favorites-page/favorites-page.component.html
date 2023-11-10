@@ -1,14 +1,21 @@
-<mat-grid-list cols="4">
-  <ng-container >
-    <mat-grid-tile *ngFor="let film of films">
+<div class="image-grid">
+  <ng-container *ngIf="films.length > 0; else noResults">
+    <div class="grid-item" *ngFor="let film of films">
       <img src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}" alt="{{film.title}}" >
-      <p class="delete-button" (click)="popMovie(this.film)"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-      </svg></p>
-
-    </mat-grid-tile>
+      <button class="delete-button" (click)="popMovie(this.film)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+        </svg> 
+      </button>      
+      <div class="grid-item-footer">
+        <h4>{{film.title}}</h4>
+      </div>
+    </div>
   </ng-container>
   <ng-template #noResults>
-    <div class="no-results">no results for this search, sorry...</div>
+    <div class="no-results">
+      No films in your favourites <span class="red-text">yet</span> <br>
+      Click on a film, mark it as favorite and come back here to see your <span class="red-text">collection</span>
+  </div>
   </ng-template>
-</mat-grid-list>
+</div>

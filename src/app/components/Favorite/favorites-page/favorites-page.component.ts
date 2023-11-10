@@ -14,13 +14,13 @@ export class FavoritesPageComponent implements OnInit{
   constructor(private api: ApiService, private fav : FavoritesMoviesService) {}
 
   ngOnInit(): void {
-    this.films =this.fav.favoriteList
-    }
+    this.films = this.fav.favoriteList.reverse() ;
+  }
 
-  popMovie(film :Film){
-    for(let i =0;i<this.films.length;i++){
-      if(this.films[i].id ===film.id){
-        this.films.splice(i,1)
+  popMovie(film : Film){
+    for(let i=0 ; i<this.films.length ; i++){
+      if(this.films[i].id === film.id){
+        this.films.splice(i,1) ;
       }
     }
   }
