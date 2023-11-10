@@ -18,13 +18,13 @@ export class RatedMoviesComponent implements OnInit{
 
   constructor(private api: ApiService,private data : HomePageDataService,) {}
 
- 
+
   submitVote(){
-    if(this.note){
-      this.api.postRateMovie({value : this.note*2}).subscribe( response =>{
-        console.log(response)
-      })
-    }
+    // if(this.note){
+    //   this.api.postRateMovie({value : this.note*2}).subscribe( response =>{
+    //     console.log(response)
+    //   })
+    // }
   }
 
   ngOnInit(): void {

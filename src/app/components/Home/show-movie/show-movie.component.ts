@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Film} from "../../../modele/film.modele";
 import {HomePageDataService} from "../../../services/home-page-data/home-page-data.service";
 import {FavoritesMoviesService} from "../../../services/Favorites-movies/favorites-movies.service";
+import {ApiService} from "../../../services/api/api.service";
 
 @Component({
   selector: 'app-show-movie',
@@ -13,18 +14,22 @@ export class ShowMovieComponent  implements OnInit{
 
   receivedData: Film | undefined;
   isFilmFav : boolean = false;
-  vote =0
-  constructor(private data : HomePageDataService, private fav : FavoritesMoviesService) {}
+  vote : number = 0
+  votePost =0
+  constructor(private data : HomePageDataService, private fav : FavoritesMoviesService, private api: ApiService) {}
   addFavorite(film : Film | undefined){
     this.fav.setSelectedData(film)
     this.isFilmFav = true;
-    console.log("jenvoie un truc")
-
-
+  }
+  note(data : number){
+    return this.votePost = data;
   }
 
+  likeMovie(film : Film | undefined){
+    const body = [this.votePost, film?.id]
+    this.api.postRateMovie(body).subscribe()
+  }
   ngOnInit(): void {
-
     this.data.selectedData$.subscribe(data => {
       this.receivedData = data;
       if(this.fav.favoriteList.some( film => film.id === this.receivedData?.id )){
@@ -32,7 +37,6 @@ export class ShowMovieComponent  implements OnInit{
       }
       this.vote = this.receivedData.vote_average/2
     });
-
     }
   }
 

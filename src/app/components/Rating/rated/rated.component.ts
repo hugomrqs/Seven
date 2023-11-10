@@ -10,7 +10,7 @@ import {Film} from "../../../modele/film.modele";
 })
 export class RatedComponent implements OnInit {
   films : Film[] = []
-
+  vote :number = 0
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
@@ -19,4 +19,8 @@ export class RatedComponent implements OnInit {
       console.log(data) ;
     })
   }
+  note(vote : number){
+    return this.vote === vote;
+  }
+
 }
