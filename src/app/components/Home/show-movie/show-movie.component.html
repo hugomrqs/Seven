@@ -19,9 +19,9 @@
       </div>
       <button class="rating-card__btn" (click)="likeMovie(this.receivedData)">submit</button>
       <div >
-        <button mat-fab color="accent" [disabled]="isFilmFav" (click)="addFavorite(this.receivedData)"  aria-label="Example icon button with a bookmark icon">
-          <mat-icon>bookmark</mat-icon>
-        </button>
+          <button mat-fab disabled aria-label="Example icon button with a heart icon">
+            <mat-icon>favorite</mat-icon>
+          </button>
       </div>
     </div>
   </div>

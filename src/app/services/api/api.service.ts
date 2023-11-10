@@ -99,10 +99,10 @@ export class ApiService {
         'Content-Type': 'application/json;charset=utf-8',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODVjMTcyMmU4MDNlOGU0ZTE3MGZkYmE1ODY3OWMyOCIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FYfo3ukg4-FcWS9fO1pQbgLKGbc60E_NWD-7JTlBjMI'
       },
-      body: '"{value : 8}"'
+      body: '{value : 8}'
     };
     console.log(JSON.stringify(body[0]))
-    return this.http.post(baseURL+ `movie/${body[1]}/rating?api_key=285c1722e803e8e4e170fdba58679c28`,options);
+    return this.http.post(baseURL+ `movie/${body[1]}/rating?api_key=285c1722e803e8e4e170fdba58679c28`,{value : body[0]},options);
   }
 
   //consulter rating
