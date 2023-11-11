@@ -21,32 +21,6 @@ main {
   padding: 40px 30px;
 }
 
-.rating-card .rating-card__front, .rating-card .rating-card__back {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
-.rating-card .rating-card__front .rating-card__img {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
-.rating-card .rating-card__front .rating-card__content h2, .rating-card .rating-card__back .rating-card__content h1 {
-  color: white;
-  font-size: 26px;
-  font-weight: 500;
-}
-
-.rating-card .rating-card__front .rating-card__content p, .rating-card .rating-card__back .rating-card__content p {
-  color: honeydew;
-  line-height: 20px;
-  margin-top: 12px;
-}
 
 .rating-card .rating-card__front .rating-card__ratings {
   display: flex;
@@ -98,32 +72,5 @@ main {
 .rating-card__btn:hover {
   color: orange;
   background: white;
-}
-
-section {
-  display: table;
-}
-
-.example-label {
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
-}
-
-.example-button-row .mat-mdc-button-base {
-  margin: 8px 8px 8px 0;
-}
-
-.example-flex-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
 }
 

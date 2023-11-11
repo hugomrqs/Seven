@@ -25,11 +25,11 @@ export class ShowMovieComponent  implements OnInit{
     return this.votePost = data;
   }
 
-  likeMovie(film : Film | undefined){
-    const body = [this.votePost, film?.id]
-    this.api.postRateMovie(body).subscribe()
+  likeMovie(){
+    this.api.postRequest().subscribe()
   }
   ngOnInit(): void {
+    this.api.postRequest().subscribe()
     this.data.selectedData$.subscribe(data => {
       this.receivedData = data;
       if(this.fav.favoriteList.some( film => film.id === this.receivedData?.id )){

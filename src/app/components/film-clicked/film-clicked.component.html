@@ -12,25 +12,12 @@
     </div>
     <div class="description">{{ film?.overview }}</div>
     <div class="buttons">
-      <button [style.background-color]="isFilmFav ? 'red' : 'initial'" class="my-list-button"
-        (click)="addFavorite(this.film)">+ MY LIST</button>
-      
-      <div class="rating-buttons">
-        <div class="card rating-card">
-          <div class="rating-card__front">
-            <div class="rating-card__ratings">
-              <button (click)="likeMovie(film)">1</button>
-              <button (click)="likeMovie(film)">2</button>
-              <button (click)="likeMovie(film)">3</button>
-              <button (click)="likeMovie(film)">4</button>
-              <button (click)="likeMovie(film)">5</button>
-            </div>
-            <div>
-              <button class="rating-card__btn" (click)="likeMovie(this.film)">submit</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'" [style.background-color]="isFilmFav ? 'grey' : 'initial'" class="my-list-button"
+        (click)="addFavorite(this.film)">
+          <mat-icon>favorite</mat-icon>
+      </button>
+    <app-add-rating class="setting"></app-add-rating>
+
     </div>
   </div>
 </div>

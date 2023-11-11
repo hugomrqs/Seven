@@ -29,7 +29,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { SuggestionPageComponent } from './components/Suggestion/suggestion-page/suggestion-page.component';
 import { SuggestionCarousselComponent } from './components/Suggestion/suggestion-caroussel/suggestion-caroussel.component';
 import { CarousselGeneralisationComponent } from './components/caroussel-generalisation/caroussel-generalisation.component';
-
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { AddRatingComponent } from './components/Rating/add-rating/add-rating.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { CarousselGeneralisationComponent } from './components/caroussel-general
     FilmClickedComponent,
     SuggestionPageComponent,
     SuggestionCarousselComponent,
-    CarousselGeneralisationComponent
+    CarousselGeneralisationComponent,
+    AddRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { CarousselGeneralisationComponent } from './components/caroussel-general
     MatGridListModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatToolbarModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

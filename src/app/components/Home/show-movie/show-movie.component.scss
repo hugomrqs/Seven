@@ -8,128 +8,27 @@
 
 .card {
   border-radius: 20px;
+  max-width : 30vw;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   cursor: pointer;
   text-align: center;
-  margin: 10%
-}
-.background-red {
-  background-color: red;
-}
-
-.rating-card {
-  width: 25vw;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
+  margin: 10%;
   padding: 40px 30px;
-}
-
-.rating-card .rating-card__front, .rating-card .rating-card__back {
-  display: flex;
-  flex-direction: column;
   row-gap: 20px;
-}
-
-.rating-card .rating-card__front .rating-card__img {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
-.rating-card .rating-card__front .rating-card__content h2, .rating-card .rating-card__back .rating-card__content h1 {
   color: white;
-  font-size: 26px;
-  font-weight: 500;
-}
-
-.rating-card .rating-card__front .rating-card__content p, .rating-card .rating-card__back .rating-card__content p {
-  color: honeydew;
-  line-height: 20px;
-  margin-top: 12px;
-}
-
-.rating-card .rating-card__front .rating-card__ratings {
-  display: flex;
   justify-content: space-between;
-}
 
-.rating-card .rating-card__front .rating-card__ratings button {
-  background: #3e454dc5;
-  border-radius: 50%;
-  outline: none;
-  border: 0;
-  width: 50px;
-  height: 50px;
+
+}
+.setting{
+  padding-top: 2vh;
+}
+.button{
   display: flex;
+  flex-direction: row;
+  gap: 2vw;
   justify-content: center;
-  align-items: center;
-  color: var(--medium-grey);
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 300ms linear;
-}
-
-.rating-card .rating-card__front .rating-card__ratings button:hover {
-  background: grey;
-  color: white;
-}
-
-.rating-card .rating-card__front .rating-card__ratings button:active, .rating-card .rating-card__front .rating-card__ratings button.active {
-  background: orange;
-  color: white;
-}
-
-.rating-card__btn {
-  background: orange;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  padding: 15px;
-  color: white;
-  text-transform: uppercase;
-  font-size: 16px;
-  letter-spacing: 4px;
-  font-weight: 600;
-  border-radius: 25px;
-  transition: all 300ms linear;
-}
-
-.rating-card__btn:hover {
-  color: orange;
-  background: white;
-}
-
-section {
-  display: table;
-}
-
-.example-label {
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
-}
-
-.example-button-row .mat-mdc-button-base {
-  margin: 8px 8px 8px 0;
-}
-
-.example-flex-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
 }
 
 .card h1 {
@@ -147,7 +46,6 @@ font-size: 3rem;
 .card:hover {
   background: rgba(0, 0, 0, 0.82);
   transform: scale(1.1);
-  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.5);
 }
 
 

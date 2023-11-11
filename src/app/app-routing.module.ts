@@ -7,9 +7,10 @@ import { FavoritesPageComponent } from "./components/Favorite/favorites-page/fav
 import { HomePageComponent } from './components/Home/home-page/home-page.component';
 import { SearchResultPageComponent } from './components/Search/search-result-page/search-result-page.component';
 import { SuggestionPageComponent } from './components/Suggestion/suggestion-page/suggestion-page.component';
+import {AddRatingComponent} from "./components/Rating/add-rating/add-rating.component";
 
 const routes: Routes = [
-  { path : 'login', component : LoginPageComponent},
+  { path : 'login', component : AddRatingComponent},
   { path : 'home', component : HomePageComponent},
   { path: 'search', component : SearchResultPageComponent},
   { path : 'search/:id', component : RatedMoviesComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'suggestions', component : SuggestionPageComponent},
   { path : '', redirectTo : '/home', pathMatch : 'full'},
   { path : '**', component : HomePageComponent},
+
 ]
 
 @NgModule({

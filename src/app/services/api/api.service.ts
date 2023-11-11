@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, Subscription} from "rxjs";
 import {Film} from "../../modele/film.modele";
 
@@ -29,7 +29,7 @@ let postMovieList  = 'list/{list_id}/remove_item'
 const options = {
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODVjMTcyMmU4MDNlOGU0ZTE3MGZkYmE1ODY3OWMyOCIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FYfo3ukg4-FcWS9fO1pQbgLKGbc60E_NWD-7JTlBjMI'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmY2YjIzZWNkZDdmYzFlZThiNGRiZWM2ZjQ0ZDA4ZiIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e-VFjKNJEh7UmiL2MGuqYAugW-K1wy9j15jUf59w3Z4'
   }
 };
 
@@ -37,7 +37,7 @@ const session = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODVjMTcyMmU4MDNlOGU0ZTE3MGZkYmE1ODY3OWMyOCIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FYfo3ukg4-FcWS9fO1pQbgLKGbc60E_NWD-7JTlBjMI'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmY2YjIzZWNkZDdmYzFlZThiNGRiZWM2ZjQ0ZDA4ZiIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e-VFjKNJEh7UmiL2MGuqYAugW-K1wy9j15jUf59w3Z4'
   }
 }
 
@@ -97,7 +97,7 @@ export class ApiService {
       headers: {
         accept: 'application/json',
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODVjMTcyMmU4MDNlOGU0ZTE3MGZkYmE1ODY3OWMyOCIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FYfo3ukg4-FcWS9fO1pQbgLKGbc60E_NWD-7JTlBjMI'
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmY2YjIzZWNkZDdmYzFlZThiNGRiZWM2ZjQ0ZDA4ZiIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e-VFjKNJEh7UmiL2MGuqYAugW-K1wy9j15jUf59w3Z4'
       },
       body: '{value : 8}'
     };
@@ -108,6 +108,19 @@ export class ApiService {
   //consulter rating
   public getRatedMovies():Observable<{ results: Film[] }>{
     return this.http.get<{ results: Film[] }>(baseURL+ratedMovies,options)
+  }
+  public postRequest() {
+    const tt = 'https://api.themoviedb.org/3/movie/111/rating?api_key=abf6b23ecdd7fc1ee8b4dbec6f44d08f&d&query=$star&language=us-US';
+    const ee = {
+      headers: new HttpHeaders({
+        accept: 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmY2YjIzZWNkZDdmYzFlZThiNGRiZWM2ZjQ0ZDA4ZiIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e-VFjKNJEh7UmiL2MGuqYAugW-K1wy9j15jUf59w3Z4'
+      }),
+      body: JSON.stringify({ value: 8.5 })
+    };
+
+    return this.http.post(tt, ee);
   }
 
 }
