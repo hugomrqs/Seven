@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ApiService} from "../../../services/api/api.service";
+import {Film} from "../../../modele/film.modele";
 
 @Component({
   selector: 'app-add-rating',
@@ -13,7 +14,7 @@ export class AddRatingComponent implements OnInit{
   maxRatingArr : any = []
 
   @Input() rating : number =0
-  @Input() filmId: number | undefined
+  @Input() filmId: Film | undefined
 
   @Output()
   onRating:EventEmitter<number> = new EventEmitter<number>()
@@ -44,7 +45,7 @@ export class AddRatingComponent implements OnInit{
       this.SelectedStar = index + 1
       this.previousSelection = this.SelectedStar
     if(this.filmId !==undefined){
-      this.api.postRequest([this.filmId,this.SelectedStar*2]).subscribe()
+      this.api.postRequest([this.filmId.id,this.SelectedStar*2]).subscribe()
     }
   }
 }
