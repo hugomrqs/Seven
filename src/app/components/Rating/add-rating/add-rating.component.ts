@@ -45,7 +45,7 @@ export class AddRatingComponent implements OnInit{
       this.SelectedStar = index + 1
       this.previousSelection = this.SelectedStar
     if(this.filmId !==undefined){
-      this.api.postRequest([this.filmId.id,this.SelectedStar*2]).subscribe()
+      this.api.postRequest(this.filmId.id.toString(),this.SelectedStar*2).subscribe()
     }
   }
 }

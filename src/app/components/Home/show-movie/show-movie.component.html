@@ -5,7 +5,7 @@
         <h2>{{this.receivedData?.title}}</h2>
         <p>{{this.receivedData?.overview}}</p>
      <div class="button">
-       <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'"
+       <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'"  [style.background-color]="isFilmFav ? 'grey' : 'orange'"
                (click)="addFavorite(this.receivedData)">
          <mat-icon>favorite</mat-icon>
        </button>

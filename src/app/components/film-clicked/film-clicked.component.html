@@ -12,7 +12,7 @@
     </div>
     <div class="description">{{ film?.overview }}</div>
     <div class="buttons">
-      <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'" [style.background-color]="isFilmFav ? 'grey' : 'initial'" class="my-list-button"
+      <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'" [style.background-color]="isFilmFav ? 'grey' : 'orange'" class="my-list-button"
         (click)="addFavorite(this.film)">
           <mat-icon >favorite</mat-icon>
       </button>

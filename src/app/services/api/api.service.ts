@@ -94,15 +94,16 @@ export class ApiService {
   public getRatedMovies(page : number):Observable<{ results: Film[] }>{
    return this.http.get<{ results: Film[] }>(baseURL+`/account/11787154/rated/movies?language=en-US&page=2&sort_by=created_at.asc`,options)
   }
-  public postRequest(param: (number | undefined)[]) {
-    const tt = `https://api.themoviedb.org/3/movie/${param[0]}/rating?api_key=abf6b23ecdd7fc1ee8b4dbec6f44d08f&d&query=$star&language=us-US`;
+  public postRequest(id : String, note : number) {
+    const tt = `https://api.themoviedb.org/3/movie/${id}/rating`;
     const ee = {
+      method: 'POST',
       headers: new HttpHeaders({
         accept: 'application/json',
         'Content-Type': 'application/json;charset=utf-8',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmY2YjIzZWNkZDdmYzFlZThiNGRiZWM2ZjQ0ZDA4ZiIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e-VFjKNJEh7UmiL2MGuqYAugW-K1wy9j15jUf59w3Z4'
       }),
-      body: JSON.stringify({ "value": param[1]})
+      body: JSON.stringify({ value: 3})
     };
     return this.http.post(tt, ee);
   }
