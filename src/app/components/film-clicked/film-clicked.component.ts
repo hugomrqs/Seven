@@ -14,18 +14,21 @@ export class FilmClickedComponent implements OnInit{
   @Input() film: Film | undefined ;
   @Output() closeDetails = new EventEmitter<void>();
 
-  vote : number =0
+  vote : number = 0 ;
   isFilmFav : boolean = false;
-constructor( private fav : FavoritesMoviesService, private api : ApiService) {}
-  // getStars(): number[] {
-  //   const roundedRating = this.film?.vote_average ? Math.round(this.film.vote_average) : 0;
-  //   return Array.from({ length: roundedRating }, (_, index) => index + 1);
-  //
-  // }
+
+  constructor( private fav : FavoritesMoviesService, private api : ApiService) {}
+
+  ngOnInit(): void {
+    if(this.fav.favoriteList.some( film => film.id === this.film?.id )){
+      this.isFilmFav = true
+    }
+  }
 
   onClosePopup() {
     this.closeDetails.emit();
   }
+  
   note(vote : number){
     return this.vote === vote;
   }
@@ -39,11 +42,5 @@ constructor( private fav : FavoritesMoviesService, private api : ApiService) {}
     this.fav.setSelectedData(film)
     this.isFilmFav = true;
 
-  }
-
-  ngOnInit(): void {
-    if(this.fav.favoriteList.some( film => film.id === this.film?.id )){
-      this.isFilmFav = true
-    }
   }
 }

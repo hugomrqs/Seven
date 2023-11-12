@@ -10,10 +10,10 @@
   border-radius: 20px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  cursor: pointer;
   text-align: center;
   margin: 10%
 }
+
 .background-red {
   background-color: red;
 }
@@ -26,7 +26,8 @@
   padding: 40px 30px;
 }
 
-.rating-card .rating-card__front, .rating-card .rating-card__back {
+.rating-card .rating-card__front,
+.rating-card .rating-card__back {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -41,13 +42,15 @@
   border-radius: 50%;
 }
 
-.rating-card .rating-card__front .rating-card__content h2, .rating-card .rating-card__back .rating-card__content h1 {
+.rating-card .rating-card__front .rating-card__content h2,
+.rating-card .rating-card__back .rating-card__content h1 {
   color: white;
   font-size: 26px;
   font-weight: 500;
 }
 
-.rating-card .rating-card__front .rating-card__content p, .rating-card .rating-card__back .rating-card__content p {
+.rating-card .rating-card__front .rating-card__content p,
+.rating-card .rating-card__back .rating-card__content p {
   color: honeydew;
   line-height: 20px;
   margin-top: 12px;
@@ -80,7 +83,8 @@
   color: white;
 }
 
-.rating-card .rating-card__front .rating-card__ratings button:active, .rating-card .rating-card__front .rating-card__ratings button.active {
+.rating-card .rating-card__front .rating-card__ratings button:active,
+.rating-card .rating-card__front .rating-card__ratings button.active {
   background: orange;
   color: white;
 }
@@ -133,13 +137,14 @@ section {
 }
 
 .card h1 {
-font-size: 3rem;
+  font-size: 3rem;
 }
 
 .card p {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
 }
@@ -149,5 +154,3 @@ font-size: 3rem;
   transform: scale(1.1);
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.5);
 }
-
-

@@ -13,15 +13,11 @@ import { PopularCarousselComponent } from './components/Home/popular-caroussel/p
 import { ShowMovieComponent } from './components/Home/show-movie/show-movie.component';
 import { MatCardModule } from "@angular/material/card";
 import { MatListModule } from "@angular/material/list";
-import { NextDirective } from './directives/next.directive';
-import { PrevDirective } from './directives/prev.directive';
 import { FormsModule } from '@angular/forms';
 import { SearchResultPageComponent } from './components/Search/search-result-page/search-result-page.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { RatedMoviesComponent } from './components/Rating/rated-movies/rated-movies.component';
 import { MatDividerModule } from "@angular/material/divider";
 import { MatButtonModule } from "@angular/material/button";
-import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RatedComponent } from './components/Rating/rated/rated.component';
 import { FavoritesPageComponent } from './components/Favorite/favorites-page/favorites-page.component';
 import { FilmClickedComponent } from './components/film-clicked/film-clicked.component';
@@ -29,6 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SuggestionPageComponent } from './components/Suggestion/suggestion-page/suggestion-page.component';
 import { SuggestionCarousselComponent } from './components/Suggestion/suggestion-caroussel/suggestion-caroussel.component';
 import { CarousselGeneralisationComponent } from './components/caroussel-generalisation/caroussel-generalisation.component';
+import { FeaturesPageComponent } from './components/Info/info-page/features-page.component';
 
 
 @NgModule({
@@ -37,19 +34,16 @@ import { CarousselGeneralisationComponent } from './components/caroussel-general
     HomePageComponent,
     HeaderComponent,
     MenuComponent,
-    NextDirective,
-    PrevDirective,
     PopularCarousselComponent,
     ShowMovieComponent,
     SearchResultPageComponent,
-    RatedMoviesComponent,
-    LoginPageComponent,
     RatedComponent,
     FavoritesPageComponent,
     FilmClickedComponent,
     SuggestionPageComponent,
     SuggestionCarousselComponent,
-    CarousselGeneralisationComponent
+    CarousselGeneralisationComponent,
+    FeaturesPageComponent
   ],
   imports: [
     BrowserModule,

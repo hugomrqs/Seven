@@ -4,17 +4,20 @@
     overflow: hidden;
   }
 
-  .custom-title img{
+  .logo img {
     padding-top: 2vh;
-    width : 5vw;
-    transition: transform 0.9s ease-in-out;
+    width: 5vw;
+    transition: transform 0.2s ease-in-out;
   }
-.custom-title img:hover{
-  transform: scale(1.2);
-}
+
+  .logo img:hover {
+    transform: scale(1.1);
+  }
+
   .nav-pills a {
     color: rgb(180, 180, 180);
-    text-decoration: none; /* Pour enlever le soulignement */
+    text-decoration: none;
+    /* Pour enlever le soulignement */
     font-size: 17px;
   }
 

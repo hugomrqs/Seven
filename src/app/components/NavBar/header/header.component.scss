@@ -23,7 +23,7 @@
     color: aliceblue;
     padding-left: 10px;
     border: solid 1px rgb(55 55 55);
-}
+  }
 
   .custom-search-button {
     border-radius: 0 7px 7px 0;
@@ -32,19 +32,25 @@
     border: solid 1px rgb(55 55 55);
     padding-left: 10px;
     padding-right: 10px;
+    cursor: pointer;
   }
 
-  .custom-search-button:active  {
-    transform: scale(0.95); /* Réduit la taille du bouton au clic */
-}
+  .custom-search-button:active {
+    transform: scale(0.95);
+    /* Réduit la taille du bouton au clic */
+  }
 
- .custom-account-button {
-  margin-left: 100vh;
-  border: none;
-  background: transparent;
-}
+  .custom-account-button {
+    margin-left: 100vh;
+    border: none;
+    background: transparent;
+    cursor: help;
+  }
 
-.custom-account-button:active  {
-  transform: scale(0.95);
-}
+  .custom-account-button:hover {
+    transform: scale(1.1);
+  }
 
+  .custom-account-button:active {
+    transform: scale(0.95);
+  }

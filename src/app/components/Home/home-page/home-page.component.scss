@@ -2,7 +2,8 @@ app-popular-caroussel {
     display: flex;
     height: 90vh;
 }
-.scroll{
-scroll-behavior: smooth;
+
+.scroll {
+    scroll-behavior: smooth;
     overflow-y: auto;
 }

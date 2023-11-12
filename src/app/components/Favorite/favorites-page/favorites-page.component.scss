@@ -13,8 +13,8 @@
 }
 
 .grid-item img {
-  max-width: 100%;
-  height: auto;
+  width: 15vw;
+  height: 40vh;
   display: block;
   border-radius: 6px;
   border: solid 1px;
@@ -25,7 +25,6 @@
 .grid-item:hover img {
   transform: scale(1.03); /* Augmente légèrement la taille de l'élément au survol */
   transition: transform 0.2s; /* Ajoute une transition fluide pour l'effet */
-  cursor: pointer;
   filter: grayscale(100%);
 }
 

@@ -1,21 +1,21 @@
-<div [ngClass]="productClass" [ngClass]="containerClass"> <!-- classes dynamique -->
-    <div class="container-fluid">
+<div [ngClass]="productClass"> <!-- classes dynamique -->
+    <div [ngClass]="containerClass">
         <ng-content select=".title"></ng-content> <!-- Emplacement pour les éléments -->
         <ng-content select=".image"></ng-content> <!-- Emplacement pour les éléments -->
     </div>
     <div class="button-area">
-        <button type="button" class="prev" appPrev>
-            <span class="carousel-control-prev-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="36" height="26" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                    <path
-                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                </svg></span>
-        </button>
-        <button type="button" class="next" appNext>
-            <span class="carousel-control-next-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="36" height="26" fill="currentColor" class="bi bi-right-fill" viewBox="0 0 16 16">
-                    <path
-                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                </svg></span>
+        <button class="prev" (click)="prev()">
+            <span class="carousel-control-prev-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                </svg>
+            </span>
+          </button>
+        <button class="next" (click)="next()">
+            <span class="carousel-control-next-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                </svg>
+            </span>
         </button>
     </div>

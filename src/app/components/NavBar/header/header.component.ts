@@ -16,8 +16,7 @@ export class HeaderComponent {
   constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (!event.url.includes('/search')) {
-          // Si l'URL ne contient pas '/search', vide la barre de recherche
+        if (!event.url.includes('/search')) { // Si l'URL ne contient pas '/search', vide la barre de recherche
           this.query = '';
         }
       }
@@ -35,4 +34,8 @@ export class HeaderComponent {
     this.router.navigateByUrl("search");
   }
 
+  OnInfoClicked(): void {
+    //router vers la page de features --> features-page component
+    this.router.navigateByUrl("features");
+  }
 }

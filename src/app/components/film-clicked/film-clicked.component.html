@@ -12,7 +12,7 @@
     </div>
     <div class="description">{{ film?.overview }}</div>
     <div class="buttons">
-      <button [style.background-color]="isFilmFav ? 'red' : 'initial'" class="my-list-button"
+      <button class="my-list-button" [ngStyle]="{'background-color': (isFilmFav ? 'red' : 'initial')}" 
         (click)="addFavorite(this.film)">+ MY LIST</button>
       
       <div class="rating-buttons">
@@ -31,6 +31,7 @@
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>

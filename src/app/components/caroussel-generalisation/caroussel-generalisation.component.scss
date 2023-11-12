@@ -1,9 +1,9 @@
   .product-home {
-    height: 100vh;
+    height: 100%;
   }
 
   .product-suggestion {
-    height: 100vh;
+    height: 100%;
     margin-top: 6vh;
   }
   
@@ -23,15 +23,24 @@
   .prev {
     z-index: 2;
     position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    transform:translateY(-25vh);
+    left: 22%;
+    cursor: pointer;
+  }
+  
+  .prev:hover {
+    color: rgb(218, 57, 57);
   }
   
   .next {
     z-index: 2;
     position: absolute;
-    right: 50px;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    transform:translateY(-25vh);
+    right: 2%;
+    cursor: pointer;
+  }
+
+  .next:hover {
+    color: rgb(218, 57, 57);
   }
   
