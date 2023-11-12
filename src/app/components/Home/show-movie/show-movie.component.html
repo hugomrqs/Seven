@@ -4,13 +4,13 @@
   <div class="card">
         <h2>{{this.receivedData?.title}}</h2>
         <p>{{this.receivedData?.overview}}</p>
-        <div title="Vote average, on {{ ((this.vote)/2).toFixed(0) }} votes">{{ receivedData?.vote_average?.toFixed(1) }}<span class="small-text">/5</span></div>
      <div class="button">
        <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'"
                (click)="addFavorite(this.receivedData)">
          <mat-icon>favorite</mat-icon>
        </button>
-      <app-add-rating (click)="likeMovie()" class="setting"></app-add-rating>
+
+      <app-add-rating [rating]=this.vote [filmId]=this.receivedData?.id class="setting"></app-add-rating>
 
      </div>
   </div>

@@ -14,9 +14,9 @@
     <div class="buttons">
       <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'" [style.background-color]="isFilmFav ? 'grey' : 'initial'" class="my-list-button"
         (click)="addFavorite(this.film)">
-          <mat-icon>favorite</mat-icon>
+          <mat-icon >favorite</mat-icon>
       </button>
-    <app-add-rating class="setting"></app-add-rating>
+    <app-add-rating [rating]=3 [filmId]=this.film?.id class="setting"></app-add-rating>
 
     </div>
   </div>

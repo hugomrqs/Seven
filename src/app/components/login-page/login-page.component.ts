@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 
 export class LoginPageComponent {
   private isConfigSubscribed: boolean = false;
-   
+
   //ANYYYYYYY
-   response : any ; 
+   response : any ;
    token: string | undefined ;
 
   isAuth(): void {

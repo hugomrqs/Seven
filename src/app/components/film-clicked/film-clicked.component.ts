@@ -29,13 +29,7 @@ constructor( private fav : FavoritesMoviesService, private api : ApiService) {}
   note(vote : number){
     return this.vote === vote;
   }
-
-  likeMovie(film : Film | undefined){
-    const body = [this.vote, film?.id]
-    this.api.postRateMovie(body).subscribe(response => console.log(response))
-  }
-
-  addFavorite(film : Film | undefined){
+    addFavorite(film : Film | undefined){
     this.fav.setSelectedData(film)
     this.isFilmFav = true;
 

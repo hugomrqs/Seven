@@ -15,13 +15,12 @@ export class RatedComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.api.getRatedMovies().subscribe(data => {
-      this.films = data.results ;
-      console.log(data) ;
-    })
-  }
-  note(vote : number){
-    return this.vote === vote;
-  }
+      this.api.getRatedMovies(1).subscribe(data => {
+        this.films = data.results ;
+      })
+      this.api.getRatedMovies(2).subscribe(data => {
+        this.films = data.results ;
+     })
 
+  }
 }

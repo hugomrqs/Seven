@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, Subscription} from "rxjs";
+import {concat, forkJoin, Observable, Subscription} from "rxjs";
 import {Film} from "../../modele/film.modele";
 
 //session
@@ -17,7 +17,7 @@ let trendyReal = 'trending/person/day?language=en-US';
 let DiscoverReal  ='discover/movie?with_crew=525';
 let genreList=  'genre/movie/list?language=e'
 let ratingMovie = 'movie/1022796/rating?'
-let ratedMovies = '/account/11787154/rated/movies'
+let ratedMovies = '/account/11787154/rated/movies?language=en-US&page=2&sort_by=created_at.asc'
 let movieCertification = 'certification/movie/list'
 let genreMovies = 'discover/movie?with_genres=28'
 let popularMovies = 'movie/popular?language=en-US&page=1'
@@ -90,36 +90,20 @@ export class ApiService {
     return this.http.get(baseURL+DiscoverReal,options);
   }
 
-  //ajouter un rating
-  public postRateMovie(body: any): Observable<any>{
-    const options = {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmY2YjIzZWNkZDdmYzFlZThiNGRiZWM2ZjQ0ZDA4ZiIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e-VFjKNJEh7UmiL2MGuqYAugW-K1wy9j15jUf59w3Z4'
-      },
-      body: '{value : 8}'
-    };
-    console.log(JSON.stringify(body[0]))
-    return this.http.post(baseURL+ `movie/${body[1]}/rating?api_key=285c1722e803e8e4e170fdba58679c28`,{value : body[0]},options);
-  }
-
   //consulter rating
-  public getRatedMovies():Observable<{ results: Film[] }>{
-    return this.http.get<{ results: Film[] }>(baseURL+ratedMovies,options)
+  public getRatedMovies(page : number):Observable<{ results: Film[] }>{
+   return this.http.get<{ results: Film[] }>(baseURL+`/account/11787154/rated/movies?language=en-US&page=2&sort_by=created_at.asc`,options)
   }
-  public postRequest() {
-    const tt = 'https://api.themoviedb.org/3/movie/111/rating?api_key=abf6b23ecdd7fc1ee8b4dbec6f44d08f&d&query=$star&language=us-US';
+  public postRequest(param: (number | undefined)[]) {
+    const tt = `https://api.themoviedb.org/3/movie/${param[0]}/rating?api_key=abf6b23ecdd7fc1ee8b4dbec6f44d08f&d&query=$star&language=us-US`;
     const ee = {
       headers: new HttpHeaders({
         accept: 'application/json',
         'Content-Type': 'application/json;charset=utf-8',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYmY2YjIzZWNkZDdmYzFlZThiNGRiZWM2ZjQ0ZDA4ZiIsInN1YiI6IjYxZTgyOGM1NDM5OTliMDA2ZDIxMmYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e-VFjKNJEh7UmiL2MGuqYAugW-K1wy9j15jUf59w3Z4'
       }),
-      body: JSON.stringify({ value: 8.5 })
+      body: JSON.stringify({ "value": param[1]})
     };
-
     return this.http.post(tt, ee);
   }
 
