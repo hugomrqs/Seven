@@ -16,7 +16,7 @@
         (click)="addFavorite(this.film)">
           <mat-icon >favorite</mat-icon>
       </button>
-    <app-add-rating [rating]=3 [filmId]=this.film class="setting"></app-add-rating>
+    <app-add-rating [rating]=this.vote [filmId]=this.film class="setting"></app-add-rating>
 
     </div>
   </div>

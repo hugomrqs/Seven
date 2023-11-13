@@ -23,9 +23,7 @@ export class AddRatingComponent implements OnInit{
   ngOnInit(): void {
     this.maxRatingArr = Array(this.maxRating).fill(0)
     if(this.rating !==0){
-      this.SelectedStar = Math.ceil(this.rating / 2)
-      console.log(Math.ceil(this.rating / 2) )
-      this.onRating.emit(this.SelectedStar + 1)
+      this.SelectedStar = Math.ceil(this.rating / 2) +1
     }
   }
 
@@ -38,6 +36,8 @@ export class AddRatingComponent implements OnInit{
       this.SelectedStar = this.previousSelection
     }else{
       this.SelectedStar =  Math.ceil(this.rating / 2)
+      console.log(this.SelectedStar)
+
     }
   }
 
@@ -45,6 +45,8 @@ export class AddRatingComponent implements OnInit{
       this.SelectedStar = index + 1
       this.previousSelection = this.SelectedStar
     if(this.filmId !==undefined){
+      console.log("l'id du film est")
+      console.log(this.filmId.id)
       this.api.postRequest(this.filmId.id.toString(),this.SelectedStar*2).subscribe()
     }
   }
