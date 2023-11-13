@@ -11,13 +11,13 @@ import { ApiService } from "../../../services/api/api.service";
 export class FavoritesPageComponent implements OnInit{
   films : Film[] = []
 
-  constructor(private api: ApiService, private fav : FavoritesMoviesService) {}
+  constructor(private api: ApiService, private favoriteService : FavoritesMoviesService) {}
 
   ngOnInit(): void {
-    this.films = this.fav.favoriteList.reverse() ;
+    this.films = this.favoriteService.favoriteList.reverse() ;
   }
 
-  popMovie(film : Film){
+  popMovie(film : Film) : void {
     for(let i=0 ; i<this.films.length ; i++){
       if(this.films[i].id === film.id){
         this.films.splice(i,1) ;

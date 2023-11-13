@@ -1,9 +1,9 @@
-<div [ngClass]="productClass"> <!-- classes dynamique -->
+<div *ngIf="isDataLoaded" [ngClass]="productClass"> <!-- classes dynamique -->
     <div [ngClass]="containerClass">
         <ng-content select=".title"></ng-content> <!-- Emplacement pour les éléments -->
         <ng-content select=".image"></ng-content> <!-- Emplacement pour les éléments -->
     </div>
-    <div class="button-area">
+    <div class="button-area"></div>
         <button class="prev" (click)="prev()">
             <span class="carousel-control-prev-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-left-fill" viewBox="0 0 16 16">

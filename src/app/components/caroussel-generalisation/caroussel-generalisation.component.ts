@@ -10,9 +10,19 @@ export class CarousselGeneralisationComponent {
   @Input() productClass: string = 'product-home'; //par défaut, evite un passage d'input dans suggestion-carroussel
   @Input() containerClass: string = 'container-fluid-home'; //par defaut, evite un passage d'input dans suggestion-carroussel
   @Input() films: Film[] = [];
+  isDataLoaded: boolean = false ;
+
+  ngOnInit() {
+    // Simule un délai en millisecondes (pour laisser le temps de charger toute les infos (images) et avoir un affichage fluide, sinon bouton du carroussel apparaissent trop tôt)
+    setTimeout(() => {
+      if (this.films) {
+        this.isDataLoaded = true;
+      }
+    }, 350);
+  }
 
   //Pour prev/next le caroussel
-  prev() {
+  prev() : void {
     if (this.films.length > 1) {
       const lastFilm = this.films.pop();
       if(lastFilm){
@@ -21,7 +31,7 @@ export class CarousselGeneralisationComponent {
     }
   }
 
-  next() {
+  next() : void {
     if (this.films.length > 1) {
       const firstFilm = this.films.shift();
       if (firstFilm) {
