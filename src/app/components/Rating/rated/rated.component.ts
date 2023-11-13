@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../services/api/api.service";
-import {HomePageDataService} from "../../../services/home-page-data/home-page-data.service";
 import {Film} from "../../../modele/film.modele";
 
 @Component({
@@ -10,7 +9,6 @@ import {Film} from "../../../modele/film.modele";
 })
 export class RatedComponent implements OnInit {
   films : Film[] = []
-  vote :number = 0
 
   constructor(private api: ApiService) {}
 
