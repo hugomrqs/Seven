@@ -3,8 +3,6 @@ import { Film } from '../../modele/film.modele';
 import { FavoritesMoviesService } from "../../services/Favorites-movies/favorites-movies.service";
 import { ApiService } from "../../services/api/api.service";
 import { Router } from '@angular/router';
-// import Math from "$GLOBAL$";
-// import Array from "$GLOBAL$";
 
 @Component({
   selector: 'app-film-clicked',

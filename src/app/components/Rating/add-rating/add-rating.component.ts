@@ -11,13 +11,11 @@ export class AddRatingComponent implements OnInit{
   @Input() maxRating : number = 5
   @Input() SelectedStar=0
   previousSelection : number = 0
-  maxRatingArr : any = []
+  maxRatingArr : number[] = []
 
   @Input() rating : number =0
   @Input() filmId: Film | undefined
 
-  @Output()
-  onRating:EventEmitter<number> = new EventEmitter<number>()
   constructor(private api : ApiService) {}
 
   ngOnInit(): void {
