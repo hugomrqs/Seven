@@ -26,7 +26,7 @@ export class ShowMovieComponent  implements OnInit{
         this.isFilmFav = true
       }
       this.vote = this.receivedData.vote_average
-      console.log(this.receivedData.vote_average)
+      console.log(this.receivedData.title,this.receivedData.vote_average)
       });
     }
   }

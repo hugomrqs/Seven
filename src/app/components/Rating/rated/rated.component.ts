@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../services/api/api.service";
 import {Film} from "../../../modele/film.modele";
+import {RateMovieService} from "../../../services/rate-movie/rate-movie.service";
 
 @Component({
   selector: 'app-rated',
@@ -10,15 +11,9 @@ import {Film} from "../../../modele/film.modele";
 export class RatedComponent implements OnInit {
   films : Film[] = []
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private rate : RateMovieService) {}
 
   ngOnInit(): void {
-      this.api.getRatedMovies(1).subscribe(data => {
-        this.films = data.results ;
-      })
-      this.api.getRatedMovies(2).subscribe(data => {
-        this.films = data.results ;
-     })
-
+ this.films=this.rate.ratedList.reverse()
   }
 }
