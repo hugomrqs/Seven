@@ -25,6 +25,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { SuggestionPageComponent } from './components/Suggestion/suggestion-page/suggestion-page.component';
 import { SuggestionCarousselComponent } from './components/Suggestion/suggestion-caroussel/suggestion-caroussel.component';
 import { CarousselGeneralisationComponent } from './components/caroussel-generalisation/caroussel-generalisation.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { AddRatingComponent } from './components/Rating/add-rating/add-rating.component';
 import { FeaturesPageComponent } from './components/Info/info-page/features-page.component';
 
 
@@ -43,7 +46,8 @@ import { FeaturesPageComponent } from './components/Info/info-page/features-page
     SuggestionPageComponent,
     SuggestionCarousselComponent,
     CarousselGeneralisationComponent,
-    FeaturesPageComponent
+    FeaturesPageComponent,
+    AddRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,8 @@ import { FeaturesPageComponent } from './components/Info/info-page/features-page
     MatGridListModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatToolbarModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

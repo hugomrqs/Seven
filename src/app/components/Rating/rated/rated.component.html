@@ -1,28 +1,14 @@
-<mat-grid-list cols="4">
-  <ng-container>
-    <mat-grid-tile *ngFor="let film of films">
-      <img src="https://image.tmdb.org/t/p/original{{this.film.poster_path}}" alt="{{film.title}}">
-      <div class="delete-button">
-        <div class="card rating-card">
-          <div class="rating-card__front">
-            <div class="rating-card__content">
-              <div class="rating-card__ratings">
-                <button (click)="note(2)">1</button>
-                <button (click)="note(4)">2</button>
-                <button (click)="note(6)">3</button>
-                <button (click)="note(8)">4</button>
-                <button (click)="note(10)">5</button>
-              </div>
-              <button class="rating-card__btn">submit</button>
-              <div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="image-grid">
+  <ng-container *ngIf="films.length > 0; else noResults">
+    <div class="grid-item" *ngFor="let film of films" >
+      <img src="https://image.tmdb.org/t/p/original{{film.poster_path}}">
+      <div class="grid-item-footer">
+        <h4>{{film.title}}</h4>
+        <app-add-rating [rating]=film.rating></app-add-rating>
       </div>
-    </mat-grid-tile>
+    </div>
   </ng-container>
   <ng-template #noResults>
-    <div class="no-results">no results for this search, sorry...</div>
+    <div class="no-results">no results for this search, <span class="red-text">sorry...</span></div>
   </ng-template>
-</mat-grid-list>
+</div>

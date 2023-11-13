@@ -11,23 +11,13 @@ import {ApiService} from "../../../services/api/api.service";
 })
 
 export class ShowMovieComponent  implements OnInit{
-
   receivedData: Film | undefined;
   isFilmFav : boolean = false;
   vote : number = 0
-  votePost =0
   constructor(private data : HomePageDataService, private fav : FavoritesMoviesService, private api: ApiService) {}
   addFavorite(film : Film | undefined){
     this.fav.setSelectedData(film)
     this.isFilmFav = true;
-  }
-  note(data : number){
-    return this.votePost = data;
-  }
-
-  likeMovie(film : Film | undefined){
-    const body = [this.votePost, film?.id]
-    this.api.postRateMovie(body).subscribe()
   }
   ngOnInit(): void {
     this.data.selectedData$.subscribe(data => {
@@ -35,9 +25,11 @@ export class ShowMovieComponent  implements OnInit{
       if(this.fav.favoriteList.some( film => film.id === this.receivedData?.id )){
         this.isFilmFav = true
       }
-      this.vote = this.receivedData.vote_average/2
+      this.vote = this.receivedData.vote_average
+      console.log(this.receivedData.vote_average)
     });
-    }
+
+  }
   }
 
 

@@ -1,29 +1,20 @@
-<div *ngIf="this.receivedData?.id !== 0">
-  <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'}"
-    class="container">
-    <div class="card rating-card">
-      <div class="rating-card__front">
-        <div class="rating-card__content">
-          <h2>{{this.receivedData?.title}}</h2>
-          <p>{{this.receivedData?.overview}}</p>
-          <p>{{this.vote}}</p>
-          <p></p>
 
-        </div>
-        <div class="rating-card__ratings">
-          <button (click)="note(2)">1</button>
-          <button (click)="note(4)">2</button>
-          <button (click)="note(6)">3</button>
-          <button (click)="note(8)">4</button>
-          <button (click)="note(10)">5</button>
-        </div>
-        <button class="rating-card__btn" (click)="likeMovie(this.receivedData)">submit</button>
-        <div>
-          <button mat-fab disabled aria-label="Example icon button with a heart icon">
-            <mat-icon>favorite</mat-icon>
-          </button>
-        </div>
-      </div>
-    </div>
+<div *ngIf="this.receivedData?.id !== 0">
+<div  [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'" class ="container">
+  <div class="card">
+        <h2>{{this.receivedData?.title}}</h2>
+        <p>{{this.receivedData?.overview}}</p>
+     <div class="button">
+       <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'"  [style.background-color]="isFilmFav ? 'grey' : 'orange'"
+               (click)="addFavorite(this.receivedData)">
+         <mat-icon>favorite</mat-icon>
+       </button>
+
+      <app-add-rating [rating]=this.vote [filmId]=this.receivedData class="setting"></app-add-rating>
+     </div>
   </div>
+
 </div>
+</div>
+
+
