@@ -21,13 +21,16 @@ export class ShowMovieComponent implements OnInit {
     this.HomePageService.results$.subscribe(data => {
       this.film = data;
     });
-    if (this.favoriteService.favoriteList.some(film => film.id === this.film?.id)) {
-      this.isFilmFav = true ;
-    }
+    //si il fait déjà partie des favoris, on disabled l'ajout aux favoris
+    this.favoriteService.selectedData$.subscribe((films: Film[]) => {
+      if (this.film && films.some(f => f.id === this.film?.id)) {
+        this.isFilmFav = true;
+      }
+    });
   }
 
-  addFavorite(film: Film | undefined): void {
-    this.favoriteService.setSelectedData(film)
+  addFavorite(film : Film): void {
+    this.favoriteService.setSelectedData(film) ;
     this.isFilmFav = true;
   }
 

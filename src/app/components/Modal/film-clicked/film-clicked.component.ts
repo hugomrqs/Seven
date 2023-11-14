@@ -22,9 +22,11 @@ export class FilmClickedComponent implements OnInit {
 
   ngOnInit(): void {
     //si il fait déjà partie des favoris, on disabled l'ajout aux favoris
-    if(this.favoriteService.favoriteList.some( film => film.id === this.film?.id )){
-      this.isFilmFav = true ;
-    }
+    this.favoriteService.selectedData$.subscribe((films: Film[]) => {
+      if (this.film && films.some(f => f.id === this.film?.id)) {
+        this.isFilmFav = true;
+      }
+    });
     if(this.film !== undefined){ 
       this.vote = Math.floor(this.film.vote_average / 2) ;
     }
@@ -36,7 +38,7 @@ export class FilmClickedComponent implements OnInit {
     this.closeDetails.emit();
   }
 
-  addFavorite(film : Film | undefined) : void {
+  addFavorite(film : Film) : void {
     this.favoriteService.setSelectedData(film)
     this.isFilmFav = true;
   }

@@ -8,8 +8,7 @@ import {Film} from "../../../Modele/film.modele";
   styleUrls: ['./add-rating.component.scss']
 })
 export class AddRatingComponent implements OnInit{
-  @Input() maxRating : number = 5
-  @Input() SelectedStar=0
+  SelectedStar = 0
   previousSelection : number = 0
   maxRatingArr : number[] = []
 
@@ -19,7 +18,7 @@ export class AddRatingComponent implements OnInit{
   constructor(private api : ApiService) {}
 
   ngOnInit(): void {
-    this.maxRatingArr = Array(this.maxRating).fill(0)
+    this.maxRatingArr = Array(5).fill(0)
     if(this.rating !==0){
       this.SelectedStar = Math.ceil(this.rating / 2) +1
     }

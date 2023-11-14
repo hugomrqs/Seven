@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("search");
   }
 
-  OnInfoClicked(): void {
+  onInfoClicked(): void {
     //router vers la page de features --> features-page component
     this.router.navigateByUrl("features");
   }

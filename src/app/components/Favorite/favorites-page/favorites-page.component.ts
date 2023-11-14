@@ -14,7 +14,9 @@ export class FavoritesPageComponent implements OnInit{
   constructor(private api: ApiService, private favoriteService : FavoritesMoviesService) {}
 
   ngOnInit(): void {
-    this.films = this.favoriteService.favoriteList.reverse() ;
+    this.favoriteService.selectedData$.subscribe((films: Film[]) => {
+      this.films = films ;
+    });
   }
 
   popMovie(film : Film) : void {

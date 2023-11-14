@@ -33,7 +33,7 @@ export class SearchResultPageComponent implements OnInit {
     this.popupIsVisible = true;
     this.disableScrolling();
     this.overlayAnimation = 'fade-in';
-    this.suggestionService.AddFilmClicked(film) ; //pour les suggestions
+    this.suggestionService.addFilmClicked(film) ; //pour les suggestions
     console.log(this.selectedFilm);
   }
 

@@ -1,40 +1,16 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Film} from "../../Modele/film.modele";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesMoviesService {
+  private selectedDataSubject  = new BehaviorSubject<Film[]>([]);
+  selectedData$ : Observable<Film[]> = this.selectedDataSubject.asObservable();
 
-  favoriteList :Film[] =[]
-  favMovie : boolean = true
-
-
-  private selectedDataSubject  = new BehaviorSubject<Film>({
-    adult: false,
-    backdrop_path: "",
-    genres: [],
-    id: 0,
-    imdb_id: "",
-    overview: "",
-    popularity: 0,
-    poster_path: "",
-    release_date: "",
-    runtime: 0,
-    tagline: "",
-    title: "",
-    vote_average: 0,
-    vote_count: 0,
-    rating :0
-  });
-
-  selectedData$ = this.selectedDataSubject.asObservable();
-
-  setSelectedData(data: any) {
-      this.selectedDataSubject.next(data);
-if(!this.favoriteList.find(f => f.id === data.id))
-    this.favoriteList.push(data)
+  setSelectedData(data: Film) {
+    const currentData = this.selectedDataSubject.getValue(); // Obtenir la valeur actuelle
+    this.selectedDataSubject.next([data, ...currentData]); // Ajouter le nouveau film à la liste (en 1ère position)
   }
-  constructor() { }
 }

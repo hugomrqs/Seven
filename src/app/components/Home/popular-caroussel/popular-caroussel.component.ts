@@ -23,7 +23,7 @@ export class PopularCarousselComponent implements OnInit {
   
   sendData(film : Film) : void {
     this.homePageService.setSelectedData(film);
-    this.suggestionService.AddFilmClicked(film);
+    this.suggestionService.addFilmClicked(film);
     this.scrollDown()
   }
   

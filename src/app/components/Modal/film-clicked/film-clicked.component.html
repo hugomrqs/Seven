@@ -1,15 +1,15 @@
-<div class="popup-container"
-  [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/' + (film?.backdrop_path ? film?.backdrop_path : film?.poster_path) + ')'}">
+<div *ngIf="this.film" class="popup-container"
+  [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/' + (film.backdrop_path ? film.backdrop_path : film.poster_path) + ')'}">
   <button class="close-button" (click)="onClosePopup()">
     <mat-icon>close</mat-icon>
   </button>
   <div class="filtre">
     <div class="info">
-      <h2>{{ film?.title }}</h2>
-      <div title="Release year">{{ film?.release_date?.substring(0, 4) }}</div> <!--title pr le dialog au hover-->
-      <div title="Vote average, on {{ film?.vote_count }} votes">{{ this.vote }}<span class="small-text">/5</span></div>
+      <h2>{{ film.title }}</h2>
+      <div title="Release year">{{ film.release_date.substring(0, 4) }}</div> <!--title pr le dialog au hover-->
+      <div title="Vote average, on {{ film.vote_count }} votes">{{ this.vote }}<span class="small-text">/5</span></div>
     </div>
-    <div class="description">{{ film?.overview }}</div>
+    <div class="description">{{ film.overview }}</div>
     <div class="buttons">
       <button mat-fab class="my-list-button"
         (click)="addFavorite(this.film)"
