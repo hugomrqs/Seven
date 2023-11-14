@@ -1,11 +1,11 @@
 <div *ngIf="this.receivedData?.id !== 0">
   <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'}"
-    class="container">
+      class="container">
     <div class="card">
       <h2>{{this.receivedData?.title}}</h2>
       <p>{{this.receivedData?.overview}}</p>
       <div class="button">
-        <button mat-fab class="my-list-button" (click)="addFavorite(this.receivedData)" 
+        <button mat-fab class="my-list-button" (click)="addFavorite(this.receivedData)"
           [ngStyle]="{'cursor': (isFilmFav ? 'not-allowed' : 'initial'),
                       'background-color': (isFilmFav ? 'grey' : 'orange')}">
           <mat-icon>favorite</mat-icon>

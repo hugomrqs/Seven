@@ -15,7 +15,7 @@ export class SearchResultPageComponent implements OnInit {
 
   //pour un film qui à été cliqué --> ouverture de la popup
   selectedFilm: Film | undefined;
-  popupIsVisible: boolean = false; 
+  popupIsVisible: boolean = false;
   overlayAnimation: string = '';
 
 
@@ -34,7 +34,6 @@ export class SearchResultPageComponent implements OnInit {
     this.disableScrolling();
     this.overlayAnimation = 'fade-in';
     this.suggestionService.AddFilmClicked(film) ; //pour les suggestions
-    console.log(this.selectedFilm);
   }
 
   closeFilmDetails() {

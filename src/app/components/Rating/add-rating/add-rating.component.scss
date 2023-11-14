@@ -1,10 +1,14 @@
 .container{
-  max-width: 7vw;
+  max-width: 10vw;
   z-index: 1;
   border: none;
   color : lightgoldenrodyellow;
+  display: flex;
+  flex-direction: row;
 }
 
+.isRated{
+}
 .checked{
   color: orange;
 }

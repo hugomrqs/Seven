@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ApiService} from "../../../services/api/api.service";
 import {Film} from "../../../modele/film.modele";
+import {RatedMoviesService} from "../../../services/rated-movies/rated-movies.service";
 
 @Component({
   selector: 'app-add-rating',
@@ -16,11 +17,13 @@ export class AddRatingComponent implements OnInit{
   @Input() rating : number = 0 ;
   @Input() filmId: Film | undefined ;
 
-  constructor(private api : ApiService) {}
+  constructor(private rate : RatedMoviesService) {}
 
   ngOnInit(): void {
     this.maxRatingArr = Array(this.maxRating).fill(0)
-    if(this.rating !==0){
+    if(this.filmId?.rating !==0 && this.filmId?.rating !== undefined){
+      this.SelectedStar = this.filmId?.rating
+    }else{
       this.SelectedStar = Math.ceil(this.rating / 2) +1
     }
   }
@@ -34,8 +37,6 @@ export class AddRatingComponent implements OnInit{
       this.SelectedStar = this.previousSelection
     }else{
       this.SelectedStar =  Math.ceil(this.rating / 2)
-      console.log(this.SelectedStar)
-
     }
   }
 
@@ -43,9 +44,8 @@ export class AddRatingComponent implements OnInit{
       this.SelectedStar = index + 1
       this.previousSelection = this.SelectedStar
     if(this.filmId !==undefined){
-      console.log("l'id du film est")
-      console.log(this.filmId.id)
-      this.api.postRequest(this.filmId.id.toString(),this.SelectedStar*2).subscribe()
+      this.filmId.rating = this.SelectedStar +1
+      this.rate.setSelectedData(this.filmId )
     }
   }
 }

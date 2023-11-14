@@ -5,11 +5,9 @@ import {BehaviorSubject} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+export class RatedMoviesService {
+  ratedList :Film[] =[]
 
-@Injectable()
-export class HomePageDataService {
-  public token: string | undefined
-  private selectedMovies : Film[] =[];
   private selectedDataSubject  = new BehaviorSubject<Film>({
     adult: false,
     backdrop_path: "",
@@ -30,7 +28,14 @@ export class HomePageDataService {
 
   selectedData$ = this.selectedDataSubject.asObservable();
 
-  setSelectedData(data: Film) {
+  setSelectedData(data: any) {
     this.selectedDataSubject.next(data);
+    const foundItem = this.ratedList.find(f => f.id === data.id)
+    if(foundItem){
+      foundItem.rating =data.rating
+    }else{
+      this.ratedList.push(data)
+    }
   }
+  constructor() { }
 }

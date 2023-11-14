@@ -38,7 +38,7 @@
 }
 
 .grid-item-footer h4{
-  max-width: 150px;
+  max-width: 70px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1; /* number of lines to show */
@@ -57,12 +57,7 @@
   text-align: center;
   padding-top: 15.5vh;
   font-size: 1.2em;
-  line-height: 2; 
+  line-height: 2;
   left: 45%;
-  position: fixed; 
-}
-
-.card .rating-card__ratings {
-  display: flex;
-  justify-content: space-between;
+  position: fixed;
 }

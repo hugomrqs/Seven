@@ -3,7 +3,7 @@
     <div class="grid-item" *ngFor="let film of films" >
       <img src="https://image.tmdb.org/t/p/original{{film.poster_path}}">
       <div class="grid-item-footer">
-        <h4>{{film.title}}</h4>
+        <h4 title="{{film.title}}">{{film.title}}</h4>
         <app-add-rating [rating]=film.rating></app-add-rating>
       </div>
     </div>

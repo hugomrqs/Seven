@@ -14,7 +14,7 @@ export class SuggestionCarousselComponent implements OnInit {
 
   //pour un film qui à été cliqué --> ouverture de la popup
   selectedFilm: Film | undefined;
-  popupIsVisible: boolean = false; 
+  popupIsVisible: boolean = false;
   overlayAnimation: string = ''; //pour fade-in/out, voir dans styles.css
 
 
@@ -34,7 +34,6 @@ export class SuggestionCarousselComponent implements OnInit {
     this.popupIsVisible = true;
     this.disableScrolling();
     this.overlayAnimation = 'fade-in';
-    console.log(this.selectedFilm);
   }
 
   closeFilmDetails() {
