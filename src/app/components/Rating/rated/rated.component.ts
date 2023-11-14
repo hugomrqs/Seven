@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../services/api/api.service";
 import {Film} from "../../../modele/film.modele";
 import {RatedMoviesService} from "../../../services/rated-movies/rated-movies.service";
+import {RateMovieService} from "../../../services/rate-movie/rate-movie.service";
 
 @Component({
   selector: 'app-rated',

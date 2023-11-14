@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ApiService} from "../../../services/api/api.service";
 import {Film} from "../../../modele/film.modele";
+import {RateMovieService} from "../../../services/rate-movie/rate-movie.service";
 import {RatedMoviesService} from "../../../services/rated-movies/rated-movies.service";
 
 
