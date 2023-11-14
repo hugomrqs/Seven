@@ -5,6 +5,8 @@
                 (mouseleave)="HandleMouseLeave()"
                 (click)="Rating(index)"
                 [ngClass]="{checked:SelectedStar>index}">star</mat-icon>
-    <mat-icon class="isRated">done</mat-icon>
+    <mat-icon [ngStyle]="{'cursor': (checked ? 'not-allowed' : 'initial'),
+                      'display ':(checked ?'orange' :'none' )}"
+              class="isRated">done</mat-icon>
   </div>
 </ng-container>

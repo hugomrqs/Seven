@@ -1,31 +1,27 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ApiService} from "../../../services/api/api.service";
 import {Film} from "../../../modele/film.modele";
 import {RatedMoviesService} from "../../../services/rated-movies/rated-movies.service";
+
 
 @Component({
   selector: 'app-add-rating',
   templateUrl: './add-rating.component.html',
   styleUrls: ['./add-rating.component.scss']
 })
-export class AddRatingComponent implements OnInit{
-  @Input() maxRating : number = 5
-  @Input() SelectedStar=0
+export class AddRatingComponent implements OnInit, OnChanges{
+  SelectedStar=0
   previousSelection : number = 0
   maxRatingArr : number[] = []
 
   @Input() rating : number = 0 ;
   @Input() filmId: Film | undefined ;
+  checked :boolean = false
 
   constructor(private rate : RatedMoviesService) {}
 
   ngOnInit(): void {
-    this.maxRatingArr = Array(this.maxRating).fill(0)
-    if(this.filmId?.rating !==0 && this.filmId?.rating !== undefined){
-      this.SelectedStar = this.filmId?.rating
-    }else{
-      this.SelectedStar = Math.ceil(this.rating / 2) +1
-    }
+    this.maxRatingArr = Array(5).fill(0)
   }
 
   HandleMouseEnter(index: number) {
@@ -33,11 +29,7 @@ export class AddRatingComponent implements OnInit{
   }
 
   HandleMouseLeave() {
-    if(this.previousSelection!==0){
-      this.SelectedStar = this.previousSelection
-    }else{
       this.SelectedStar =  Math.ceil(this.rating / 2)
-    }
   }
 
   Rating(index: number) {
@@ -45,7 +37,20 @@ export class AddRatingComponent implements OnInit{
       this.previousSelection = this.SelectedStar
     if(this.filmId !==undefined){
       this.filmId.rating = this.SelectedStar +1
-      this.rate.setSelectedData(this.filmId )
+      this.rate.setSelectedData(this.filmId)
+      console.log("note du film ", this.filmId.rating)
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.checked= this.rate.isRated
+    if(this.filmId !== undefined){
+      if(changes['filmId'] && this.filmId?.rating !== undefined){
+        this.SelectedStar = Math.floor(this.filmId.vote_average   / 2) +1
+      }else{
+        this.SelectedStar = Math.floor(this.rating / 2)+1
+      }
+    }
+
   }
 }

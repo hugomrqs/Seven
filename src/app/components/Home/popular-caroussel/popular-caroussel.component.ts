@@ -17,16 +17,16 @@ export class PopularCarousselComponent implements OnInit {
 
   ngOnInit() : void {
     this.api.getPopularMovies().subscribe(response => {
-      this.films = response.results.slice(0, 15);
+      this.films = response.results.slice(8, 17);
     })
   }
-  
+
   sendData(film : Film) : void {
     this.data.setSelectedData(film);
     this.suggestionService.AddFilmClicked(film);
     this.scrollDown()
   }
-  
+
   scrollDown() : void {
     window.scroll({
       top: window.scrollY + 1000, // Scroll down by 100 pixels

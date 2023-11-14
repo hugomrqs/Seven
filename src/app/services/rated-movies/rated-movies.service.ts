@@ -7,6 +7,8 @@ import {BehaviorSubject} from "rxjs";
 })
 export class RatedMoviesService {
   ratedList :Film[] =[]
+  isRated :boolean = false
+
 
   private selectedDataSubject  = new BehaviorSubject<Film>({
     adult: false,
@@ -28,14 +30,22 @@ export class RatedMoviesService {
 
   selectedData$ = this.selectedDataSubject.asObservable();
 
+
   setSelectedData(data: any) {
     this.selectedDataSubject.next(data);
     const foundItem = this.ratedList.find(f => f.id === data.id)
     if(foundItem){
       foundItem.rating =data.rating
+      this.isRated = true
+      console.log("mise à jour de la note à ", foundItem.rating)
     }else{
       this.ratedList.push(data)
+      console.log("ajoute dans la liste de ", data.rating)
     }
+  }
+
+  getIsRated(film : Film){
+    return this.isRated
   }
   constructor() { }
 }
