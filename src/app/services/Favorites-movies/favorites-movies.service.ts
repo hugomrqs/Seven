@@ -8,7 +8,6 @@ import {Film} from "../../modele/film.modele";
 export class FavoritesMoviesService {
 
   favoriteList :Film[] =[]
-  favMovie : boolean = true
 
 
   private selectedDataSubject  = new BehaviorSubject<Film>({

@@ -39,7 +39,6 @@ export class AddRatingComponent implements OnInit, OnChanges{
         this.HandleMouseLeave()
         console.log("je suis le film", this.filmId.title)
         console.log("je suis le av", this.rating ," jai ete rate a ", this.filmId.rating)
-
       }
     }
   }
@@ -47,10 +46,8 @@ export class AddRatingComponent implements OnInit, OnChanges{
   Rating(index: number) {
     this.giveRating(index);
     this.previousSelection = this.SelectedStar;
-    // Set rated to true
     this.rated = true;
     if(this.rated){
-
     }
     if (this.filmId !== undefined) {
       this.filmId.rating = this.SelectedStar;
