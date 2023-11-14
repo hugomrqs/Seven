@@ -36,6 +36,7 @@ export class RateMovieService {
     const existingIndex = this.ratedList.findIndex(f => f.id === data.id);
     if (existingIndex !== -1) {
       this.ratedList[existingIndex] = data;
+      console.log("je met à jour la note")
     }else{
       this.ratedList.push(data)
     }

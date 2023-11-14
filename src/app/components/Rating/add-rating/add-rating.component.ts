@@ -46,13 +46,15 @@ export class AddRatingComponent implements OnInit, OnChanges{
   Rating(index: number) {
     this.giveRating(index);
     this.previousSelection = this.SelectedStar;
-    this.rated = true;
-    if(this.rated){
-    }
+    console.log(this.filmId)
+
+    //faut comprendre pourquoi dans le rated il passe pas ici, le filmId es
     if (this.filmId !== undefined) {
+      console.log("test je repasse par la")
       this.filmId.rating = this.SelectedStar;
       this.rate.setSelectedData(this.filmId);
     }
+    this.rated = true;
   }
 
   giveRating(index: number):number{

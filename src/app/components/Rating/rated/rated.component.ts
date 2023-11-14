@@ -17,4 +17,6 @@ export class RatedComponent implements OnInit {
   ngOnInit(): void {
     this.films = this.rate.ratedList.reverse() ;
   }
+
+  protected readonly Math = Math;
 }
