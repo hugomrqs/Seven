@@ -11,29 +11,28 @@ import { ApiService } from "../../../Services/api/api.service";
 })
 
 export class ShowMovieComponent implements OnInit {
-  film : Film | undefined;
-  isFilmFav: boolean = false;
-  vote: number = 0;
+  public film : Film | undefined;
+  public isFilmFav: boolean = false;
+  public vote: number = 0;
 
   constructor(private HomePageService: HomePageDataService, private favoriteService: FavoritesMoviesService, private api: ApiService) { }
 
   ngOnInit(): void {
     this.HomePageService.results$.subscribe(data => {
       this.film = data;
+      this.updateIsFilmFav(); // mettre à jour le statut "favori" à chaque changement de film
     });
-    //si il fait déjà partie des favoris, on disabled l'ajout aux favoris
-    this.favoriteService.selectedData$.subscribe((films: Film[]) => {
-      if (this.film && films.some(f => f.id === this.film?.id)) {
-        this.isFilmFav = true;
-      }
+    this.favoriteService.selectedData$.subscribe(() => {
+      this.updateIsFilmFav(); // mettre à jour le statut "favori" à chaque changement dans la liste des favoris
     });
   }
 
-  addFavorite(film : Film): void {
-    this.favoriteService.setSelectedData(film) ;
-    this.isFilmFav = true;
+  private updateIsFilmFav(): void {
+    const currentData = this.favoriteService.getCurrentData();
+    this.isFilmFav = currentData.some(f => f.id === this.film?.id);
   }
 
+  public addFavorite(film : Film): void {
+    this.favoriteService.setSelectedData(film);
+  }
 }
-
-
