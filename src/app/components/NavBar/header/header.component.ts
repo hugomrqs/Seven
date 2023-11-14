@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api/api.service';
+import { ApiService } from 'src/app/Services/api/api.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { SearchTitleService } from 'src/app/services/search-title/search-title.service';
+import { SearchTitleService } from 'src/app/Services/search-title/search-title.service';
 
 
 @Component({

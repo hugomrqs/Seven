@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Film } from 'src/app/modele/film.modele';
+import { Film } from 'src/app/Modele/film.modele';
 
 @Component({
   selector: 'app-caroussel-generalisation',

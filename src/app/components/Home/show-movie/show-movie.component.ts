@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Film } from "../../../modele/film.modele";
-import { HomePageDataService } from "../../../services/home-page-data/home-page-data.service";
-import { FavoritesMoviesService } from "../../../services/Favorites-movies/favorites-movies.service";
-import { ApiService } from "../../../services/api/api.service";
+import { Film } from "../../../Modele/film.modele";
+import { HomePageDataService } from "../../../Services/home-page-data/home-page-data.service";
+import { FavoritesMoviesService } from "../../../Services/favorites-movies/favorites-movies.service";
+import { ApiService } from "../../../Services/api/api.service";
 
 @Component({
   selector: 'app-show-movie',

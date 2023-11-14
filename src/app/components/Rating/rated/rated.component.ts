@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../../../services/api/api.service";
-import {Film} from "../../../modele/film.modele";
+import {ApiService} from "../../../Services/api/api.service";
+import {Film} from "../../../Modele/film.modele";
 
 @Component({
   selector: 'app-rated',

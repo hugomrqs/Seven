@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Film } from '../../modele/film.modele';
-import { FavoritesMoviesService } from "../../services/Favorites-movies/favorites-movies.service";
-import { ApiService } from "../../services/api/api.service";
+import { Film } from '../../../Modele/film.modele';
+import { FavoritesMoviesService } from "../../../Services/favorites-movies/favorites-movies.service";
+import { ApiService } from "../../../Services/api/api.service";
 import { Router } from '@angular/router';
 
 @Component({

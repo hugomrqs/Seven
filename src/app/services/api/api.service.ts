@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {concat, forkJoin, Observable, Subscription} from "rxjs";
-import {Film} from "../../modele/film.modele";
+import {Film} from "../../Modele/film.modele";
 
 //session
 let createSession = 'https://api.themoviedb.org/3/authentication/guest_session/new'

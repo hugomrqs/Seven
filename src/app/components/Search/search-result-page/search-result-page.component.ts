@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Film } from 'src/app/modele/film.modele';
-import { SearchTitleService } from 'src/app/services/search-title/search-title.service';
-import { FilmClickedComponent } from 'src/app/components/film-clicked/film-clicked.component';
-import { SuggestionService } from 'src/app/services/suggestion/suggestion.service';
+import { Film } from 'src/app/Modele/film.modele';
+import { SearchTitleService } from 'src/app/Services/search-title/search-title.service';
+import { FilmClickedComponent } from 'src/app/Components/Modal/film-clicked/film-clicked.component';
+import { SuggestionService } from 'src/app/Services/suggestion/suggestion.service';
 
 @Component({
   selector: 'app-search-result-page',

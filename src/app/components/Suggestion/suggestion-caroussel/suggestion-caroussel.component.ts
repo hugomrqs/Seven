@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Film } from 'src/app/modele/film.modele';
-import { ApiService } from 'src/app/services/api/api.service';
-import { SuggestionService } from 'src/app/services/suggestion/suggestion.service';
+import { Film } from 'src/app/Modele/film.modele';
+import { ApiService } from 'src/app/Services/api/api.service';
+import { SuggestionService } from 'src/app/Services/suggestion/suggestion.service';
 
 @Component({
   selector: 'app-suggestion-caroussel',
