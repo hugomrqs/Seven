@@ -1,16 +1,17 @@
-<div *ngIf="this.receivedData?.id !== 0">
-  <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'}"
+<div *ngIf="this.film?.id !== 0">
+  <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original' + this.film?.backdrop_path + ')'}"
     class="container">
     <div class="card">
-      <h2>{{this.receivedData?.title}}</h2>
-      <p>{{this.receivedData?.overview}}</p>
+      <h2>{{this.film?.title}}</h2>
+      <p>{{this.film?.overview}}</p>
       <div class="button">
-        <button mat-fab class="my-list-button" (click)="addFavorite(this.receivedData)" 
+        <button mat-fab class="my-list-button" 
+          (click)="addFavorite(this.film)" 
           [ngStyle]="{'cursor': (isFilmFav ? 'not-allowed' : 'initial'),
                       'background-color': (isFilmFav ? 'grey' : 'orange')}">
           <mat-icon>favorite</mat-icon>
         </button>
-        <app-add-rating [rating]=this.vote [filmId]=this.receivedData class="setting"></app-add-rating>
+        <app-add-rating [rating]=this.vote [filmId]=this.film class="setting"></app-add-rating>
       </div>
     </div>
   </div>

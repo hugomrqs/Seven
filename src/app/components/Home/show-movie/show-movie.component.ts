@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Film} from "../../../modele/film.modele";
-import {HomePageDataService} from "../../../services/home-page-data/home-page-data.service";
-import {FavoritesMoviesService} from "../../../services/Favorites-movies/favorites-movies.service";
-import {ApiService} from "../../../services/api/api.service";
+import { Component, OnInit } from '@angular/core';
+import { Film } from "../../../modele/film.modele";
+import { HomePageDataService } from "../../../services/home-page-data/home-page-data.service";
+import { FavoritesMoviesService } from "../../../services/Favorites-movies/favorites-movies.service";
+import { ApiService } from "../../../services/api/api.service";
 
 @Component({
   selector: 'app-show-movie',
@@ -10,25 +10,27 @@ import {ApiService} from "../../../services/api/api.service";
   styleUrls: ['./show-movie.component.scss']
 })
 
-export class ShowMovieComponent  implements OnInit{
-  receivedData: Film | undefined;
-  isFilmFav : boolean = false;
-  vote : number = 0
-  constructor(private data : HomePageDataService, private fav : FavoritesMoviesService, private api: ApiService) {}
-  addFavorite(film : Film | undefined){
-    this.fav.setSelectedData(film)
-    this.isFilmFav = true;
-  }
+export class ShowMovieComponent implements OnInit {
+  film : Film | undefined;
+  isFilmFav: boolean = false;
+  vote: number = 0;
+
+  constructor(private HomePageService: HomePageDataService, private favoriteService: FavoritesMoviesService, private api: ApiService) { }
+
   ngOnInit(): void {
-    this.data.selectedData$.subscribe(data => {
-      this.receivedData = data;
-      if(this.fav.favoriteList.some( film => film.id === this.receivedData?.id )){
-        this.isFilmFav = true
-      }
-      this.vote = this.receivedData.vote_average
-      console.log(this.receivedData.vote_average)
-      });
+    this.HomePageService.results$.subscribe(data => {
+      this.film = data;
+    });
+    if (this.favoriteService.favoriteList.some(film => film.id === this.film?.id)) {
+      this.isFilmFav = true ;
     }
   }
+
+  addFavorite(film: Film | undefined): void {
+    this.favoriteService.setSelectedData(film)
+    this.isFilmFav = true;
+  }
+
+}
 
 

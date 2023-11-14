@@ -18,7 +18,7 @@ export class CarousselGeneralisationComponent {
       if (this.films) {
         this.isDataLoaded = true;
       }
-    }, 400);
+    }, 500);
   }
 
   //Pour prev/next le caroussel

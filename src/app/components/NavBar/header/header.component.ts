@@ -13,7 +13,7 @@ import { SearchTitleService } from 'src/app/services/search-title/search-title.s
 export class HeaderComponent implements OnInit {
   query: string = ''; 
 
-  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {  }
+  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {}
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
