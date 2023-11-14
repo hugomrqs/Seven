@@ -1,7 +1,5 @@
 body{
   overflow-x: hidden;
-
-
 }
 
 .container {
@@ -17,7 +15,8 @@ body{
 
 .right-content {
     width: 80%;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
 }
 
 app-menu {
