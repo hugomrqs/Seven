@@ -17,7 +17,8 @@ export class AddRatingComponent implements OnInit, OnChanges{
 
   @Input() rating : number = 0 ;
   @Input() filmId: Film | undefined ;
-  checked :boolean = false
+  rated :boolean = false
+  myRate : number  = 0
 
   constructor(private rate : RatedMoviesService) {}
 
@@ -26,32 +27,41 @@ export class AddRatingComponent implements OnInit, OnChanges{
   }
 
   HandleMouseEnter(index: number) {
-    this.SelectedStar=index+1
+    this.giveRating(index)
   }
 
   HandleMouseLeave() {
-      this.SelectedStar =  Math.ceil(this.rating / 2)
-  }
-
-  Rating(index: number) {
-      this.SelectedStar = index + 1
-      this.previousSelection = this.SelectedStar
-    if(this.filmId !==undefined){
-      this.filmId.rating = this.SelectedStar +1
-      this.rate.setSelectedData(this.filmId)
-      console.log("note du film ", this.filmId.rating)
-    }
+    this.SelectedStar =  Math.ceil(this.rating / 2)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.checked= this.rate.isRated
-    if(this.filmId !== undefined){
-      if(changes['filmId'] && this.filmId?.rating !== undefined){
-        this.SelectedStar = Math.floor(this.filmId.vote_average   / 2) +1
-      }else{
-        this.SelectedStar = Math.floor(this.rating / 2)+1
+    if (this.filmId !== undefined) {
+      if (changes['filmId'] && this.filmId?.rating !== undefined) {
+        this.SelectedStar = Math.floor(this.filmId.vote_average / 2) + 1;
+      } else {
+        // Vérifie si rating est différent de 0
+        if (this.rating !== 0) {
+          this.SelectedStar = Math.floor(this.rating / 2) + 1;
+        }
       }
     }
-
   }
-}
+
+  Rating(index: number) {
+    this.giveRating(index);
+    this.previousSelection = this.SelectedStar;
+
+    // Set rated to true
+    this.rated = true;
+
+    if (this.filmId !== undefined) {
+      this.filmId.rating = this.SelectedStar+1;
+      this.rate.setSelectedData(this.filmId);
+    }
+  }
+
+  giveRating(index: number):number{
+    return this.SelectedStar = index + 1
+  }
+  }
+

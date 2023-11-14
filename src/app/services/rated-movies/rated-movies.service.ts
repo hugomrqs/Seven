@@ -44,8 +44,5 @@ export class RatedMoviesService {
     }
   }
 
-  getIsRated(film : Film){
-    return this.isRated
-  }
   constructor() { }
 }

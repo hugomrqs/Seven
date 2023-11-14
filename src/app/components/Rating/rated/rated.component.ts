@@ -10,9 +10,9 @@ import {RateMovieService} from "../../../services/rate-movie/rate-movie.service"
   styleUrls: ['./rated.component.scss']
 })
 export class RatedComponent implements OnInit {
-  films : Film[] = []
+  public films : Film[] = []
 
-  constructor(private api: ApiService, private rate : RatedMoviesService) {}
+  constructor( private rate : RatedMoviesService) {}
 
   ngOnInit(): void {
     this.films = this.rate.ratedList.reverse() ;

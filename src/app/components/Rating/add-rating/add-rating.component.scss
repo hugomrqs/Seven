@@ -5,10 +5,12 @@
   color : lightgoldenrodyellow;
   display: flex;
   flex-direction: row;
-}
 
+}
 .isRated{
-  border-radius: 50%;
+  display: inline;
+  background-color: darkgreen;
+  border-radius: 80%;
 }
 .checked{
   color: orange;
