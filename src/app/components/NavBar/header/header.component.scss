@@ -40,17 +40,17 @@
     /* Réduit la taille du bouton au clic */
   }
 
-  .custom-account-button {
+  .custom-info-button {
     margin-left: 100vh;
     border: none;
     background: transparent;
     cursor: help;
   }
 
-  .custom-account-button:hover {
+  .custom-info-button:hover {
     transform: scale(1.1);
   }
 
-  .custom-account-button:active {
+  .custom-info-button:active {
     transform: scale(0.95);
   }

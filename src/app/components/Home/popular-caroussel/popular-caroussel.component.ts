@@ -13,26 +13,24 @@ import { SuggestionService } from 'src/app/services/suggestion/suggestion.servic
 export class PopularCarousselComponent implements OnInit {
   films: Film[] = [];
 
-  constructor(private api: ApiService, private data: HomePageDataService, private suggestionService: SuggestionService) { }
+  constructor(private api : ApiService, private data : HomePageDataService, private suggestionService : SuggestionService) { }
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.api.getPopularMovies().subscribe(response => {
       this.films = response.results.slice(0, 15);
     })
   }
   
-  sendData(film: Film) {
+  sendData(film : Film) : void {
     this.data.setSelectedData(film);
     this.suggestionService.AddFilmClicked(film);
     this.scrollDown()
   }
   
-  scrollDown() {
-    setTimeout(() => {
-      window.scroll({
-        top: window.scrollY + 1000, // Scroll down by 100 pixels
-        behavior: 'smooth', // Make it smooth
-      });
-    }, 0);
+  scrollDown() : void {
+    window.scroll({
+      top: window.scrollY + 1000, // Scroll down by 100 pixels
+      behavior: 'smooth', // Make it smooth
+    });
   }
 }

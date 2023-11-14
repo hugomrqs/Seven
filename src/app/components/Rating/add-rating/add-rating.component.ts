@@ -13,8 +13,8 @@ export class AddRatingComponent implements OnInit{
   previousSelection : number = 0
   maxRatingArr : number[] = []
 
-  @Input() rating : number =0
-  @Input() filmId: Film | undefined
+  @Input() rating : number = 0 ;
+  @Input() filmId: Film | undefined ;
 
   constructor(private api : ApiService) {}
 

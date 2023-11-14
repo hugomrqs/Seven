@@ -12,18 +12,10 @@ let postToken = 'authentication/session/new'
 let baseURL = 'https://api.themoviedb.org/3/'
 
 //Infos
-let movieDetail = 'movie/12?language=en-US';
-let trendyReal = 'trending/person/day?language=en-US';
 let DiscoverReal  ='discover/movie?with_crew=525';
 let genreList=  'genre/movie/list?language=e'
-let ratingMovie = 'movie/1022796/rating?'
-let ratedMovies = '/account/11787154/rated/movies?language=en-US&page=2&sort_by=created_at.asc'
-let movieCertification = 'certification/movie/list'
-let genreMovies = 'discover/movie?with_genres=28'
 let popularMovies = 'movie/popular?language=en-US&page=1'
 let credential1 = 'credits?language=en-US';
-let postMovieList  = 'list/{list_id}/remove_item'
-
 
 
 const options = {

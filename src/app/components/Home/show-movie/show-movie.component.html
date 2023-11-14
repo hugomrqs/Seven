@@ -1,20 +1,17 @@
-
 <div *ngIf="this.receivedData?.id !== 0">
-<div  [style.background-image]="'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'" class ="container">
-  <div class="card">
-        <h2>{{this.receivedData?.title}}</h2>
-        <p>{{this.receivedData?.overview}}</p>
-     <div class="button">
-       <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'"  [style.background-color]="isFilmFav ? 'grey' : 'orange'"
-               (click)="addFavorite(this.receivedData)">
-         <mat-icon>favorite</mat-icon>
-       </button>
-
-      <app-add-rating [rating]=this.vote [filmId]=this.receivedData class="setting"></app-add-rating>
-     </div>
+  <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original' + this.receivedData?.backdrop_path + ')'}"
+    class="container">
+    <div class="card">
+      <h2>{{this.receivedData?.title}}</h2>
+      <p>{{this.receivedData?.overview}}</p>
+      <div class="button">
+        <button mat-fab class="my-list-button" (click)="addFavorite(this.receivedData)" 
+          [ngStyle]="{'cursor': (isFilmFav ? 'not-allowed' : 'initial'),
+                      'background-color': (isFilmFav ? 'grey' : 'orange')}">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <app-add-rating [rating]=this.vote [filmId]=this.receivedData class="setting"></app-add-rating>
+      </div>
+    </div>
   </div>
-
 </div>
-</div>
-
-

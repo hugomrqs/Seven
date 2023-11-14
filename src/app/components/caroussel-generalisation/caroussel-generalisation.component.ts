@@ -7,8 +7,8 @@ import { Film } from 'src/app/modele/film.modele';
   styleUrls: ['./caroussel-generalisation.component.scss']
 })
 export class CarousselGeneralisationComponent {
-  @Input() productClass: string = 'product-home'; //par défaut, evite un passage d'input dans suggestion-carroussel
-  @Input() containerClass: string = 'container-fluid-home'; //par defaut, evite un passage d'input dans suggestion-carroussel
+  @Input() productClass: string = 'product-home'; //valeur par défaut, evite un passage d'input dans suggestion-carroussel
+  @Input() containerClass: string = 'container-fluid-home'; //valeur par defaut, evite un passage d'input dans suggestion-carroussel
   @Input() films: Film[] = [];
   isDataLoaded: boolean = false ;
 
@@ -18,7 +18,7 @@ export class CarousselGeneralisationComponent {
       if (this.films) {
         this.isDataLoaded = true;
       }
-    }, 350);
+    }, 400);
   }
 
   //Pour prev/next le caroussel

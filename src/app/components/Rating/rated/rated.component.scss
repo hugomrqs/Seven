@@ -1,21 +1,8 @@
-.no-results {
-  color: white;
-  text-align: center;
-  padding-top: 20vh;
-  font-size: 1.2em;
-}
-
-.card .rating-card__ratings {
-  display: flex;
-  justify-content: space-between;
-}
-
-
 .image-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  grid-gap: 2vw;
+  justify-content: flex-start;
+  grid-gap: 4vw;
   padding: 3%;
 }
 
@@ -65,3 +52,17 @@
   transition: transform 0.2s; /* Ajoute une transition fluide pour l'effet */
 }
 
+.no-results {
+  color: rgb(180, 180, 180);
+  text-align: center;
+  padding-top: 15.5vh;
+  font-size: 1.2em;
+  line-height: 2; 
+  left: 45%;
+  position: fixed; 
+}
+
+.card .rating-card__ratings {
+  display: flex;
+  justify-content: space-between;
+}

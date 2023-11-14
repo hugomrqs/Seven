@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchTitleService } from 'src/app/services/search-title/search-title.service';
@@ -10,13 +10,16 @@ import { SearchTitleService } from 'src/app/services/search-title/search-title.s
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   query: string = ''; 
 
-  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {
+  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {  }
+
+  ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (!event.url.includes('/search')) { // Si l'URL ne contient pas '/search', vide la barre de recherche
+        // Si l'URL ne contient pas '/search', vide la barre de recherche
+        if (!event.url.includes('/search')) { 
           this.query = '';
         }
       }

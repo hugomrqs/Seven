@@ -6,18 +6,19 @@
   <div class="filtre">
     <div class="info">
       <h2>{{ film?.title }}</h2>
-      <div title="Release year">{{ film?.release_date?.substring(0, 4) }}</div>
-      <div title="Vote average, on {{ film?.vote_count?.toFixed(0) }} votes">{{ film?.vote_average?.toFixed(1) }}
-        <span class="small-text">/10</span></div>
+      <div title="Release year">{{ film?.release_date?.substring(0, 4) }}</div> <!--title pr le dialog au hover-->
+      <div title="Vote average, on {{ film?.vote_count }} votes">{{ this.vote }}<span class="small-text">/5</span></div>
     </div>
     <div class="description">{{ film?.overview }}</div>
     <div class="buttons">
-      <button mat-fab [style.cursor]="isFilmFav ? 'not-allowed' : 'initial'" [style.background-color]="isFilmFav ? 'grey' : 'orange'" class="my-list-button"
-        (click)="addFavorite(this.film)">
-          <mat-icon >favorite</mat-icon>
+      <button mat-fab class="my-list-button"
+        (click)="addFavorite(this.film)"
+        [ngStyle]="{'cursor': (isFilmFav ? 'not-allowed' : 'initial'),
+                    'background-color': (isFilmFav ? 'grey' : 'orange')}">
+        <mat-icon>favorite</mat-icon>
       </button>
-    <app-add-rating [rating]=this.vote [filmId]=this.film class="setting"></app-add-rating>
-
+      <app-add-rating [rating]=this.vote [filmId]=this.film class="setting"></app-add-rating>
+      <div class="suggestion-link" *ngIf="isSuggestionsDisplay">See <a routerLink="/suggestions">suggestions</a></div>
     </div>
   </div>
 </div>

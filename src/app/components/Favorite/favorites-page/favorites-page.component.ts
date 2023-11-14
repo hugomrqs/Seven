@@ -9,7 +9,7 @@ import { ApiService } from "../../../services/api/api.service";
   styleUrls: ['./favorites-page.component.scss']
 })
 export class FavoritesPageComponent implements OnInit{
-  films : Film[] = []
+  films : Film[] = [] ;
 
   constructor(private api: ApiService, private favoriteService : FavoritesMoviesService) {}
 
