@@ -25,7 +25,7 @@ export class ShowMovieComponent  implements OnInit{
       if(this.fav.favoriteList.some( film => film.id === this.receivedData?.id )){
         this.isFilmFav = true
       }
-      this.vote = this.receivedData.vote_average
+      this.vote = Math.floor(this.receivedData.vote_average /2 ) +1
       });
     }
   }

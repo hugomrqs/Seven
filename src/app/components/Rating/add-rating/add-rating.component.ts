@@ -1,7 +1,5 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {ApiService} from "../../../services/api/api.service";
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Film} from "../../../modele/film.modele";
-import {RateMovieService} from "../../../services/rate-movie/rate-movie.service";
 import {RatedMoviesService} from "../../../services/rated-movies/rated-movies.service";
 
 
@@ -15,7 +13,7 @@ export class AddRatingComponent implements OnInit, OnChanges{
   previousSelection : number = 0
   maxRatingArr : number[] = []
 
-  @Input() rating : number = 0 ;
+  @Input() rating  : number = 0 ;
   @Input() filmId: Film | undefined ;
   rated :boolean = false
   myRate : number  = 0
@@ -24,6 +22,7 @@ export class AddRatingComponent implements OnInit, OnChanges{
 
   ngOnInit(): void {
     this.maxRatingArr = Array(5).fill(0)
+    this.HandleMouseLeave()
   }
 
   HandleMouseEnter(index: number) {
@@ -31,18 +30,16 @@ export class AddRatingComponent implements OnInit, OnChanges{
   }
 
   HandleMouseLeave() {
-    this.SelectedStar =  Math.ceil(this.rating / 2)
+    (this.rated && this.filmId !==undefined )?this.SelectedStar =this.filmId.rating : this.SelectedStar =this.rating;
   }
-
   ngOnChanges(changes: SimpleChanges): void {
+
     if (this.filmId !== undefined) {
-      if (changes['filmId'] && this.filmId?.rating !== undefined) {
-        this.SelectedStar = Math.floor(this.filmId.vote_average / 2) + 1;
-      } else {
-        // Vérifie si rating est différent de 0
-        if (this.rating !== 0) {
-          this.SelectedStar = Math.floor(this.rating / 2) + 1;
-        }
+      if (changes['filmId'] ){
+        this.HandleMouseLeave()
+        console.log("je suis le film", this.filmId.title)
+        console.log("je suis le av", this.rating ," jai ete rate a ", this.filmId.rating)
+
       }
     }
   }
@@ -50,12 +47,13 @@ export class AddRatingComponent implements OnInit, OnChanges{
   Rating(index: number) {
     this.giveRating(index);
     this.previousSelection = this.SelectedStar;
-
     // Set rated to true
     this.rated = true;
+    if(this.rated){
 
+    }
     if (this.filmId !== undefined) {
-      this.filmId.rating = this.SelectedStar+1;
+      this.filmId.rating = this.SelectedStar;
       this.rate.setSelectedData(this.filmId);
     }
   }

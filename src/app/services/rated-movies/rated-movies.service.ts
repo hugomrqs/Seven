@@ -28,9 +28,6 @@ export class RatedMoviesService {
     rating :0
   });
 
-  selectedData$ = this.selectedDataSubject.asObservable();
-
-
   setSelectedData(data: any) {
     this.selectedDataSubject.next(data);
     const foundItem = this.ratedList.find(f => f.id === data.id)
@@ -43,6 +40,4 @@ export class RatedMoviesService {
       console.log("ajoute dans la liste de ", data.rating)
     }
   }
-
-  constructor() { }
 }
