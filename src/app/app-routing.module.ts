@@ -5,7 +5,7 @@ import { FavoritesPageComponent } from "./Components/Favorite/favorites-page/fav
 import { HomePageComponent } from './Components/Home/home-page/home-page.component';
 import { SearchResultPageComponent } from './Components/Search/search-result-page/search-result-page.component';
 import { SuggestionPageComponent } from './Components/Suggestion/suggestion-page/suggestion-page.component';
-import {AddRatingComponent} from "./Components/Rating/add-rating/add-rating.component";
+import { AddRatingComponent } from "./Components/Rating/add-rating/add-rating.component";
 import { FeaturesPageComponent } from './Components/Info/info-page/features-page.component';
 
 const routes: Routes = [

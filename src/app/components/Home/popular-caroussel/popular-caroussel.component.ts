@@ -12,6 +12,7 @@ import { SuggestionService } from 'src/app/Services/suggestion/suggestion.servic
 
 export class PopularCarousselComponent implements OnInit {
   films: Film[] = [];
+  @Output() movieClicked = new EventEmitter<void>();
 
   constructor(private api : ApiService, private homePageService : HomePageDataService, private suggestionService : SuggestionService) { }
 
@@ -23,6 +24,7 @@ export class PopularCarousselComponent implements OnInit {
   
   sendData(film : Film) : void {
     this.homePageService.setSelectedData(film);
+    this.movieClicked.emit(); // Émettre l'événement pour indiquer qu'un film a été cliqué
     this.suggestionService.addFilmClicked(film);
     this.scrollDown()
   }
