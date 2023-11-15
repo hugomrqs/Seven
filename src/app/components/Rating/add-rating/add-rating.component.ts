@@ -1,7 +1,6 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {Film} from "../../../modele/film.modele";
-import {RatedMoviesService} from "../../../services/rated-movies/rated-movies.service";
-
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Film } from "../../../Modele/film.modele";
+import { RatedMoviesService } from 'src/app/Services/rated-movies/rated-movies.service';
 
 @Component({
   selector: 'app-add-rating',
@@ -18,7 +17,7 @@ export class AddRatingComponent implements OnInit, OnChanges{
   rated :boolean = false
   myRate : number  = 0
 
-  constructor(private rate : RatedMoviesService) {}
+  constructor(private rateService : RatedMoviesService) {}
 
   ngOnInit(): void {
     this.maxRatingArr = Array(5).fill(0)
@@ -32,8 +31,8 @@ export class AddRatingComponent implements OnInit, OnChanges{
   HandleMouseLeave() {
     (this.rated && this.filmId !==undefined )?this.SelectedStar =this.filmId.rating : this.SelectedStar =this.rating;
   }
-  ngOnChanges(changes: SimpleChanges): void {
 
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.filmId !== undefined) {
       if (changes['filmId'] ){
         this.HandleMouseLeave()
@@ -52,7 +51,7 @@ export class AddRatingComponent implements OnInit, OnChanges{
     if (this.filmId !== undefined) {
       console.log("test je repasse par la")
       this.filmId.rating = this.SelectedStar;
-      this.rate.setSelectedData(this.filmId);
+      this.rateService.setSelectedData(this.filmId);
     }
     this.rated = true;
   }
@@ -60,5 +59,5 @@ export class AddRatingComponent implements OnInit, OnChanges{
   giveRating(index: number):number{
     return this.SelectedStar = index + 1
   }
-  }
+}
 

@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../../../services/api/api.service";
-import {Film} from "../../../modele/film.modele";
-import {RatedMoviesService} from "../../../services/rated-movies/rated-movies.service";
-import {RateMovieService} from "../../../services/rate-movie/rate-movie.service";
+import { Film } from 'src/app/Modele/film.modele';
+import { RatedMoviesService } from 'src/app/Services/rated-movies/rated-movies.service';
+
 
 @Component({
   selector: 'app-rated',
@@ -12,10 +11,10 @@ import {RateMovieService} from "../../../services/rate-movie/rate-movie.service"
 export class RatedComponent implements OnInit {
   public films : Film[] = []
 
-  constructor( private rate : RatedMoviesService) {}
+  constructor( private rateService : RatedMoviesService) {}
 
   ngOnInit(): void {
-    this.films = this.rate.ratedList.reverse() ;
+    this.films = this.rateService.ratedList.reverse() ;
   }
 
   protected readonly Math = Math;

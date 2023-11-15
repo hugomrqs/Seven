@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Film } from 'src/app/modele/film.modele';
-import { ApiService } from 'src/app/services/api/api.service';
-import { SuggestionService } from 'src/app/services/suggestion/suggestion.service';
+import { Film } from 'src/app/Modele/film.modele';
+import { SuggestionService } from 'src/app/Services/suggestion/suggestion.service';
 
 @Component({
   selector: 'app-suggestion-page',
@@ -12,7 +10,7 @@ import { SuggestionService } from 'src/app/services/suggestion/suggestion.servic
 export class SuggestionPageComponent implements OnInit {
   filmsClicked : Film[] = [];
 
-  constructor(private suggestionService : SuggestionService, private api : ApiService) {}
+  constructor(private suggestionService : SuggestionService) {}
 
   ngOnInit() {
     //abonnement observable, car OnInit = uniquement initialisation du component. //Onchanges plus propice si on avait eu un @Input() à la place d'un service pour transmettre les données

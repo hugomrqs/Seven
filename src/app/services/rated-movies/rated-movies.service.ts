@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Film} from "../../modele/film.modele";
+import {Film} from "../../Modele/film.modele";
 import {BehaviorSubject} from "rxjs";
 
 @Injectable({
@@ -28,7 +28,7 @@ export class RatedMoviesService {
     rating :0
   });
 
-  setSelectedData(data: any) {
+  setSelectedData(data : Film) {
     this.selectedDataSubject.next(data);
     const foundItem = this.ratedList.find(f => f.id === data.id)
     if(foundItem){

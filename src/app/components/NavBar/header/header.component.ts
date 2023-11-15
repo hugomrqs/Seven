@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api/api.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { SearchTitleService } from 'src/app/services/search-title/search-title.service';
+import { SearchTitleService } from 'src/app/Services/search-title/search-title.service';
+import { ApiService } from 'src/app/services/api/api.service';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { SearchTitleService } from 'src/app/services/search-title/search-title.s
 export class HeaderComponent implements OnInit {
   query: string = ''; 
 
-  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {  }
+  constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {}
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("search");
   }
 
-  OnInfoClicked(): void {
+  onInfoClicked(): void {
     //router vers la page de features --> features-page component
     this.router.navigateByUrl("features");
   }

@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Film} from "../../../modele/film.modele";
-import {HomePageDataService} from "../../../services/home-page-data/home-page-data.service";
-import {FavoritesMoviesService} from "../../../services/Favorites-movies/favorites-movies.service";
-import {ApiService} from "../../../services/api/api.service";
+import { Component, OnInit } from '@angular/core';
+import { Film } from "../../../Modele/film.modele";
+import { HomePageDataService } from "../../../Services/home-page-data/home-page-data.service";
+import { FavoritesMoviesService } from "../../../Services/favorites-movies/favorites-movies.service";
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-show-movie',
@@ -10,24 +10,30 @@ import {ApiService} from "../../../services/api/api.service";
   styleUrls: ['./show-movie.component.scss']
 })
 
-export class ShowMovieComponent  implements OnInit{
-  receivedData: Film | undefined;
-  isFilmFav : boolean = false;
-  vote : number = 0
-  constructor(private data : HomePageDataService, private fav : FavoritesMoviesService, private api: ApiService) {}
-  addFavorite(film : Film | undefined){
-    this.fav.setSelectedData(film)
-    this.isFilmFav = true;
-  }
+export class ShowMovieComponent implements OnInit {
+  public film : Film | undefined;
+  public isFilmFav : boolean = false;
+  public vote : number = 0;
+
+  constructor(private HomePageService: HomePageDataService, private favoriteService: FavoritesMoviesService, private api: ApiService) { }
+
   ngOnInit(): void {
-    this.data.selectedData$.subscribe(data => {
-      this.receivedData = data;
-      if(this.fav.favoriteList.some( film => film.id === this.receivedData?.id )){
-        this.isFilmFav = true
-      }
-      this.vote = Math.floor(this.receivedData.vote_average /2 ) +1
-      });
-    }
+    this.HomePageService.results$.subscribe(data => {
+      this.film = data;
+      this.updateIsFilmFav(); // mettre à jour le statut "favori" à chaque changement de film
+      this.vote = Math.floor(this.film.vote_average /2 ) +1 ;
+    });
+    this.favoriteService.selectedData$.subscribe(() => {
+      this.updateIsFilmFav(); // mettre à jour le statut "favori" à chaque changement dans la liste des favoris
+    });
   }
 
+  private updateIsFilmFav(): void {
+    const currentData = this.favoriteService.getCurrentData();
+    this.isFilmFav = currentData.some(f => f.id === this.film?.id);
+  }
 
+  public addFavorite(film : Film): void {
+    this.favoriteService.setSelectedData(film);
+  }
+}

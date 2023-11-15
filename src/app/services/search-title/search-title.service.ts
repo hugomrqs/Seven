@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Film } from 'src/app/modele/film.modele';
+import { Film } from 'src/app/Modele/film.modele';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({

@@ -35,10 +35,11 @@
 }
 
 .card p {
-  overflow: hidden;
+  overflow: scroll;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 

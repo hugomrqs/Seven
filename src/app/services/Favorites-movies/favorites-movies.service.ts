@@ -1,35 +1,31 @@
+// favorites-movies.service.ts
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {Film} from "../../modele/film.modele";
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Film } from '../../Modele/film.modele';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesMoviesService {
+  private selectedDataSubject = new BehaviorSubject<Film[]>([]);
+  public selectedData$: Observable<Film[]> = this.selectedDataSubject.asObservable();
+  
+  public setSelectedData(film: Film): void {
+    const currentData = this.selectedDataSubject.getValue();
+    //on ajoute seulement les films non existants dans la liste
+    const filmExists = currentData.some(f => f.id === film.id);
+    if (!filmExists) {
+      this.selectedDataSubject.next([film, ...currentData]);
+    }
+  }
 
-  favoriteList :Film[] =[]
+  public removeFromFavorites(filmId: number): void {
+    const currentData = this.selectedDataSubject.getValue();
+    const updatedData = currentData.filter(f => f.id !== filmId);
+    this.selectedDataSubject.next(updatedData);
+  }
 
-
-  private selectedDataSubject  = new BehaviorSubject<Film>({
-    adult: false,
-    backdrop_path: "",
-    genres: [],
-    id: 0,
-    imdb_id: "",
-    overview: "",
-    popularity: 0,
-    poster_path: "",
-    release_date: "",
-    runtime: 0,
-    tagline: "",
-    title: "",
-    vote_average: 0,
-    vote_count: 0,
-    rating :0
-  });
-  setSelectedData(data: any) {
-      this.selectedDataSubject.next(data);
-if(!this.favoriteList.find(f => f.id === data.id))
-    this.favoriteList.push(data)
+  public getCurrentData(): Film[] {
+    return this.selectedDataSubject.getValue();
   }
 }

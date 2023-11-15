@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Film } from 'src/app/modele/film.modele';
+import { Film } from 'src/app/Modele/film.modele';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,9 @@ export class SuggestionService {
   results$: Observable<Film[]> = this.filmsClicked.asObservable();
 
   
-  AddFilmClicked(data: Film) {
+  addFilmClicked(data: Film) {
     const currentData = this.filmsClicked.getValue(); // Obtenir la valeur actuelle
     const filteredData = currentData.filter(film => film.id !== data.id); // Exclure les doublons (1ere occurence) avec le même ID - sert à garder la dernière occurence du film cliqué, pour les carroussel
-    
     this.filmsClicked.next([...filteredData, data]); // Ajouter le nouveau film à la liste
   }
   //getter pas nécéssaire car les components s'abonne à l'observable pour être notifier et pour récupérer le resultat

@@ -1,4 +1,4 @@
 <div class="scroll">
-    <app-popular-caroussel></app-popular-caroussel>
-    <app-show-movie></app-show-movie>
+    <app-popular-caroussel (movieClicked)="isMovieClicked = true"></app-popular-caroussel>
+    <app-show-movie *ngIf="isMovieClicked"></app-show-movie>
 </div>

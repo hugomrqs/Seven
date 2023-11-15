@@ -1,5 +1,5 @@
 <mat-sidenav mode="side" opened class="sidenav">
-  <a class="logo" routerLink="home"><img src="assets/logo.png"></a>
+  <a class="logo" (click)="scrollToTop('logo')" routerLink="home"><img src="assets/logo.png"></a>
   <ul class="nav-pills flex-column mb-auto">
     <li><a (click)="scrollToTop('home')" routerLink="home" routerLinkActive="active">HOME</a></li>
     <li><a (click)="scrollToTop('suggestions')" routerLink="suggestions" routerLinkActive="active">SUGGESTIONS</a></li>

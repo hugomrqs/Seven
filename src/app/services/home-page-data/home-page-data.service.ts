@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Film} from "../../modele/film.modele";
-import {BehaviorSubject} from "rxjs";
+import {Film} from "../../Modele/film.modele";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-
-@Injectable()
 export class HomePageDataService {
-  public token: string | undefined
-  private selectedMovies : Film[] =[];
-  private selectedDataSubject  = new BehaviorSubject<Film>({
+  private resultsSubject  = new BehaviorSubject<Film>({
     adult: false,
     backdrop_path: "",
     genres: [],
@@ -27,10 +23,10 @@ export class HomePageDataService {
     vote_count: 0,
     rating :0
   });
-
-  selectedData$ = this.selectedDataSubject.asObservable();
+  results$ : Observable<Film> = this.resultsSubject.asObservable();
 
   setSelectedData(data: Film) {
-    this.selectedDataSubject.next(data);
+    this.resultsSubject.next(data);
   }
 }
+
