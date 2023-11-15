@@ -28,15 +28,20 @@ export class FilmClickedComponent implements OnInit {
     });
     if(this.film){ 
       this.vote = Math.floor(this.film.vote_average / 2) ;
+      
+      //pour afficher le lien de redirection vers suggestions uniquement si on est dans la page de search, et si le film à une note > 0
+      this.isSuggestionsDisplay = this.router.url === '/search' ;
     }
-    //pour afficher le lien de redirection vers suggestions uniquement si on est dans la page de search
-    this.isSuggestionsDisplay = this.router.url === '/search';
   }
 
   public onClosePopup() : void {
     this.closeDetails.emit();
   }
+  
+  public enableScrolling() : void {
+    document.body.style.overflow = 'scroll';
 
+  }
   public addFavorite(film : Film) : void {
     this.favoriteService.setSelectedData(film)
     this.isFilmFav = true;

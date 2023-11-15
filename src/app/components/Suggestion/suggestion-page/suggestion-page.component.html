@@ -1,4 +1,4 @@
-<ng-container *ngIf="filmsClicked.length > 0; else noResults">
+<ng-container *ngIf="filmsClicked.length > 0 ; else noResults">
     <ng-container *ngFor="let f of filmsClicked">
         <app-suggestion-caroussel [film]="f"></app-suggestion-caroussel>
     </ng-container>

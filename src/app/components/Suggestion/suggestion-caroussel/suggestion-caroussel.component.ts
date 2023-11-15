@@ -17,7 +17,6 @@ export class SuggestionCarousselComponent implements OnInit {
   public popupIsVisible: boolean = false;
   public overlayAnimation: string = ''; //pour fade-in/out, voir dans styles.css
 
-
   constructor(private api: ApiService, private suggestionService : SuggestionService) {}
 
   ngOnInit(): void {

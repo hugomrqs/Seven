@@ -33,7 +33,6 @@ export class SearchResultPageComponent implements OnInit {
     this.disableScrolling();
     this.overlayAnimation = 'fade-in';
     this.suggestionService.addFilmClicked(film) ; //pour les suggestions
-    console.log(this.selectedFilm);
   }
 
   public closeFilmDetails() : void {
@@ -51,7 +50,7 @@ export class SearchResultPageComponent implements OnInit {
   }
 
   private enableScrolling() : void {
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = 'scroll';
   }
 
   // Pour fermer la popup lorsqu'on clique aussi en dehors de celle-ci (sur l'overlay)

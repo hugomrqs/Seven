@@ -17,5 +17,8 @@ export class SuggestionPageComponent implements OnInit {
     this.suggestionService.results$.subscribe(results => {
       this.filmsClicked = results.slice(-5).reverse(); //les 5 derniers films cliqués, le dernier cliqué sera le premier affiché
     });
+    window.scroll({
+      top: 0, 
+    });
   }
 }

@@ -18,7 +18,7 @@
         <mat-icon>favorite</mat-icon>
       </button>
       <app-add-rating [rating]=this.vote [filmId]=this.film class="setting"></app-add-rating>
-      <div class="suggestion-link" *ngIf="isSuggestionsDisplay">See <a routerLink="/suggestions">suggestions</a></div>
+      <div class="suggestion-link" *ngIf="isSuggestionsDisplay">See <a (click)="enableScrolling()" routerLink="/suggestions">suggestions</a></div>
     </div>
   </div>
 </div>
