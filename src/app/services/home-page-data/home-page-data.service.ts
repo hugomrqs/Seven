@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Film} from "../../Modele/film.modele";
-import {BehaviorSubject, Observable} from "rxjs";
+import { Film } from "../../Modele/film.modele";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class HomePageDataService {
   });
   results$ : Observable<Film> = this.resultsSubject.asObservable();
 
-  setSelectedData(data: Film) {
+  public setSelectedData(data: Film) {
     this.resultsSubject.next(data);
   }
 }

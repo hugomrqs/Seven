@@ -10,12 +10,12 @@ import { SuggestionService } from 'src/app/Services/suggestion/suggestion.servic
 })
 
 export class SearchResultPageComponent implements OnInit {
-  resultFilms: Film[] = [] ;
+  public resultFilms: Film[] = [] ;
 
   //pour un film qui à été cliqué --> ouverture de la popup
-  selectedFilm: Film | undefined;
-  popupIsVisible: boolean = false;
-  overlayAnimation: string = '';
+  public selectedFilm: Film | undefined;
+  public popupIsVisible: boolean = false;
+  public overlayAnimation: string = '';
 
 
   constructor(private searchTitleService : SearchTitleService, private suggestionService : SuggestionService) {}
@@ -27,7 +27,7 @@ export class SearchResultPageComponent implements OnInit {
     });
   }
 
-  openFilmDetails(film: Film) {
+  public openFilmDetails(film: Film) : void {
     this.selectedFilm = film;
     this.popupIsVisible = true;
     this.disableScrolling();
@@ -36,7 +36,7 @@ export class SearchResultPageComponent implements OnInit {
     console.log(this.selectedFilm);
   }
 
-  closeFilmDetails() {
+  public closeFilmDetails() : void {
     this.overlayAnimation = 'fade-out';
     setTimeout(() => {
       this.selectedFilm = undefined;
@@ -46,16 +46,16 @@ export class SearchResultPageComponent implements OnInit {
     }, 500); // Attendre la fin de l'animation (500ms)
   }
 
-  disableScrolling() {
+  private disableScrolling() : void {
     document.body.style.overflow = 'hidden';
   }
 
-  enableScrolling() {
+  private enableScrolling() : void {
     document.body.style.overflow = 'auto';
   }
 
   // Pour fermer la popup lorsqu'on clique aussi en dehors de celle-ci (sur l'overlay)
-  onOverlayClick(event: Event) {
+  public onOverlayClick(event: Event) : void {
     if (event.target === event.currentTarget) {
       this.closeFilmDetails();
     }

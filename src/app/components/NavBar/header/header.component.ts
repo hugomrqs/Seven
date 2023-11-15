@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchTitleService } from 'src/app/Services/search-title/search-title.service';
-import { ApiService } from 'src/app/services/api/api.service';
+import { ApiService } from '../../../Services/api/api.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 
 export class HeaderComponent implements OnInit {
-  query: string = ''; 
+  public query : string = ''; 
 
   constructor(private api: ApiService, private router: Router, private searchTitleService: SearchTitleService) {}
 
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   //déclanché au moment du submit de la search
-  onSearchSubmit(): void {
+  public onSearchSubmit(): void {
     this.api.getSearchMovie(this.query).subscribe(data => {
       if (data.results) {
         this.searchTitleService.setResultFilms(data.results) ;
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("search");
   }
 
-  onInfoClicked(): void {
+  public onInfoClicked(): void {
     //router vers la page de features --> features-page component
     this.router.navigateByUrl("features");
   }

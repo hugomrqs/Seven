@@ -27,7 +27,7 @@ import { CarousselGeneralisationComponent } from './Components/Generalisation/ca
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AddRatingComponent } from './Components/Rating/add-rating/add-rating.component';
 import { FeaturesPageComponent } from './Components/Info/info-page/features-page.component';
-import { ApiService } from './services/api/api.service';
+import { ApiService } from './Services/api/api.service';
 
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Film } from "../../../Modele/film.modele";
-import { ApiService } from "../../../services/api/api.service";
+import { ApiService } from "../../../Services/api/api.service";
 import { HomePageDataService } from "../../../Services/home-page-data/home-page-data.service";
 import { SuggestionService } from 'src/app/Services/suggestion/suggestion.service';
 
@@ -11,8 +11,8 @@ import { SuggestionService } from 'src/app/Services/suggestion/suggestion.servic
 })
 
 export class PopularCarousselComponent implements OnInit {
-  films: Film[] = [];
-  @Output() movieClicked = new EventEmitter<void>();
+  public films : Film[] = [];
+  @Output() private movieClicked = new EventEmitter<void>();
 
   constructor(private api : ApiService, private homePageService : HomePageDataService, private suggestionService : SuggestionService) { }
 
@@ -22,14 +22,14 @@ export class PopularCarousselComponent implements OnInit {
     })
   }
   
-  sendData(film : Film) : void {
+  public sendData(film : Film) : void {
     this.homePageService.setSelectedData(film);
     this.movieClicked.emit(); // Émettre l'événement pour indiquer qu'un film a été cliqué
     this.suggestionService.addFilmClicked(film);
     this.scrollDown()
   }
   
-  scrollDown() : void {
+  public scrollDown() : void {
     window.scroll({
       top: window.scrollY + 1000, // Scroll down by 100 pixels
       behavior: 'smooth', // Make it smooth

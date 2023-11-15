@@ -13,10 +13,9 @@ export class SearchTitleService {
   results$: Observable<Film[]> = this.resultsSubject.asObservable();
 
   
-  setResultFilms(data: Film[]) {
+  public setResultFilms(data: Film[]) {
     this.resultsSubject.next(data);
   }
   //getter pas nécéssaire car les components s'abonne à l'observable pour être notifier et pour récupérer le resultat
-
 }
 

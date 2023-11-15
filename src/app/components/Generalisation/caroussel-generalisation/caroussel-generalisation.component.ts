@@ -7,10 +7,10 @@ import { Film } from 'src/app/Modele/film.modele';
   styleUrls: ['./caroussel-generalisation.component.scss']
 })
 export class CarousselGeneralisationComponent {
-  @Input() productClass: string = 'product-home'; //valeur par défaut, evite un passage d'input dans suggestion-carroussel
-  @Input() containerClass: string = 'container-fluid-home'; //valeur par defaut, evite un passage d'input dans suggestion-carroussel
-  @Input() films: Film[] = [];
-  isDataLoaded: boolean = false ;
+  @Input() public productClass: string = 'product-home'; //valeur par défaut, evite un passage d'input dans suggestion-carroussel
+  @Input() public containerClass: string = 'container-fluid-home'; //valeur par defaut, evite un passage d'input dans suggestion-carroussel
+  @Input() public films: Film[] = [];
+  public isDataLoaded: boolean = false ;
 
   ngOnInit() {
     // Simule un délai en millisecondes (pour laisser le temps de charger toute les infos (images) et avoir un affichage fluide, sinon bouton du carroussel apparaissent trop tôt)
@@ -22,7 +22,7 @@ export class CarousselGeneralisationComponent {
   }
 
   //Pour prev/next le caroussel
-  prev() : void {
+  public prev() : void {
     if (this.films.length > 1) {
       const lastFilm = this.films.pop();
       if(lastFilm){
@@ -31,7 +31,7 @@ export class CarousselGeneralisationComponent {
     }
   }
 
-  next() : void {
+  public next() : void {
     if (this.films.length > 1) {
       const firstFilm = this.films.shift();
       if (firstFilm) {

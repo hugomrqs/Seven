@@ -8,28 +8,20 @@ import { RatedMoviesService } from 'src/app/Services/rated-movies/rated-movies.s
   styleUrls: ['./add-rating.component.scss']
 })
 export class AddRatingComponent implements OnInit, OnChanges{
-  SelectedStar=0
-  previousSelection : number = 0
-  maxRatingArr : number[] = []
+  public SelectedStar : number = 0 ;
+  public previousSelection : number = 0 ;
+  public maxRatingArr : number[] = [] ;
 
-  @Input() rating  : number = 0 ;
-  @Input() filmId: Film | undefined ;
-  rated :boolean = false
-  myRate : number  = 0
+  @Input() public rating : number = 0 ;
+  @Input() public filmId : Film | undefined ;
+  public rated :boolean = false
+  public myRate : number  = 0
 
   constructor(private rateService : RatedMoviesService) {}
 
   ngOnInit(): void {
     this.maxRatingArr = Array(5).fill(0)
     this.HandleMouseLeave()
-  }
-
-  HandleMouseEnter(index: number) {
-    this.giveRating(index)
-  }
-
-  HandleMouseLeave() {
-    (this.rated && this.filmId !==undefined )?this.SelectedStar =this.filmId.rating : this.SelectedStar =this.rating;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -42,7 +34,15 @@ export class AddRatingComponent implements OnInit, OnChanges{
     }
   }
 
-  Rating(index: number) {
+  public HandleMouseEnter(index: number) {
+    this.giveRating(index)
+  }
+
+  public HandleMouseLeave() {
+    (this.rated && this.filmId !==undefined )?this.SelectedStar =this.filmId.rating : this.SelectedStar =this.rating;
+  }
+
+  public Rating(index: number) {
     this.giveRating(index);
     this.previousSelection = this.SelectedStar;
     console.log(this.filmId)
@@ -56,7 +56,7 @@ export class AddRatingComponent implements OnInit, OnChanges{
     this.rated = true;
   }
 
-  giveRating(index: number):number{
+  private giveRating(index: number):number{
     return this.SelectedStar = index + 1
   }
 }

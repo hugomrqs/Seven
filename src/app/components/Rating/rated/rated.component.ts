@@ -10,12 +10,11 @@ import { RatedMoviesService } from 'src/app/Services/rated-movies/rated-movies.s
 })
 export class RatedComponent implements OnInit {
   public films : Film[] = []
+  protected readonly Math = Math;
 
   constructor( private rateService : RatedMoviesService) {}
 
   ngOnInit(): void {
     this.films = this.rateService.ratedList.reverse() ;
   }
-
-  protected readonly Math = Math;
 }

@@ -13,7 +13,7 @@ export class SuggestionService {
   results$: Observable<Film[]> = this.filmsClicked.asObservable();
 
   
-  addFilmClicked(data: Film) {
+  public addFilmClicked(data: Film) {
     const currentData = this.filmsClicked.getValue(); // Obtenir la valeur actuelle
     const filteredData = currentData.filter(film => film.id !== data.id); // Exclure les doublons (1ere occurence) avec le même ID - sert à garder la dernière occurence du film cliqué, pour les carroussel
     this.filmsClicked.next([...filteredData, data]); // Ajouter le nouveau film à la liste

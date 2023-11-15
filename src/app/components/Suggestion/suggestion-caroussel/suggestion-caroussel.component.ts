@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Film } from 'src/app/Modele/film.modele';
 import { SuggestionService } from 'src/app/Services/suggestion/suggestion.service';
-import { ApiService } from 'src/app/services/api/api.service';
+import { ApiService } from '../../../Services/api/api.service';
 
 @Component({
   selector: 'app-suggestion-caroussel',
@@ -9,13 +9,13 @@ import { ApiService } from 'src/app/services/api/api.service';
   styleUrls: ['./suggestion-caroussel.component.scss']
 })
 export class SuggestionCarousselComponent implements OnInit {
-  similarFilms : Film[] = [] ;
-  @Input() film : Film | undefined ;
+  public similarFilms : Film[] = [] ;
+  @Input() public film : Film | undefined ;
 
   //pour un film qui à été cliqué --> ouverture de la popup
-  selectedFilm: Film | undefined;
-  popupIsVisible: boolean = false;
-  overlayAnimation: string = ''; //pour fade-in/out, voir dans styles.css
+  public selectedFilm: Film | undefined;
+  public popupIsVisible: boolean = false;
+  public overlayAnimation: string = ''; //pour fade-in/out, voir dans styles.css
 
 
   constructor(private api: ApiService, private suggestionService : SuggestionService) {}
@@ -29,14 +29,14 @@ export class SuggestionCarousselComponent implements OnInit {
   }
 
   //code ci dessous pour l'ouverture de la popup de details
-  openFilmDetails(film: Film | undefined) {
+  public openFilmDetails(film: Film | undefined) {
     this.selectedFilm = film;
     this.popupIsVisible = true;
     this.disableScrolling();
     this.overlayAnimation = 'fade-in';
   }
 
-  closeFilmDetails() {
+  public closeFilmDetails() {
     this.overlayAnimation = 'fade-out';
     setTimeout(() => {
       this.selectedFilm = undefined;
@@ -47,16 +47,16 @@ export class SuggestionCarousselComponent implements OnInit {
   }
 
   //disable/enable le scrolling lorsque que la popup de détails est ouverte
-  disableScrolling() {
+  private disableScrolling() {
     document.body.style.overflow = 'hidden';
   }
 
-  enableScrolling() {
+  private enableScrolling() {
     document.body.style.overflow = 'auto';
   }
 
   // Pour fermer la popup lorsqu'on clique aussi en dehors de celle-ci (sur l'overlay)
-  onOverlayClick(event: Event) {
+  public onOverlayClick(event: Event) {
     if (event.target === event.currentTarget) {
       this.closeFilmDetails();
     }

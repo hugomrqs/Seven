@@ -6,8 +6,8 @@ import {BehaviorSubject} from "rxjs";
   providedIn: 'root'
 })
 export class RatedMoviesService {
-  ratedList :Film[] =[]
-  isRated :boolean = false
+  ratedList : Film[] =[]
+  isRated : boolean = false
 
 
   private selectedDataSubject  = new BehaviorSubject<Film>({

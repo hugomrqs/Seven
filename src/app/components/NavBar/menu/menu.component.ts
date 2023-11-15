@@ -11,7 +11,7 @@ export class MenuComponent {
 
   constructor(private router: Router) {}
 
-  scrollToTop(section : string): void {
+  public scrollToTop(section : string): void {
     //si je clique sur une section dans laquelle je suis déjà, scroll lent
     if (section === this.router.url.split('/').pop()) {
       window.scroll({

@@ -8,7 +8,7 @@ import { SuggestionService } from 'src/app/Services/suggestion/suggestion.servic
   styleUrls: ['./suggestion-page.component.scss']
 })
 export class SuggestionPageComponent implements OnInit {
-  filmsClicked : Film[] = [];
+  public filmsClicked : Film[] = [];
 
   constructor(private suggestionService : SuggestionService) {}
 

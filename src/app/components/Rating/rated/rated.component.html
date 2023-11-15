@@ -4,7 +4,7 @@
       <img src="https://image.tmdb.org/t/p/original{{film.poster_path}}">
       <div class="grid-item-footer">
         <h4 title="{{film.title}}">{{film.title}}</h4>
-        <app-add-rating [rating]=(Math.floor(film.rating)) [filmId]=film ></app-add-rating>
+        <app-add-rating [rating]="Math.floor(film.rating)" [filmId]="film" ></app-add-rating>
       </div>
     </div>
   </ng-container>
