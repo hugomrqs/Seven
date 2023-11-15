@@ -17,7 +17,7 @@ import { SearchResultPageComponent } from './Components/Search/search-result-pag
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from "@angular/material/divider";
 import { MatButtonModule } from "@angular/material/button";
-import { RatedComponent } from './Components/Rating/rated/rated.component';
+import { RatingPageComponent } from './components/Rating/rating-page/rating-page.component';
 import { FavoritesPageComponent } from './Components/Favorite/favorites-page/favorites-page.component';
 import { FilmClickedComponent } from './Components/Modal/film-clicked/film-clicked.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -39,7 +39,7 @@ import { ApiService } from './Services/api/api.service';
     PopularCarousselComponent,
     ShowMovieComponent,
     SearchResultPageComponent,
-    RatedComponent,
+    RatingPageComponent,
     FavoritesPageComponent,
     FilmClickedComponent,
     SuggestionPageComponent,

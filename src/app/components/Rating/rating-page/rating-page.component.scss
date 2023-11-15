@@ -1,0 +1,83 @@
+
+.grid-item-footer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3%;
+  color: rgba(180, 180, 180, 0.717);
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  column-gap: 4vw;
+  padding: 3%;
+}
+
+.grid-item {
+  flex-basis: calc(25% - 4%);
+  position: relative;
+  height: 50vh;
+}
+
+.grid-item img {
+  width: 15vw;
+  height: 40vh;
+  display: block;
+  border-radius: 6px;
+  border: solid 1px;
+  border-color: rgba(198, 198, 198, 0.158);
+  transition: filter 0.5s; /* Ajoutez une transition pour une animation en douceur */
+}
+
+.grid-item:hover img {
+  transform: scale(1.03); /* Augmente légèrement la taille de l'élément au survol */
+  transition: transform 0.2s; /* Ajoute une transition fluide pour l'effet */
+  filter: grayscale(100%);
+}
+
+
+  .grid-item:hover .grid-item-footer {
+  color: rgba(242, 242, 242, 0.717);; /* Couleur du texte plus clair au survol */
+  transition: transform 0.2s; /* Ajoute une transition fluide pour l'effet */
+}
+
+.no-results {
+  color: rgb(180, 180, 180);
+  text-align: center;
+  padding-top: 15.5vh;
+  font-size: 1.2em;
+  line-height: 2;
+  left: 40%;
+  position: fixed;
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* Initialisez l'opacité à 0 pour le cacher par défaut */
+  transition: opacity 0.3s; /* Ajoutez une transition pour un effet de fondu en douceur */
+  color: red;
+  background-color: transparent; /* Fond transparent */
+  padding: 0; /* Pas de rembourrage par défaut */
+  border: none;
+  cursor: pointer;
+  width: 6vw;
+  height: 6vh;
+}
+
+.delete-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+.delete-button svg:hover {
+  transform: scale(1.2); /* Augmente légèrement la taille de l'élément au survol */
+  transition: transform 0.5s; /* Ajoute une transition fluide pour l'effet */
+}
+
+.grid-item:hover .delete-button {
+  opacity: 1; /* Affichez le bouton lorsque l'image est survolée */
+}

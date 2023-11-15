@@ -9,28 +9,24 @@ import { RatedMoviesService } from 'src/app/Services/rated-movies/rated-movies.s
 })
 export class AddRatingComponent implements OnInit, OnChanges{
   public SelectedStar : number = 0 ;
-  public previousSelection : number = 0 ;
   public maxRatingArr : number[] = [] ;
 
   @Input() public rating : number = 0 ;
   @Input() public filmId : Film | undefined ;
   public rated :boolean = false
-  public myRate : number  = 0
 
   constructor(private rateService : RatedMoviesService) {}
 
   ngOnInit(): void {
     this.maxRatingArr = Array(5).fill(0)
-    this.HandleMouseLeave()
+    this.rateService.selectedData$.subscribe(() => {
+      this.updateIsFilmRate();
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.filmId !== undefined) {
-      if (changes['filmId'] ){
-        this.HandleMouseLeave()
-        console.log("je suis le film", this.filmId.title)
-        console.log("je suis le av", this.rating ," jai ete rate a ", this.filmId.rating)
-      }
+      if (changes['filmId'] && this.filmId  ){
+        this.updateIsFilmRate();
     }
   }
 
@@ -43,21 +39,19 @@ export class AddRatingComponent implements OnInit, OnChanges{
   }
 
   public Rating(index: number) {
-    this.giveRating(index);
-    this.previousSelection = this.SelectedStar;
-    console.log(this.filmId)
-
-    //faut comprendre pourquoi dans le rated il passe pas ici, le filmId es
-    if (this.filmId !== undefined) {
-      console.log("test je repasse par la")
-      this.filmId.rating = this.SelectedStar;
-      this.rateService.setSelectedData(this.filmId);
+    if (this.filmId) {
+     this.filmId.rating = this.giveRating(index);
+     this.rateService.setSelectedData(this.filmId);
     }
-    this.rated = true;
+  }
+
+  private updateIsFilmRate(): void {
+    const currentData = this.rateService.getCurrentData();
+    this.rated = currentData.some(f => f.id === this.filmId?.id);
+    this.HandleMouseLeave()
   }
 
   private giveRating(index: number):number{
     return this.SelectedStar = index + 1
   }
 }
-
