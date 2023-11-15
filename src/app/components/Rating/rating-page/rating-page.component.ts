@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Film } from 'src/app/Modele/film.modele';
 import { RatedMoviesService } from 'src/app/Services/rated-movies/rated-movies.service';
 

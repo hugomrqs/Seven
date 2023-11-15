@@ -13,7 +13,7 @@ export class AddRatingComponent implements OnInit, OnChanges{
 
   @Input() public rating : number = 0 ;
   @Input() public filmId : Film | undefined ;
-  public rated :boolean = false
+  public rated : boolean = false ;
 
   constructor(private rateService : RatedMoviesService) {}
 
@@ -25,17 +25,17 @@ export class AddRatingComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      if (changes['filmId'] && this.filmId  ){
+      if (changes['filmId'] && this.filmId){
         this.updateIsFilmRate();
     }
   }
 
   public HandleMouseEnter(index: number) {
-    this.giveRating(index)
+    this.giveRating(index) ;
   }
 
   public HandleMouseLeave() {
-    (this.rated && this.filmId !==undefined )?this.SelectedStar =this.filmId.rating : this.SelectedStar =this.rating;
+    (this.rated && this.filmId)? this.SelectedStar = this.filmId.rating : this.SelectedStar =this.rating;
   }
 
   public Rating(index: number) {
@@ -48,10 +48,10 @@ export class AddRatingComponent implements OnInit, OnChanges{
   private updateIsFilmRate(): void {
     const currentData = this.rateService.getCurrentData();
     this.rated = currentData.some(f => f.id === this.filmId?.id);
-    this.HandleMouseLeave()
+    this.HandleMouseLeave() ;
   }
 
   private giveRating(index: number):number{
-    return this.SelectedStar = index + 1
+    return this.SelectedStar = index + 1 ;
   }
 }
