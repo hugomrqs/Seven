@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Film } from '../../../Modele/film.modele';
-import { FavoritesMoviesService } from "../../../Services/favorites-movies/favorites-movies.service";
+import { FavoritesMoviesService } from "../../../services/favorites-movies/favorites-movies.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,9 +26,9 @@ export class FilmClickedComponent implements OnInit {
         this.isFilmFav = true;
       }
     });
-    if(this.film){ 
+    if(this.film){
       this.vote = Math.floor(this.film.vote_average / 2) ;
-      
+
       //pour afficher le lien de redirection vers suggestions uniquement si on est dans la page de search, et si le film à une note > 0
       this.isSuggestionsDisplay = this.router.url === '/search' ;
     }
@@ -37,7 +37,7 @@ export class FilmClickedComponent implements OnInit {
   public onClosePopup() : void {
     this.closeDetails.emit();
   }
-  
+
   public enableScrolling() : void {
     document.body.style.overflow = 'scroll';
 
